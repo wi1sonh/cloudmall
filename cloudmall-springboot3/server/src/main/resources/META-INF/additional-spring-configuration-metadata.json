@@ -1,0 +1,44 @@
+{
+  "properties": [
+    {
+      "name": "cloudmall.datasource.driver-class-name",
+      "type": "java.lang.String",
+      "description": "Description for cloudmall.datasource.driver-class-name."
+    },
+    {
+      "name": "cloudmall.datasource.url",
+      "type": "java.lang.String",
+      "description": "Description for cloudmall.datasource.url."
+    },
+    {
+      "name": "cloudmall.datasource.username",
+      "type": "java.lang.String",
+      "description": "Description for cloudmall.datasource.username."
+    },
+    {
+      "name": "cloudmall.datasource.password",
+      "type": "java.lang.String",
+      "description": "Description for cloudmall.datasource.password."
+    },
+    {
+      "name": "cloudmall.redis.host",
+      "type": "java.lang.String",
+      "description": "Description for cloudmall.redis.host."
+    },
+    {
+      "name": "cloudmall.redis.port",
+      "type": "java.lang.String",
+      "description": "Description for cloudmall.redis.port."
+    },
+    {
+      "name": "cloudmall.redis.password",
+      "type": "java.lang.String",
+      "description": "Description for cloudmall.redis.password."
+    },
+    {
+      "name": "cloudmall.redis.database",
+      "type": "java.lang.String",
+      "description": "Description for cloudmall.redis.database."
+    }
+  ]
+}

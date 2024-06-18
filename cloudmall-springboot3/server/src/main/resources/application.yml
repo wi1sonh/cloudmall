@@ -1,0 +1,58 @@
+server:
+  port: 8081
+
+spring:
+  profiles:
+    active: dev
+  datasource:
+    driver-class-name: ${cloudmall.datasource.driver-class-name}
+    url: ${cloudmall.datasource.url}
+    username: ${cloudmall.datasource.username}
+    password: ${cloudmall.datasource.password}
+  data:
+    redis:
+      host: ${cloudmall.redis.host}
+      port: ${cloudmall.redis.port}
+      password: ${cloudmall.redis.password}
+      database: ${cloudmall.redis.database}
+
+# ??mybatis
+mybatis:
+  #mapper????
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.example.entity
+  configuration:
+    # ??mybatis????????????
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # ??mybatis???????????  a_column = aColumn
+    map-underscore-to-camel-case: true
+
+login-reg:
+  jwt:
+    employee-secret-key: cm_secret
+    employee-ttl: 864000000
+    employee-token-name: Authorization
+    user-secret-key: user_secret
+    user-ttl: 864000000
+    user-token-name: Authorization
+
+cloudmall:
+  wechat:
+    appid: ${cloudmall.wechat.appid}
+    secret: ${cloudmall.wechat.secret}
+
+  jwt:
+    # 设置jwt签名加密时使用的秘钥
+    admin-secret-key: cm_secret
+    # 设置jwt过期时间
+    admin-ttl: 86400000
+    # 设置前端传递过来的令牌名称
+    admin-token-name: token
+    user-secret-key: user_secret
+    user-ttl: 86400000
+    user-token-name: authentication
+
+  shop:
+    address: 广东省广州市番禺区亚运城广场
+  baidu:
+    ak: ePMydufnJzBBTQlrzKwxAmlpRApLxmOW
