@@ -7,7 +7,7 @@
     <Orderview :orderviewData="orderviewData" />
     <!-- end -->
     <div class="homeMain">
-      <!-- 菜品总览 -->
+      <!-- 商品总览 -->
       <CuisineStatistics :dishesData="dishesData" />
       <!-- end -->
       <!-- 套餐总览 -->

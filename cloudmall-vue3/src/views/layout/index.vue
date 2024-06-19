@@ -37,17 +37,17 @@ const menuList = [
   {
     title: '套餐管理',
     path: '/setmeal',
-    icon: 'user',
+    icon: 'box',
   },
   {
-    title: '菜品管理',
+    title: '商品管理',
     path: '/dish',
-    icon: 'dish',
+    icon: 'present',
   },
   {
     title: '员工管理',
     path: '/employee',
-    icon: 'setting',
+    icon: 'user',
   },
 ]
 

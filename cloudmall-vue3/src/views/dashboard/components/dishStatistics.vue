@@ -1,9 +1,9 @@
 <template>
   <div class="container">
     <h2 class="homeTitle">
-      菜品总览
+      商品总览
       <div class="more">
-        <router-link to="dish">菜品管理</router-link>
+        <router-link to="dish">商品管理</router-link>
         <el-icon>
           <ArrowRight />
         </el-icon>
@@ -34,7 +34,7 @@
             <el-icon>
               <CirclePlus />
             </el-icon>
-            <p>新增菜品</p>
+            <p>新增商品</p>
           </router-link>
         </li>
       </ul>

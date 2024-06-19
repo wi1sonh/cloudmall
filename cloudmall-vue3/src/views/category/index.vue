@@ -30,11 +30,11 @@ const pageData = reactive({
 const options = [
   {
     value: '1',
-    label: '菜品分类',
+    label: '商品',
   },
   {
     value: '2',
-    label: '套餐分类',
+    label: '套餐',
   }
 ]
 
@@ -146,7 +146,7 @@ const delete_btn = (row: any) => {
       <el-table-column prop="name" label="分类名" align="center" />
       <el-table-column prop="type" label="类别" align="center">
         <template #default="scope">
-          <span>{{ scope.row.type === 1 ? '菜品分类' : '套餐分类' }}</span>
+          <span>{{ scope.row.type === 1 ? '商品' : '套餐' }}</span>
         </template>
       </el-table-column>
       <el-table-column prop="sort" label="排序" align="center" />

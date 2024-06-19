@@ -7,7 +7,7 @@ import { useRouter, useRoute } from 'vue-router'
 import { ElMessage } from 'element-plus'
 
 // ------ 配置 ------
-const dialogVisible = ref(false)  // 添加菜品弹窗是否显示
+const dialogVisible = ref(false)  // 添加商品弹窗是否显示
 const formLabelWidth = '70px'    // 表单label宽度
 // const actionType = ref('add')  // 当前操作类型，add为新增，update为修改更新
 // 直接看有没有query.id就行，有的话就是update，没有就是add
@@ -26,9 +26,9 @@ interface SetmealDish {
 }
 // 套餐分类(type=2)列表
 const categoryList = ref<Category[]>([])
-// 套餐当前选择的菜品，用于表格展示（退出dialog时的暂存状态）
+// 套餐当前选择的商品，用于表格展示（退出dialog时的暂存状态）
 const dishTable = ref<SetmealDish[]>([])
-// 套餐当前选择的菜品，用于提交（在dialog中时的动态状态）
+// 套餐当前选择的商品，用于提交（在dialog中时的动态状态）
 let selectList: SetmealDish[] = []
 const inputValue = ref('')  // input框的实时动态变化值
 const searchKey = ref('')  // 搜索关键字
@@ -143,22 +143,22 @@ const cancel = () => {
 const searchHandle = () => {
   searchKey.value = inputValue.value
 }
-// 删除套餐菜品
+// 删除套餐商品
 const delDishHandle = (index: any) => {
   dishTable.value.splice(index, 1)
   selectList = dishTable.value
   // selectList.splice(index, 1)
 }
 
-// 获取添加菜品数据 - 确定加菜倒序展示
+// 获取添加商品数据 - 确定加商倒序展示
 const getSelectList = (value: any) => {
   console.log('拿到子组件emit过来的checkedList?', value)
   selectList = [...value].reverse()
 }
 
-// 打开添加菜品对话框，初始化时清空搜索框残留数据
+// 打开添加商品对话框，初始化时清空搜索框残留数据
 const openAddDish = (st: string) => {
-  console.log('打开添加菜品对话框，初始化时清空搜索框残留数据')
+  console.log('打开添加商品对话框，初始化时清空搜索框残留数据')
   console.log('打开的状态st ', st)
   console.log('动态的selectList ', selectList)
   console.log('动态的dishTable ', dishTable.value)
@@ -167,17 +167,17 @@ const openAddDish = (st: string) => {
   selectList = JSON.parse(JSON.stringify(dishTable.value))
   dialogVisible.value = true
 }
-// 取消添加菜品，退出对话框，selectList还是保留原来外面的dishTable数据
+// 取消添加商品，退出对话框，selectList还是保留原来外面的dishTable数据
 const handleClose = () => {
   dialogVisible.value = false
   // 利用序列化和反序列化，实现对象的深拷贝，而不是只传个引用而已
   selectList = JSON.parse(JSON.stringify(dishTable.value))
 }
-// 确认添加菜品，退出对话框，将选中的菜品列表selectList赋值给dishTable
+// 确认添加商品，退出对话框，将选中的商品列表selectList赋值给dishTable
 const addTableList = () => {
-  console.log('添加菜品之前，到底有没有selectList？', selectList)
+  console.log('添加商品之前，到底有没有selectList？', selectList)
   dishTable.value = JSON.parse(JSON.stringify(selectList))
-  // 添加菜品，刚开始所有份数都默认为一份，且只能最后在外部table修改，dialog中退出后，之前设置的分数会都重置为1
+  // 添加商品，刚开始所有份数都默认为一份，且只能最后在外部table修改，dialog中退出后，之前设置的分数会都重置为1
   dishTable.value.forEach((n: any) => {
     n.copies = 1
   })
@@ -204,10 +204,10 @@ const submit = async (keep: any) => {
   const valid = await addRef.value.validate()
   if (valid) {
     // 输入合法性校验成功后，需要进行逻辑校验
-    // 1. 套餐下菜品不能为空
+    // 1. 套餐下商品不能为空
     if (form.setmealDishes.length === 0) {
       ElMessage({
-        message: '套餐下菜品不能为空',
+        message: '套餐下商品不能为空',
         type: 'warning',
       })
       return false
@@ -274,9 +274,9 @@ const submit = async (keep: any) => {
 <template>
   <h1>添加套餐页</h1>
   <el-card>
-    <el-dialog v-if="dialogVisible" title="添加菜品" class="addDishList" v-model="dialogVisible" width="60%"
+    <el-dialog v-if="dialogVisible" title="添加商品" class="addDishList" v-model="dialogVisible" width="60%"
       :before-close="handleClose">
-      <el-input v-model="inputValue" class="searchDish" placeholder="请输入菜品名称进行搜索" style="width: 293px; height: 40px"
+      <el-input v-model="inputValue" class="searchDish" placeholder="请输入商品名称进行搜索" style="width: 293px; height: 40px"
         size="small" clearable>
         <template #prefix>
           <el-icon class="el-icon-search" style="cursor: pointer" @click="searchHandle">
@@ -309,14 +309,14 @@ const submit = async (keep: any) => {
           选择图片
         </el-button>
       </el-form-item>
-      <el-form-item label="菜品选择:">
+      <el-form-item label="商品选择:">
         <div class="addDish">
-          <!-- 当前没选菜品，就只展示添加菜品按钮，否则在下方要多一个已选菜品的表格 -->
+          <!-- 当前没选商品，就只展示添加商品按钮，否则在下方要多一个已选商品的表格 -->
           <span v-if="dishTable.length == 0" class="addBut" @click="openAddDish('new')">
-            + 添加菜品</span>
+            + 添加商品</span>
           <div v-if="dishTable.length != 0" class="content">
             <div class="addBut" style="margin-bottom: 20px" @click="openAddDish('change')">
-              + 添加菜品
+              + 添加商品
             </div>
             <div class="table">
               <el-table :data="dishTable" style="width: 100%">

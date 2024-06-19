@@ -16,7 +16,7 @@
             <el-icon>
               <DocumentAdd />
             </el-icon>
-            待接单
+            待确认
           </span>
           <span class="num tip">
             <router-link to="/order?status=2">{{ orderviewData.waitingOrders }}</router-link>
@@ -27,7 +27,7 @@
             <el-icon>
               <Bicycle />
             </el-icon>
-            待派送
+            待发货
           </span>
           <span class="num tip">
             <router-link to="/order?status=3">{{ orderviewData.deliveredOrders }}</router-link>

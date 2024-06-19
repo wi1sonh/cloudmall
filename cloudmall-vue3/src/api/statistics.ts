@@ -104,7 +104,7 @@ export const getprivilegeAPI = (params: any) => {
   })
 }
 
-// 获取菜品分类销售排行 - 菜品分类占比 -当日
+// 获取商品分类销售排行 - 商品分类占比 -当日
 export const getSalesRankingAPI = (params: any) => {
   return request({
     url: `/report/categoryCollect/${params.type}/${params.date}`,
@@ -112,7 +112,7 @@ export const getSalesRankingAPI = (params: any) => {
   })
 }
 
-// 获取当日菜品销售排行
+// 获取当日商品销售排行
 export const getDayRankingAPI = (params: any) => {
   return request({
     url: `/report/currentDishRank/${params.date}`,
@@ -137,7 +137,7 @@ export const getTimeQuantumReceivablesAPI = (params: any) => {
   })
 }
 
-// 获取时间范围之内的菜品类别销售汇总 -  菜品分类占比 - 时间段
+// 获取时间范围之内的商品类别销售汇总 -  商品分类占比 - 时间段
 export const getTimeQuantumTypeAPI = (params: any) => {
   return request({
     url: `/report/dateCategoryCollect/${params.type}/${params.start}/${params.end}`,
@@ -145,7 +145,7 @@ export const getTimeQuantumTypeAPI = (params: any) => {
   })
 }
 
-// 获取时间范围之内的菜品销售排行 - 菜品销售排行
+// 获取时间范围之内的商品销售排行 - 商品销售排行
 export const getTimeQuantumDishesAPI = (params: any) => {
   return request({
     url: `/report/dishRankForDate/${params.start}/${params.end}`,

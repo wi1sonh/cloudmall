@@ -22,18 +22,18 @@ interface checkDish {
 }
 
 // ------ 数据 ------
-// 左侧菜品分类
+// 左侧商品分类
 const dishCategoryList = ref<Category[]>([])
-// 中间栏显示左侧选择的菜品分类下对应的所有菜品dishList
+// 中间栏显示左侧选择的商品分类下对应的所有商品dishList
 const dishList = ref<checkDish[]>([])
-// 所有菜品列表，包括详细信息
+// 所有商品列表，包括详细信息
 const allDishList = ref<SetmealDish[]>([])
 const keyInd = ref(0)
-// 已选所有菜品的名称列表(正序操作)
+// 已选所有商品的名称列表(正序操作)
 const checkedList = ref<string[]>([])
-// 已选所有菜品的详情列表(倒序展示)
+// 已选所有商品的详情列表(倒序展示)
 const checkedListAll = ref<SetmealDish[]>([])
-// 菜品分类的categoryId集合
+// 商品分类的categoryId集合
 const ids = new Set()
 
 const props = defineProps({
@@ -49,7 +49,7 @@ const props = defineProps({
 
 // ------ 方法 ------
 const init = () => {
-  // 拿到所有菜品列表，包括详细信息
+  // 拿到所有商品列表，包括详细信息
   getAllDishList()
   // 拿到左侧分类
   getdishCategoryList()
@@ -62,7 +62,7 @@ onMounted(() => {
   init()
 })
 
-// 监视搜索框，一变化就根据新的值模糊查询菜品
+// 监视搜索框，一变化就根据新的值模糊查询商品
 // searchKey 是父组件的搜索值，因此使用箭头函数表示指向父级的this
 watch(() => props.searchKey, (value) => {
   console.log('子组件adddish watch监视到 搜索框输入的值发生变化，新值为： ', value)
@@ -71,21 +71,21 @@ watch(() => props.searchKey, (value) => {
   }
 })
 
-// 拿到所有菜品列表，包括详细信息
+// 拿到所有商品列表，包括详细信息
 const getAllDishList = async () => {
   const { data: res } = await getDishPageListAPI({ page: 1, pageSize: 100, type: 1})
   allDishList.value = res.data.records
 }
 
-// 拿到左侧菜品分类
+// 拿到左侧商品分类
 const getdishCategoryList = async () => {
   const { data: res } = await getCategoryPageListAPI({ page: 1, pageSize: 100, type: 1 })
   dishCategoryList.value = res.data.records
-  // 默认选中第一个分类，组件中间部分展示左侧第一个"菜品分类"下的菜品
+  // 默认选中第一个分类，组件中间部分展示左侧第一个"商品分类"下的商品
   getDishList(res.data.records[0].id)
 }
 
-// 拿到当前左侧选择菜品分类下的菜品列表dishList，显示在中间栏
+// 拿到当前左侧选择商品分类下的商品列表dishList，显示在中间栏
 const getDishList = async (id: number) => {
   const { data: res } = await getDishPageListAPI({ page: 1, pageSize: 100, categoryId: id })
   if (res.data.records.length == 0) {
@@ -104,7 +104,7 @@ const getDishList = async (id: number) => {
   console.log('ids', ids)
 }
 
-// 根据搜索框的关键词name，模糊查询菜品
+// 根据搜索框的关键词name，模糊查询商品
 const getDishForName = async (name: string) => {
   const { data: res } = await getDishPageListAPI({ page: 1, pageSize: 100, name })
   let newArr = res.data.records
@@ -115,12 +115,12 @@ const getDishForName = async (name: string) => {
   dishList.value = newArr
 }
 
-// 点击左侧菜品分类，拿到对应分类下的菜品列表，显示在中间栏
+// 点击左侧商品分类，拿到对应分类下的商品列表，显示在中间栏
 const checkTypeHandle = (ind: number, id: number) => {
-  // ind 是当前点击的菜品分类的索引，id 是当前点击的菜品分类的categoryId
-  console.log('点击了左侧菜品分类，看看点了啥', ind, id)
+  // ind 是当前点击的商品分类的索引，id 是当前点击的商品分类的categoryId
+  console.log('点击了左侧商品分类，看看点了啥', ind, id)
   keyInd.value = ind
-  // 先清空（不然还保留上一个页面的数据），再去拿到当前点击的菜品分类下的菜品列表dishList
+  // 先清空（不然还保留上一个页面的数据），再去拿到当前点击的商品分类下的商品列表dishList
   // 清空写在getDishList里
   getDishList(id)
   console.log('看看dishList', dishList.value)
@@ -129,7 +129,7 @@ const checkTypeHandle = (ind: number, id: number) => {
 
 // 使用setup语法糖的话要先引入defineEmits来定义
 const emit = defineEmits(["selectList"])
-// 点击菜品复选框checkbox，将选中的菜品添加到右侧已选菜品列表/从右边已选菜品列表中删除
+// 点击商品复选框checkbox，将选中的商品添加到右侧已选商品列表/从右边已选商品列表中删除
 const checkedListHandle = (value: [string]) => {
   console.log('点击了checkbox，看看点了啥', value)
   checkedListAll.value.reverse()
@@ -145,8 +145,8 @@ const checkedListHandle = (value: [string]) => {
   // concat 组成新的checkedListAll，然后再去重
   const dishListCat = [...checkedListAll.value, ...list]
   let arrData: any = []
-  // 去重: 遍历每个菜品item，有就返回allArrData，没有就返回undefined
-  // 遍历过程中arrData收集记录所有菜品名，用于每次遍历判断来避免重复加入
+  // 去重: 遍历每个商品item，有就返回allArrData，没有就返回undefined
+  // 遍历过程中arrData收集记录所有商品名，用于每次遍历判断来避免重复加入
   checkedListAll.value = dishListCat.filter((item) => {
     let allArrData
     if (arrData.length == 0) {
@@ -172,13 +172,13 @@ const checkedListHandle = (value: [string]) => {
   checkedListAll.value.forEach((n: any) => {
     n.dishId = n.id
   })
-  // 让父组件知道已选菜品的变化
+  // 让父组件知道已选商品的变化
   emit('selectList', checkedListAll.value)
   checkedListAll.value.reverse()
   console.log('看看点checkbox后的checkedListAll ', checkedListAll.value)
 }
 
-// 点击右边栏的删除小按钮，删除已选菜品列表中的某个菜品
+// 点击右边栏的删除小按钮，删除已选商品列表中的某个商品
 const delCheck = (name: any) => {
   console.log('点击了删除按钮，看看点了啥', name)
   const index = checkedList.value.findIndex((it) => it === name)
@@ -192,12 +192,12 @@ const delCheck = (name: any) => {
 <template>
   <div class="addDish">
     <div class="leftCont">
-      <!-- 搜索菜品时不展示左侧分类 -->
+      <!-- 搜索商品时不展示左侧分类 -->
       <div v-show="searchKey.trim() == ''" class="tabBut">
         <span v-for="(item, index) in dishCategoryList" :key="index" :class="{ act: index == keyInd }"
           @click="checkTypeHandle(index, item.id)">{{ item.name }}</span>
       </div>
-      <!-- 中间栏显示左侧选择的菜品分类下对应的dishList -->
+      <!-- 中间栏显示左侧选择的商品分类下对应的dishList -->
       <div class="tabList">
         <div class="table" :class="{ borderNone: !dishList.length }">
           <div v-if="dishList.length == 0" style="padding-left: 10px">
@@ -219,7 +219,7 @@ const delCheck = (name: any) => {
     </div>
     <div class="ritCont">
       <div class="tit">
-        已选菜品({{ checkedListAll.length }})
+        已选商品({{ checkedListAll.length }})
       </div>
       <div class="items">
         <div v-for="(item, ind) in checkedListAll" :key="ind" class="item">

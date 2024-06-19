@@ -1,8 +1,8 @@
 import request from '@/utils/request' // 引入自定义的axios函数
 
 /**
- * 添加菜品
- * @param params 添加菜品的DTO对象
+ * 添加商品
+ * @param params 添加商品的DTO对象
  * @returns
  */
 export const addDishAPI = (params: any) => {
@@ -14,7 +14,7 @@ export const addDishAPI = (params: any) => {
 }
 
 /**
- * 获取菜品分页列表
+ * 获取商品分页列表
  * @param params pageData
  * @returns
  */
@@ -28,8 +28,8 @@ export const getDishPageListAPI = (params: any) => {
 }
 
 /**
- * 根据id获取菜品信息，用于回显
- * @param id 菜品id
+ * 根据id获取商品信息，用于回显
+ * @param id 商品id
  * @returns
  */
 export const getDishByIdAPI = (id: number) => {
@@ -40,8 +40,8 @@ export const getDishByIdAPI = (id: number) => {
 }
 
 /**
- * 修改菜品信息
- * @param params 更新菜品信息的DTO对象
+ * 修改商品信息
+ * @param params 更新商品信息的DTO对象
  * @returns
  */
 export const updateDishAPI = (params: any) => {
@@ -53,8 +53,8 @@ export const updateDishAPI = (params: any) => {
 }
 
 /**
- * 修改菜品状态
- * @param params 菜品id
+ * 修改商品状态
+ * @param params 商品id
  * @returns
  */
 export const updateDishStatusAPI = (id: number) => {
@@ -66,8 +66,8 @@ export const updateDishStatusAPI = (id: number) => {
 }
 
 /**
- * 根据ids批量删除菜品
- * @param ids 菜品ids
+ * 根据ids批量删除商品
+ * @param ids 商品ids
  * @returns
  */
 export const deleteDishesAPI = (ids: string) => {

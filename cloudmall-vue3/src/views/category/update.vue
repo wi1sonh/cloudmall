@@ -4,6 +4,17 @@ import { getCategoryByIdAPI, updateCategoryAPI } from '@/api/category'
 import { useRouter, useRoute } from 'vue-router'
 import { ElMessage } from 'element-plus'
 
+const options = [
+  {
+    value: '1',
+    label: '商品分类',
+  },
+  {
+    value: '2',
+    label: '套餐分类',
+  }
+]
+
 // ------ 数据 ------
 const formLabelWidth = '60px'
 const id = ref()
@@ -92,12 +103,15 @@ init()
   <h1>修改分类页</h1>
   <el-card>
     <el-form :model="form" :rules="rules" ref="updateRef">
-      <el-form-item label="姓名" :label-width="formLabelWidth" prop="name">
+      <el-form-item label="类名" :label-width="formLabelWidth" prop="name">
         <el-input v-model="form.name" autocomplete="off" />
       </el-form-item>
-      <el-form-item label="类别" :label-width="formLabelWidth" prop="type">
-        <el-input v-model="form.type" autocomplete="off" />
-      </el-form-item>
+    <el-form-item label="类别" :label-width="formLabelWidth" prop="type">
+        <el-select clearable v-model="form.type" placeholder="选择分类类型">
+          <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
+        </el-select>
+      <!-- <el-input v-model="form.type" autocomplete="off" /> -->
+    </el-form-item>
       <el-form-item label="排序" :label-width="formLabelWidth" prop="sort">
         <el-input v-model="form.sort" autocomplete="off" />
       </el-form-item>

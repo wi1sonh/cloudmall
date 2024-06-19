@@ -7,7 +7,7 @@ export const getOrderDataAPI = () =>{
     method: 'get'
   })
 }
-// 菜品总览
+// 商品总览
 export const getOverviewDishesAPI = () => {
   return request({
     url: `/workspace/overviewDishes`,
