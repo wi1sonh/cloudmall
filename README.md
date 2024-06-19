@@ -61,9 +61,17 @@ npm run dev
 
 启动后端：
 
-在 IDEA 单独打开后端子项目 cloudmall-springboot3，并手动连接数据库（参考网上教程）
+在 IDEA 单独打开后端子项目 cloudmall-springboot3，并手动连接数据库（参考网上教程，注意需要修改cloudmall-springboot3\server\src\main\resources\application-dev.yml第6行为本地mysql设置的密码）
 
 Maven编译root目录，然后即可运行ServerApplication主函数
+
+启动小程序端：
+
+进入 cloudmall-uniapp 目录执行 npm i 进行包安装，接着执行npm run dev:mp-weixin进行编译，之后修改uniapp的内容时，微信开发者工具里编译好的内容也会相应作出修改（有时不会生效，需要重启微信开发者工具才行）
+
+下载[微信开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/stable.html)，获取测试号，导入`cloudmall-uniapp/dist/mp-weixin` 这部分内容即可
+
+小程序端还需要启动本地redis数据库，连接过程和mysql差不多（但redis连接时不需要输入username）
 
 ## 前端代码说明
 

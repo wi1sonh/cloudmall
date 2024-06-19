@@ -41,7 +41,7 @@
     "type-check": "vue-tsc --noEmit",
     "lint": "eslint . --ext .vue,.js,.ts --fix --ignore-path .gitignore",
     "lint-staged": "lint-staged",
-    "prepare": "husky install"
+    "prepare": "cd .. && husky install cloudmall-uniapp"
   },
   "lint-staged": {
     "*.{vue,ts,js}": [
@@ -65,7 +65,6 @@
     "@dcloudio/uni-quickapp-webview": "3.0.0-4000720240327002",
     "@dcloudio/uni-ui": "^1.5.5",
     "less": "^4.2.0",
-    "pinia": "^2.0.3",
     "pinia-plugin-persistedstate": "^3.2.1",
     "sass": "^1.76.0",
     "vue": "^3.3.11",
@@ -94,7 +93,7 @@
     "vite": "4.3.5",
     "vue-tsc": "^1.0.24"
   },
-  "prettier":{
+  "prettier": {
     "printWidth": 180,
     "tabWidth": 2,
     "semi": true,

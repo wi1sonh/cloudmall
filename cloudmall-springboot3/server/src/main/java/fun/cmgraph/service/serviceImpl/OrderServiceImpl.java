@@ -454,13 +454,13 @@ public class OrderServiceImpl implements OrderService {
     }
 
     /**
-     * 根据订单id获取菜品信息字符串
+     * 根据订单id获取商品信息字符串
      *
      * @param order
      * @return
      */
     private String getOrderDishesStr(Order order) {
-        // 查询订单菜品详情信息（订单中的菜品和数量）
+        // 查询订单商品详情信息（订单中的菜品和数量）
         List<OrderDetail> orderDetailList = orderDetailMapper.getById(order.getId());
         // 将每一条订单菜品信息拼接为字符串（格式：宫保鸡丁*3;）
         List<String> orderDishList = orderDetailList.stream().map(x -> {

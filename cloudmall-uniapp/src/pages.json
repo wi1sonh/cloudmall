@@ -32,18 +32,18 @@
 			"style": {
 				"navigationStyle": "custom", // 隐藏默认导航
 				"navigationBarTitleText": "点餐",
-				// "app-plus": {
-				// 	"titleNView": {
-				// 		"buttons": [
-				// 			{
-				// 				"fontSrc": "/static/styles/iconfont.ttf",
-				// 				"float": "right",
-				// 				"text": "\ue70c",
-				// 				"color": "#3855FB"
-				// 			}
-				// 		]
-				// 	}
-				// }
+				"app-plus": {
+					"titleNView": {
+						"buttons": [
+							{
+								"fontSrc": "/static/styles/iconfont.ttf",
+								"float": "right",
+								"text": "\ue70c",
+								"color": "#3855FB"
+							}
+						]
+					}
+				}
 			}
 		},
 		{

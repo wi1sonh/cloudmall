@@ -19,7 +19,7 @@
       </swiper-item>
     </swiper>
     <image src="../../static/images/home.png" mode="scaleToFill" />
-    <view class="title" @tap="toOrderPage">点击开始点餐</view>
+    <view class="title" @tap="toOrderPage">点击开始购物</view>
   </view>
 </template>
 

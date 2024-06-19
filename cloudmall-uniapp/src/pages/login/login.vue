@@ -14,7 +14,7 @@
           <button class="small_btn" @tap="tips">模拟快捷登录</button>
         </view>
       </view>
-      <view class="tips">登录/注册即视为你同意《服务条款》和《CloudMall隐私协议》</view>
+      <view class="tips">登录/注册即视为你同意《服务条款》和《云端商城隐私协议》</view>
     </view>
   </view>
 </template>

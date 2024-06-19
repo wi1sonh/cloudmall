@@ -232,7 +232,7 @@ const reOrder = async () => {
 const connectShop = () => {
   console.log('联系商家')
   uni.makePhoneCall({
-    phoneNumber: '1999',
+    phoneNumber: '18178588783',
   })
 }
 

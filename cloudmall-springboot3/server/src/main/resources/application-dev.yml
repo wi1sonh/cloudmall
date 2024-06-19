@@ -10,8 +10,8 @@ cloudmall:
     password: 123456
     database: 1
   wechat:
-    appid: wxbd5d45c4c0860e6d
-    secret: 3e9d250d89a4140bdb5aac8d69aa23bb
+    appid: wxd735f433d50fa46a
+    secret: 799b398f41f264ad32ffb5ee6346208b
 #    别人的文件，由于没企业商户号，这里只是摆设
     mchid: 1561414331
     mchSerialNo: 4B3B3DC35414AD50B1B755BAF8DE9CC7CF407606

@@ -1,7 +1,7 @@
 <template>
-  <!-- 菜品详情，包括口味 -->
+  <!-- 商品详情，包括口味 -->
   <view class="dish" v-if="dish">
-    <view class="title">菜品详情</view>
+    <view class="title">商品详情</view>
     <image class="image" :src="dish.pic" mode="aspectFill" />
     <view class="dishinfo">
       <view class="name ellipsis">{{ dish.name }}</view>

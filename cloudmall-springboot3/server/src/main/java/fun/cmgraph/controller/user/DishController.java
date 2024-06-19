@@ -52,14 +52,14 @@ public class DishController {
     }
 
     /**
-     * 根据菜品id查询菜品详情和对应口味
+     * 根据菜品id查询商品详情和对应口味
      *
      * @param id
      * @return
      */
     @GetMapping("/dish/{id}")
     public Result<DishVO> getDish(@PathVariable Integer id) {
-        log.info("用户根据菜品id查询菜品详情和对应口味：{}", id);
+        log.info("用户根据商品id查询商品详情和对应口味：{}", id);
         DishVO dishVO = dishService.getDishWithFlavorById(id);
         return Result.success(dishVO);
     }
