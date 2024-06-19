@@ -26,9 +26,9 @@ interface Category {
 
 // ------ 数据 ------
 
-// 当前页的菜品列表
+// 当前页的商品列表
 const dishList = ref<dish[]>([])
-// 菜品id对应的分类列表，即categoryId字段不能只展示id值，应该根据id查询到对应的分类名进行回显
+// 商品id对应的分类列表，即categoryId字段不能只展示id值，应该根据id查询到对应的分类名进行回显
 const categoryList = ref<Category[]>([])
 // 分页参数
 const pageData = reactive({
@@ -65,13 +65,13 @@ const init = async () => {
 // 刷新页面数据
 const showPageList = async () => {
   const { data: res } = await getDishPageListAPI(pageData)
-  console.log('菜品列表')
+  console.log('商品列表')
   console.log(res.data)
   dishList.value = res.data.records
   total.value = res.data.total
 }
 init() // 页面初始化，写在这里时的生命周期是beforecreated/created的时候
-showPageList() // 页面一开始就要展示分页菜品列表
+showPageList() // 页面一开始就要展示分页商品列表
 
 // 监听翻页和每页显示数量的变化
 const handleCurrentChange = (val: number) => {
@@ -95,7 +95,7 @@ const handleSelectionChange = (val: dish[]) => {
   console.log('multiSelection.value', multiSelection.value)
 }
 
-// 新增和修改菜品都是同一个页面，不过要根据路径传参的方式来区分
+// 新增和修改商品都是同一个页面，不过要根据路径传参的方式来区分
 const router = useRouter()
 const to_add_update = (row?: any) => {
   console.log('看有没有传过来，来判断要add还是update', row)
@@ -109,7 +109,7 @@ const to_add_update = (row?: any) => {
   }
 }
 
-// 修改菜品状态
+// 修改商品状态
 const change_btn = async (row: any) => {
   console.log('要修改的行数据')
   console.log(row)
@@ -122,12 +122,12 @@ const change_btn = async (row: any) => {
   })
 }
 
-// 删除菜品
+// 删除商品
 const deleteBatch = (row?: any) => {
   console.log('要删除的行数据')
   console.log(row)
   ElMessageBox.confirm(
-    '该操作会永久删除菜品，是否继续？',
+    '该操作会永久删除商品，是否继续？',
     'Warning',
     {
       confirmButtonText: 'OK',
@@ -142,7 +142,7 @@ const deleteBatch = (row?: any) => {
         if (multiSelection.value.length == 0) {
           ElMessage({
             type: 'warning',
-            message: '请先选择要删除的菜品',
+            message: '请先选择要删除的商品',
           })
           return
         }
@@ -182,25 +182,25 @@ const deleteBatch = (row?: any) => {
 <template>
   <el-card>
     <div class="horizontal">
-      <el-input size="large" class="input" v-model="pageData.name" placeholder="请输入菜品名" />
+      <el-input size="large" class="input" v-model="pageData.name" placeholder="请输入商品名" />
       <el-select size="large" class="input" clearable v-model="pageData.categoryId" placeholder="选择分类类型">
         <el-option v-for="item in categoryList" :key="item.id" :label="item.name" :value="item.id" />
       </el-select>
-      <el-select class="input" clearable v-model="pageData.status" placeholder="选择菜品状态" size="large">
+      <el-select class="input" clearable v-model="pageData.status" placeholder="选择商品状态" size="large">
         <el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value" />
       </el-select>
-      <el-button size="large" class="btn" round type="success" @click="showPageList()">查询菜品</el-button>
+      <el-button size="large" class="btn" round type="success" @click="showPageList()">查询商品</el-button>
       <el-button size="large" class="btn" round type="danger" @click="deleteBatch()">批量删除</el-button>
       <el-button size="large" class="btn" type="primary" @click="to_add_update()">
         <el-icon style="font-size: 15px; margin-right: 10px;">
           <Plus />
-        </el-icon>添加菜品
+        </el-icon>添加商品
       </el-button>
     </div>
     <el-table class="table_box" ref="multiTableRef" :data="dishList" stripe @selection-change="handleSelectionChange">
       <el-table-column type="selection" width="55" />
       <!-- <el-table-column prop="id" label="id" /> -->
-      <el-table-column prop="name" label="菜名" align="center" />
+      <el-table-column prop="name" label="商品名" align="center" />
       <el-table-column prop="pic" label="图片" align="center">
         <template #default="scope">
           <img v-if="scope.row.pic" :src="scope.row.pic" alt="" />

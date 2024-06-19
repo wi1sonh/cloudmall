@@ -25,5 +25,4 @@ public class Cart implements Serializable {
     private BigDecimal amount;
     private String pic;
     private LocalDateTime createTime;
-
 }

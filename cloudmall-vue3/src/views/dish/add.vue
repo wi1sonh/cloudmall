@@ -29,7 +29,7 @@ interface LeftDishFlavors {
   name: string
   list: any[]
 }
-// 菜品id对应的分类列表，即categoryId字段不能只展示id值，应该根据id查询到对应的分类名进行回显
+// 商品id对应的分类列表，即categoryId字段不能只展示id值，应该根据id查询到对应的分类名进行回显
 const categoryList = ref<Category[]>([])
 const leftDishFlavors = ref<LeftDishFlavors[]>([])
 const formLabelWidth = '70px'
@@ -167,7 +167,7 @@ const selectHandle = (val: any, key: any, ind: any) => {
   form.dishFlavors = arrDate
 }
 
-// 添加菜品信息后提交
+// 添加商品信息后提交
 const submit = async (keep: any) => {
   const valid = await addRef.value.validate();
   if (valid) {
@@ -181,16 +181,16 @@ const submit = async (keep: any) => {
     delete params.dishFlavors
     console.log('看看有没有serialize成功？', params)
     // --- 处理完毕，开始提交 ---
-    // 情况1：无路径参数，form.id保持默认值0，新增菜品
+    // 情况1：无路径参数，form.id保持默认值0，新增商品
     if (form.id === 0) {
-      console.log('新增菜品')
+      console.log('新增商品')
       const res = await addDishAPI(params)
       if (res.data.code !== 0) {
-        console.log('新增菜品失败！')
+        console.log('新增商品失败！')
         return false
       }
       ElMessage({
-        message: '新增菜品成功',
+        message: '新增商品成功',
         type: 'success',
       })
       // 根据keep决定是否继续添加
@@ -210,16 +210,16 @@ const submit = async (keep: any) => {
         })
       }
     }
-    // 情况2：有路径参数，修改菜品
+    // 情况2：有路径参数，修改商品
     else {
-      console.log('修改菜品')
+      console.log('修改商品')
       const res = await updateDishAPI(params)
       if (res.data.code !== 0) {
-        console.log('修改菜品失败！')
+        console.log('修改商品失败！')
         return false
       }
       ElMessage({
-        message: '修改菜品成功',
+        message: '修改商品成功',
         type: 'success',
       })
       router.push({
@@ -240,7 +240,7 @@ const cancel = () => {
 }
 
 const init = async () => {
-  // 1. 获取菜品分类，等下菜品选择分类时有个下拉框，要展示所有菜品的分类
+  // 1. 获取商品分类，等下商品选择分类时有个下拉框，要展示所有商品的分类
   // 由于复用分页查询的API，这里不需要分页且数据量较少，所以pageSize设置为100
   const { data: res } = await getCategoryPageListAPI({ page: 1, pageSize: 100, type: 1 })
   console.log('分类列表')
@@ -249,7 +249,7 @@ const init = async () => {
   console.log('categoryList: ', categoryList.value)
   // 2. 由于当前页面可能是add也可能是update，所以要根据路由参数来判断是否需要getDishById
   if (route.query.id !== undefined) {
-    console.log('修改菜品页')
+    console.log('修改商品页')
     form.id = route.query.id ? parseInt(route.query.id as string) : 0
     let dish = await getDishByIdAPI(form.id)
     console.log(dish)
@@ -265,7 +265,7 @@ const init = async () => {
     // 4. 初始化左侧未选中的口味数组
     getLeftDishFlavors()
   } else {
-    console.log('新增菜品页', form.id)
+    console.log('新增商品页', form.id)
   }
 }
 
@@ -273,7 +273,8 @@ init()
 </script>
 
 <template>
-  <h1>添加菜品页</h1>
+  <h1 v-if="route.query.id !== undefined">更新商品页</h1>
+  <h1 v-else>新增商品页</h1>
   <el-card>
     <el-form :model="form" :rules="rules" ref="addRef">
       <el-form-item label="名称" :label-width="formLabelWidth" prop="name">
@@ -290,7 +291,8 @@ init()
           选择图片
         </el-button>
       </el-form-item>
-      <el-form-item label="口味配置:">
+      <!-- ---------------------------------------------------------------------------------------------- -->
+      <!-- <el-form-item label="口味配置:">
         <div class="flavorBox">
           <span v-if="form.dishFlavors.length == 0" class="addBut" @click="addFlavor"> + 添加口味</span>
           <div v-if="form.dishFlavors.length != 0" class="flavor">
@@ -317,7 +319,7 @@ init()
             </div>
           </div>
         </div>
-      </el-form-item>
+      </el-form-item> -->
       <el-form-item label="详情" :label-width="formLabelWidth" prop="detail">
         <el-input v-model="form.detail" autocomplete="off" type="textarea" />
       </el-form-item>

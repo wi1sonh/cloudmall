@@ -15,7 +15,7 @@
         <div v-if="orderData.length > 0">
           <el-table :data="orderData" stripe class="tableBox" style="width: 100%">
             <el-table-column prop="number" label="订单号"></el-table-column>
-            <el-table-column label="订单菜品">
+            <el-table-column label="订单商品">
               <template #default="scope">
                 <div class="ellipsisHidden">
                   <el-popover placement="top-start" width="200" trigger="hover" :content="scope.row.orderDishes">
@@ -145,7 +145,7 @@
           </div>
 
           <div class="dish-info">
-            <div class="dish-label">菜品</div>
+            <div class="dish-label">商品</div>
             <div class="dish-list">
               <div v-for="(item, index) in diaForm!.orderDetailList" :key="index" class="dish-item">
                 <span class="dish-name">{{ item.name }}</span>
@@ -154,7 +154,7 @@
               </div>
             </div>
             <div class="dish-all-amount">
-              <label>菜品小计</label>
+              <label>商品总额</label>
               <span>￥{{ (diaForm!.amount - 6 - diaForm!.packAmount).toFixed(2) }}</span>
             </div>
           </div>
@@ -165,7 +165,7 @@
             <div class="amount-label">费用</div>
             <div class="amount-list">
               <div class="dish-amount">
-                <span class="amount-name">菜品小计：</span>
+                <span class="amount-name">商品总额：</span>
                 <span class="amount-price">￥{{ (((diaForm!.amount - 6 - diaForm!.packAmount)
                   * 100) / 100).toFixed(2) }}</span>
               </div>
@@ -271,14 +271,14 @@ const isTableOperateBtn = ref<boolean>(true);
 // 拒单原因列表
 const rejectReasonList = reactive([
   { value: 1, label: '订单量较多，暂时无法接单', },
-  { value: 2, label: '菜品已销售完，暂时无法接单', },
-  { value: 3, label: '餐厅已打烊，暂时无法接单', },
+  { value: 2, label: '商品已销售完，暂时无法接单', },
+  { value: 3, label: '小店已打烊，暂时无法接单', },
   { value: 0, label: '自定义原因', },
 ])
 // 取消订单原因列表
 const cancelrReasonList = reactive([
   { value: 1, label: '订单量较多，暂时无法接单' },
-  { value: 2, label: '菜品已销售完，暂时无法接单', },
+  { value: 2, label: '商品已销售完，暂时无法接单', },
   { value: 3, label: '骑手不足无法配送', },
   { value: 4, label: '客户电话取消', },
   { value: 0, label: '自定义原因', },
@@ -287,16 +287,16 @@ const cancelrReasonList = reactive([
 const orderList = [
   { label: '全部订单', value: 0 },
   { label: '待付款', value: 1 },
-  { label: '待接单', value: 2 },
-  { label: '待派送', value: 3 },
-  { label: '派送中', value: 4 },
+  { label: '待确认', value: 2 },
+  { label: '待发货', value: 3 },
+  { label: '运输中', value: 4 },
   { label: '已完成', value: 5 },
   { label: '已取消', value: 6 },
 ];
 
 const tabList = computed(() => [
-  { label: '待接单', value: 2, num: orderStatics.value.toBeConfirmed },
-  { label: '待派送', value: 3, num: orderStatics.value.confirmed },
+  { label: '待确认', value: 2, num: orderStatics.value.toBeConfirmed },
+  { label: '待发货', value: 3, num: orderStatics.value.confirmed },
 ]);
 
 // 获取订单数据

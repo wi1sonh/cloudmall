@@ -63,18 +63,18 @@ const cancelrReasonList = reactive([
 const orderList = reactive([
   { label: '全部订单', value: 0, },
   { label: '待付款', value: 1, },
-  { label: '待接单', value: 2, },
-  { label: '待派送', value: 3, },
-  { label: '派送中', value: 4, },
+  { label: '待确认', value: 2, },
+  { label: '待发货', value: 3, },
+  { label: '运输中', value: 4, },
   { label: '已完成', value: 5, },
   { label: '已取消', value: 6, },
 ])
 // tab栏订单状态列表
 const changedOrderList = reactive([
   { label: '全部订单', value: 0 },
-  { label: '待接单', value: 2, num: orderStatics.value?.toBeConfirmed },
-  { label: '待派送', value: 3, num: orderStatics.value?.confirmed },
-  { label: '派送中', value: 4, num: orderStatics.value?.deliveryInProgress },
+  { label: '待确认', value: 2, num: orderStatics.value?.toBeConfirmed },
+  { label: '待发货', value: 3, num: orderStatics.value?.confirmed },
+  { label: '运输中', value: 4, num: orderStatics.value?.deliveryInProgress },
   { label: '已完成', value: 5 },
   { label: '已取消', value: 6 },
 ])
@@ -175,7 +175,7 @@ const goDetail = async (id: any, status: number, row?: any) => {
 
 // 接单
 const orderAccept = async (row: any) => {
-  console.log('接单', row)
+  console.log('确认', row)
   orderId.value = row!.id
   dialogOrderStatus.value = row.status
   try {
@@ -287,11 +287,11 @@ const getOrderType = (row: any) => {
   if (row.status === 1) {
     return '待付款'
   } else if (row.status === 2) {
-    return '待接单'
+    return '待确认'
   } else if (row.status === 3) {
-    return '待派送'
+    return '待发货'
   } else if (row.status === 4) {
-    return '派送中'
+    return '运输中'
   } else if (row.status === 5) {
     return '已完成'
   } else if (row.status === 6) {
@@ -345,7 +345,7 @@ onMounted(async () => {
       </div>
       <el-table v-if="tableData.length" :data="tableData" stripe class="tableBox">
         <el-table-column key="number" prop="number" label="订单号" />
-        <el-table-column v-if="[2, 3, 4].includes(orderStatus)" key="orderDishes" prop="orderDishes" label="订单菜品" />
+        <el-table-column v-if="[2, 3, 4].includes(orderStatus)" key="orderDishes" prop="orderDishes" label="订单商品" />
         <el-table-column v-if="[0].includes(orderStatus)" key="status" prop="订单状态" label="订单状态">
           <template v-slot="{ row }">
             <span>{{ getOrderType(row) }}</span>
@@ -388,11 +388,11 @@ onMounted(async () => {
               <div class="before">
                 <el-button v-if="scope.row.status === 2" type="primary" link
                   @click="orderAccept(scope.row), (isTableOperateBtn = true)">
-                  接单
+                  确认
                 </el-button>
                 <el-button v-if="scope.row.status === 3" type="primary" link
                   @click="deliveryOrComplete(3, scope.row.id)">
-                  派送
+                  发货
                 </el-button>
                 <el-button v-if="scope.row.status === 4" type="primary" link
                   @click="deliveryOrComplete(4, scope.row.id)">
@@ -487,7 +487,7 @@ onMounted(async () => {
           </div>
 
           <div class="dish-info">
-            <div class="dish-label">菜品</div>
+            <div class="dish-label">商品</div>
             <div class="dish-list">
               <div v-for="(item, index) in diaForm!.orderDetailList" :key="index" class="dish-item">
                 <div class="dish-item-box">
@@ -498,7 +498,7 @@ onMounted(async () => {
               </div>
             </div>
             <div class="dish-all-amount">
-              <label>菜品小计</label>
+              <label>商品总额</label>
               <span>￥{{ diaForm && diaForm.amount && diaForm?.packAmount ?
                 (diaForm!.amount - 6 - diaForm!.packAmount).toFixed(2) : 0
                 }}</span>
@@ -511,7 +511,7 @@ onMounted(async () => {
             <div class="amount-label">费用</div>
             <div class="amount-list">
               <div class="dish-amount">
-                <span class="amount-name">菜品小计：</span>
+                <span class="amount-name">商品总额：</span>
                 <span class="amount-price">￥{{ (diaForm && typeof diaForm.amount === 'number' && typeof
                   diaForm.packAmount === 'number') ? (((diaForm.amount - 6 - diaForm.packAmount) * 100) /
                   100).toFixed(2) : 0 }}</span>

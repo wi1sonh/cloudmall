@@ -15,7 +15,7 @@ const form = reactive({
 const options = [
   {
     value: '1',
-    label: '菜品分类',
+    label: '商品分类',
   },
   {
     value: '2',
