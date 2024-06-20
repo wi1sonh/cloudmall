@@ -23,12 +23,12 @@ create table employee(
 update employee set account = 'admin' where id = 4;
 
 
--- 2、分类：包括菜品分类和套餐分类，即小程序侧边栏
+-- 2、分类：包括商品分类和套餐分类，即小程序侧边栏
 drop table if exists category;
 create table category(
     id int primary key auto_increment,
     name varchar(64) unique not null,
-    type tinyint not null, -- 1表示菜品分类，2表示套餐分类
+    type tinyint not null, -- 1表示商品分类，2表示套餐分类
     sort int not null, -- 分类等级，1的优先级最高，asc升序
     status tinyint not null default 1, -- 1启用，0禁用
     create_user int not null,    -- 存的是user的id
@@ -38,7 +38,7 @@ create table category(
 );
 
 
--- 3、菜品
+-- 3、商品
 drop table if exists dish;
 create table dish(
     id int primary key auto_increment,
@@ -47,7 +47,7 @@ create table dish(
     detail varchar(255) not null,
     price decimal(10, 2) not null,
     status tinyint not null default 1, -- 1启用，0禁用
-    category_id int not null,  -- fk 关联的菜品分类
+    category_id int not null,  -- fk 关联的商品分类
     create_user int not null,  -- 存的是user的id
     update_user int not null,
     create_time datetime not null default now(),
@@ -56,7 +56,7 @@ create table dish(
 );
 
 
--- 4、菜品口味
+-- 4、商品口味
 drop table if exists dish_flavor;
 create table dish_flavor(
     id int primary key auto_increment,
@@ -84,7 +84,7 @@ create table setmeal(
 );
 
 
--- 6、菜品套餐中间表(因为菜品套餐是 多对多 关系)
+-- 6、商品套餐中间表(因为商品套餐是 多对多 关系)
 drop table if exists setmeal_dish;
 create table setmeal_dish(
     id int primary key auto_increment,
@@ -119,7 +119,7 @@ create table order_detail (
     name varchar(32) default null comment '名字',
     pic longtext default null comment '图片',
     order_id bigint not null comment '订单id',
-    dish_id bigint default null comment '菜品id',
+    dish_id bigint default null comment '商品id',
     setmeal_id bigint default null comment '套餐id',
     dish_flavor varchar(50) default null comment '口味',
     number int not null default '1' comment '数量',
@@ -166,7 +166,7 @@ create table cart (
     name varchar(32) null comment '商品名称',
     pic longtext null comment '图片',
     user_id bigint not null comment '主键',
-    dish_id bigint null comment '菜品id',
+    dish_id bigint null comment '商品id',
     setmeal_id bigint null comment '套餐id',
     dish_flavor varchar(50) null comment '口味',
     number int not null default '1' comment '数量',
