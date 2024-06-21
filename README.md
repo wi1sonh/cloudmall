@@ -1,4 +1,4 @@
-![logo](images\cloudmall.png)
+![logo](images/cloudmall.png)
 
 # 云端商城(CloudMall)
 
@@ -6,7 +6,7 @@
 ![backend](https://img.shields.io/badge/Engine-Springboot-yellow)
 ![version](https://img.shields.io/badge/version-0.2.3-blue)
 
-"云端商城" 是一个创新驱动的电子商务平台，致力于提供全面的在线销售和购物服务。通过集成前沿技术，包括个性化推荐算法、社交购物功能以及智能客服和聊天机器人，"云端商城" 旨在创建一个动态、互动和智能化的购物环境，满足现代消费者的需求并助力商家扩展业务。
+"云端商城" 是一个创新驱动的电子商务平台，致力于提供全面的在线销售和购物服务。通过集成前沿技术，"云端商城" 旨在创建一个动态、互动和智能化的购物环境，满足现代消费者的需求并助力商家扩展业务。
 
 ---
 
@@ -40,7 +40,7 @@
 - springboot 3.2.5(需要 JDK 版本 17 以上才能适配)
 - mybatis
 - [mysql 8.0.37](https://dev.mysql.com/downloads/installer/)
-- redis
+- redis 5.0.14
 - 使用 maven 3.9.6 构建
 
 ## 本地部署步骤
