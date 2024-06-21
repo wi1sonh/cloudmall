@@ -1,6 +1,10 @@
+![logo](images\cloudmall.png)
+
 # 云端商城(CloudMall)
 
-![logo](cloudmall-vue3/src/assets/image/cloudmall_logo.png)
+![frontend](https://img.shields.io/badge/Engine-Vue-green)
+![backend](https://img.shields.io/badge/Engine-Springboot-yellow)
+![version](https://img.shields.io/badge/version-0.2.3-blue)
 
 "云端商城" 是一个创新驱动的电子商务平台，致力于提供全面的在线销售和购物服务。通过集成前沿技术，包括个性化推荐算法、社交购物功能以及智能客服和聊天机器人，"云端商城" 旨在创建一个动态、互动和智能化的购物环境，满足现代消费者的需求并助力商家扩展业务。
 
@@ -37,8 +41,7 @@
 - mybatis
 - [mysql 8.0.37](https://dev.mysql.com/downloads/installer/)
 - redis
-
-使用 maven 3.9.6 构建
+- 使用 maven 3.9.6 构建
 
 ## 本地部署步骤
 
@@ -49,7 +52,7 @@ git clone https://github.com/wi1sonh/cloudmall
 cd cloudmall
 ```
 
-启动前端：
+**启动前端：**
 
 ```sh
 cd cloudmall-vue3
@@ -59,13 +62,13 @@ npm run dev
 
 导入数据库，在mysql命令行输入`source /path/to/cloudmall_database.sql`即可
 
-启动后端：
+**启动后端：**
 
-在 IDEA 单独打开后端子项目 cloudmall-springboot3，并手动连接数据库（参考网上教程，注意需要修改cloudmall-springboot3\server\src\main\resources\application-dev.yml第6行为本地mysql设置的密码）
+在 IDEA 单独打开后端子项目 cloudmall-springboot3，并手动连接数据库（参考网上教程，最好使用**IDEA专业版**，**注意**需要修改cloudmall-springboot3\server\src\main\resources\application-dev.yml第6行为本地mysql设置的密码；若要启动小程序，还需要在底下修改redis密码，以及appid和secret, 且cloudmall-uniapp\src\manifest.json的appid也需要修改）
 
 Maven编译root目录，然后即可运行ServerApplication主函数
 
-启动小程序端：
+**启动小程序端：**
 
 进入 cloudmall-uniapp 目录执行 npm i 进行包安装，接着执行npm run dev:mp-weixin进行编译，之后修改uniapp的内容时，微信开发者工具里编译好的内容也会相应作出修改（有时不会生效，需要重启微信开发者工具才行）
 
@@ -130,7 +133,7 @@ Maven编译root目录，然后即可运行ServerApplication主函数
 │   │   ├── index:        tab1 首页
 │   │   ├── my:           tab2 个人中心页
 │   │   ├── order:        点餐页（左侧分类，右侧菜品列表）
-│   │   ├── submit:       准备支付页（选择地址、餐具，展示订单信息那一页）
+│   │   ├── submit:       准备支付页（选择地址、购物袋，展示订单信息那一页）
 │   │   └── ... :         其他分页面
 │   ├── static:           存放静态资源
 │   ├── stores:           pinia持久化存储

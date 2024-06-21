@@ -439,7 +439,7 @@ const submitOrder = () => {
     font-size: 20rpx;
   }
   .active {
-    background-color: #00aaff;
+    background-color: #00ff62;
     color: #fff;
   }
 
@@ -449,7 +449,7 @@ const submitOrder = () => {
     right: 30rpx;
     width: 150rpx;
     height: 50rpx;
-    background-color: #00aaff;
+    background-color: #00ff0d;
     color: #fff;
     font-size: 20rpx;
     text-align: center;

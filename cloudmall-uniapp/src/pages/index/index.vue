@@ -5,7 +5,7 @@
       :circular="true"
       :indicator-dots="true"
       indicator-color="#ffffff"
-      indicator-active-color="#22ccff"
+      indicator-active-color="#22cc00"
       :interval="2000"
     >
       <swiper-item>
@@ -61,7 +61,7 @@ image {
 .title {
   width: 300rpx;
   height: 80rpx;
-  background-color: #00aaff;
+  background-color: #257b00;
   border-radius: 20rpx;
   font-size: 30rpx;
   color: #fff;

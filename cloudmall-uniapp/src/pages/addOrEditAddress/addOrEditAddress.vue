@@ -100,7 +100,7 @@ const showDel = ref(false)
 const items = [
   {
     value: 1,
-    name: '男士',
+    name: '先生',
   },
   {
     value: 0,
@@ -449,8 +449,8 @@ const deleteAddress = async () => {
       height: 72rpx;
       line-height: 72rpx;
       border-radius: 36rpx;
-      background: #22ccff;
-      border: 1px solid #22ccff;
+      background: #7eff22;
+      border: 1px solid #22ffa7;
       opacity: 1;
       font-size: 30rpx;
       font-family: PingFangSC, PingFangSC-Medium;

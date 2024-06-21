@@ -151,7 +151,7 @@ const getUserInfo = async (id: number) => {
   const res = await getUserInfoAPI(id)
   console.log('用户信息', res)
   user.name = res.data.name as string
-  user.gender = res.data.gender ?? 1 // 之前没设置就默认男士
+  user.gender = res.data.gender ?? 1 // 之前没设置就默认先生
   user.phone = res.data.phone as string
   user.pic = res.data.pic as string
 }

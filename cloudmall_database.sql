@@ -153,8 +153,8 @@ create table orders (
     delivery_status tinyint(1) not null default '1' comment '配送状态  1立即送出  0选择具体时间',
     delivery_time datetime default null comment '送达时间',
     pack_amount int default null comment '打包费',
-    tableware_number int default null comment '餐具数量',
-    tableware_status tinyint(1) not null default '1' comment '餐具数量状态  1按餐量提供  0选择具体数量',
+    tableware_number int default null comment '购物袋数量',
+    tableware_status tinyint(1) not null default '1' comment '购物袋数量状态  1按商品数量提供  0选择具体数量',
     primary key (id)
 ) comment='订单表';
 

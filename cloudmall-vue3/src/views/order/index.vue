@@ -373,9 +373,9 @@ onMounted(async () => {
         <el-table-column v-if="[2, 3, 4, 5].includes(orderStatus)" key="remark" prop="remark" label="备注"
           align="center" />
         <el-table-column v-if="[2, 3, 4].includes(orderStatus)" key="tablewareNumber" prop="tablewareNumber"
-          label="餐具数量" align="center" min-width="80">
+          label="购物袋数量" align="center" min-width="80">
           <template #default="scope">
-            {{ scope.row.tablewareNumber === -1 ? '无需餐具' : scope.row.tablewareNumber === 0 ? '按餐量提供' :
+            {{ scope.row.tablewareNumber === -1 ? '无需购物袋' : scope.row.tablewareNumber === 0 ? '按商品数量提供' :
             scope.row.tablewareNumber }}
           </template>
         </el-table-column>

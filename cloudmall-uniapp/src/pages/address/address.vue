@@ -19,7 +19,7 @@
               </view>
               <!-- 性别及手机号 -->
               <view class="sale">
-                <text class="name">{{ item.gender === 1 ? item.consignee + ' 男士' : item.consignee + ' 女士' }}</text>
+                <text class="name">{{ item.gender === 1 ? item.consignee + ' 先生' : item.consignee + ' 女士' }}</text>
                 <text class="num">{{ item.phone }}</text>
               </view>
             </view>

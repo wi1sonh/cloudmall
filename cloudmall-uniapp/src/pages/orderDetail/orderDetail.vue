@@ -62,19 +62,19 @@
   <view class="white_box">
     <view class="text_center" @click="connectShop">联系商家</view>
   </view>
-  <!-- 2、备注+餐具份数+发票 -->
+  <!-- 2、备注+购物袋份数+发票 -->
   <view class="white_box">
     <view class="bottom_text">
       <view class="text_left">备注</view>
       <view class="text_right">{{ order.remark }}</view>
     </view>
     <view class="bottom_text">
-      <view class="text_left">餐具份数</view>
+      <view class="text_left">购物袋份数</view>
       <view class="text_right">{{
         order.tablewareNumber == -1
-          ? '无需餐具'
+          ? '无需购物袋'
           : order.tablewareNumber == 0
-            ? '商家根据餐量提供'
+            ? '商家根据商品数量提供'
             : order.tablewareNumber
       }}</view>
     </view>
@@ -97,9 +97,9 @@
       <view class="text_right">{{ order.address }}</view>
     </view>
     <view class="bottom_text">
-      <view class="text_left">餐具数量</view>
+      <view class="text_left">购物袋数量</view>
       <view class="text_right">
-        {{ order.packAmount === -1 ? '无需餐具' : order.packAmount === 0 ? '按餐量提供' : order.packAmount }}
+        {{ order.packAmount === -1 ? '无需购物袋' : order.packAmount === 0 ? '按商品数量提供' : order.packAmount }}
       </view>
     </view>
   </view>
