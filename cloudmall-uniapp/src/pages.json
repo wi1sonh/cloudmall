@@ -110,7 +110,7 @@
 	// 设置 TabBar
 	"tabBar": {
 		"color": "#333",
-		"selectedColor": "#00aaff",
+		"selectedColor": "#00aa22",
 		"backgroundColor": "#fff",
 		"borderStyle": "white",
 		"list": [
@@ -131,7 +131,7 @@
 	"globalStyle": {
 		"navigationBarTextStyle": "white",
 		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#00aaff",
+		"navigationBarBackgroundColor": "#00aa22",
 		"backgroundColor": "#F8F8F8"
 	}
 }

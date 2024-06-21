@@ -47,15 +47,15 @@ const dialogOrderStatus = ref(0) //弹窗所需订单状态，用于详情展示
 // 拒单原因列表
 const rejectReasonList = reactive([
   { value: 1, label: '订单量较多，暂时无法接单', },
-  { value: 2, label: '菜品已销售完，暂时无法接单', },
-  { value: 3, label: '餐厅已打烊，暂时无法接单', },
+  { value: 2, label: '商品已销售完，暂时无法接单', },
+  { value: 3, label: '小店已打烊，暂时无法接单', },
   { value: 0, label: '自定义原因', },
 ])
 // 取消订单原因列表
 const cancelrReasonList = reactive([
   { value: 1, label: '订单量较多，暂时无法接单' },
-  { value: 2, label: '菜品已销售完，暂时无法接单', },
-  { value: 3, label: '骑手不足无法配送', },
+  { value: 2, label: '商品已销售完，暂时无法接单', },
+  { value: 3, label: '快递小哥不足无法派送', },
   { value: 4, label: '客户电话取消', },
   { value: 0, label: '自定义原因', },
 ])

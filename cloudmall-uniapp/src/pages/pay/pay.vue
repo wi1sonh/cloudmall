@@ -203,7 +203,7 @@ const cancelOrder = async () => {
     height: 80rpx;
     line-height: 80rpx;
     border-radius: 40rpx;
-    background: #00aaff;
+    background: #009011;
     border: none;
     color: #fff;
     font-size: 30rpx;

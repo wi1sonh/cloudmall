@@ -118,7 +118,7 @@
         <view class="comfirm">
           <view class="after_action">
             <label class="checkbox">
-              <radio class="radio" color="#00aaff" value="cb" :checked="radioStatus" @click="radioChange" />
+              <radio class="radio" color="#00aa00" value="cb" :checked="radioStatus" @click="radioChange" />
               {{ cookerNum === -2 || cookerNum === -1 ? '以后都无需购物袋' : '以后都需要购物袋，商家依据商品数量提供' }}
             </label>
             <button class="comfirm_btn" @click="openCooker = !openCooker">确定</button>
@@ -402,7 +402,7 @@ const payOrderHandle = async () => {
   justify-content: center;
   padding: 20rpx 0 0 0;
   position: relative;
-  background-color: #cceeff;
+  background-color: #dbfbdf;
   .order_content_box {
     width: 100%;
     height: 100%;
@@ -832,7 +832,7 @@ const payOrderHandle = async () => {
         // flex: 1;
         width: 200rpx;
         border-radius: 72rpx;
-        background: #22bbff;
+        background: #00b10c;
         font-size: 30rpx;
         font-family: PingFangSC, PingFangSC-Medium;
         font-weight: 500;

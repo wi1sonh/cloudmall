@@ -192,7 +192,7 @@ onReachBottom(() => {
   console.log('Page:', orderDTO.value.page)
   console.log('Page Size:', orderDTO.value.pageSize)
   if (orderDTO.value.page * orderDTO.value.pageSize >= Math.min(total.value, 12)) {
-    console.log('end!')
+    console.log('已经滑到尽头啦~')
     // 达到最近订单展示上限
     uni.showToast({
       title: '更多订单信息请到历史订单查看！',
@@ -231,7 +231,7 @@ const goMyself = () => {
 .my_info {
   height: 200rpx;
   width: 750rpx;
-  background-color: #cceeff;
+  background-color: #ccffd8;
   display: flex;
   // 头像
   .head {
@@ -388,7 +388,7 @@ const goMyself = () => {
         text-align: right;
         .history_item_status {
           font-size: 30rpx;
-          color: #0af;
+          color: rgb(0, 155, 39);
           margin-bottom: 40rpx;
         }
         .history_item_price {
@@ -413,10 +413,10 @@ const goMyself = () => {
         height: 60rpx;
         text-align: center;
         line-height: 60rpx;
-        border: #0af solid 1rpx;
+        border: rgb(0, 166, 39) solid 1rpx;
         border-radius: 30rpx;
         font-size: 28rpx;
-        color: #0af;
+        color: rgb(0, 135, 54);
       }
       .history_item_push_order {
         float: right;
@@ -424,7 +424,7 @@ const goMyself = () => {
         height: 62rpx;
         text-align: center;
         line-height: 62rpx;
-        background-color: #0af;
+        background-color: rgb(0, 152, 53);
         border-radius: 30rpx;
         font-size: 28rpx;
         color: #fff;

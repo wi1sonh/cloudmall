@@ -217,7 +217,7 @@ const submit = async () => {
     height: 80rpx;
     line-height: 80rpx;
     border-radius: 40rpx;
-    background: #22ff90;
+    background: #00c160;
     border: none;
     color: #fff;
     font-size: 30rpx;

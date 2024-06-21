@@ -449,8 +449,8 @@ const deleteAddress = async () => {
       height: 72rpx;
       line-height: 72rpx;
       border-radius: 36rpx;
-      background: #7eff22;
-      border: 1px solid #22ffa7;
+      background: #00892e;
+      border: 1px solid #008f0e;
       opacity: 1;
       font-size: 30rpx;
       font-family: PingFangSC, PingFangSC-Medium;

@@ -1,6 +1,6 @@
 <template>
   <div class="selectInput">
-    <el-input v-model="keyValue" type="text" style="width: 100%" placeholder="请选择口味" clearable readonly
+    <el-input v-model="keyValue" type="text" style="width: 100%" placeholder="请选择规格" clearable readonly
       @focus="selectFlavor(true)" @blur="outSelect(false)" />
     <div v-if="mak && dishFlavorsData.length" class="flavorSelect">
       <span v-for="(item, index) in dishFlavorsData" :key="index" class="items" @click="checkOption(item, index)">{{

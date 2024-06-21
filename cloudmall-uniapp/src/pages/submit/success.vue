@@ -1,6 +1,6 @@
 <template>
   <view class="container">
-    <image src="../../static/icon/饿饿.png" mode="scaleToFill" />
+    <image src="../../static/icon/success.png" mode="scaleToFill" />
     <view class="pay">支付成功</view>
     <view class="time">预计{{ arrivalTime }}送达</view>
     <view class="success_desc"> 后厨疯狂备餐ing, 请耐心等待~ </view>
@@ -92,10 +92,10 @@ image {
     width: 250rpx;
     height: 78rpx;
     line-height: 78rpx;
-    border: #00aaff solid 1rpx;
+    border: #008714 solid 1rpx;
     border-radius: 40rpx;
     // background: #00aaff;
-    color: #00aaff;
+    color: #00881b;
     font-size: 30rpx;
     text-align: center;
   }
@@ -105,7 +105,7 @@ image {
     height: 80rpx;
     line-height: 80rpx;
     border-radius: 40rpx;
-    background: #00aaff;
+    background: #008927;
     border: none;
     color: #fff;
     font-size: 30rpx;

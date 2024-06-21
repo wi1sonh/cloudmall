@@ -68,7 +68,7 @@ const returnToSubmit = () => {
     line-height: 72rpx;
     border-radius: 72rpx;
     background: #00a400;
-    border: 1px solid #00ff88;
+    border: 1px solid #01c93d;
     opacity: 1;
     font-size: 30rpx;
     font-family: PingFangSC, PingFangSC-Medium;

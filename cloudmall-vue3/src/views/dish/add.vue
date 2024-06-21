@@ -9,11 +9,11 @@ import { ElMessage } from 'element-plus'
 // ------ 数据 ------
 // 固定死数据，应该不用响应式吧？
 const dishFlavorsData = [
-  { name: '口味', list: ['原味', '番茄', '黑椒', '沙拉', '麻辣'] },
-  { name: '甜味', list: ['无糖', '少糖', '半糖', '多糖', '全糖'] },
-  { name: '温度', list: ['热饮', '常温', '去冰', '少冰', '多冰'] },
-  { name: '忌口', list: ['不要葱', '不要蒜', '不要香菜', '不要辣'] },
-  { name: '辣度', list: ['不辣', '微辣', '中辣', '重辣'] }
+  { name: '尺寸', list: ['超大', '大', '常规', '小', '迷你'] },
+  { name: '版本', list: ['Ultimate版', 'Pro Max版', '常规', '阉割版', '丐版'] },
+  { name: '保修', list: ['保修10年', '保修5年', '保修3年', '保修1年', '不需要'] },
+  { name: '定制', list: ['印个中大logo', '印个本人名字', '印个牢大', '其他定制请电话联系客服'] },
+  { name: '附加服务', list: ['7天无理由退换', '30天价保', '送30元话费', '发顺丰快递'] }
 ]
 
 interface Category {
@@ -292,12 +292,12 @@ init()
         </el-button>
       </el-form-item>
       <!-- ---------------------------------------------------------------------------------------------- -->
-      <!-- <el-form-item label="口味配置:">
+      <el-form-item label="规格配置:">
         <div class="flavorBox">
-          <span v-if="form.dishFlavors.length == 0" class="addBut" @click="addFlavor"> + 添加口味</span>
+          <span v-if="form.dishFlavors.length == 0" class="addBut" @click="addFlavor"> + 添加规格</span>
           <div v-if="form.dishFlavors.length != 0" class="flavor">
             <div class="title">
-              <span>口味名（3个字内）</span>
+              <span>规格</span>
             </div>
             <div class="cont">
               <div v-for="(item, index) in form.dishFlavors" :key="index" class="items">
@@ -315,11 +315,11 @@ init()
             </div>
             <div v-if="!!leftDishFlavors.length && form.dishFlavors.length < dishFlavorsData.length" class="addBut"
               @click="addFlavor">
-              添加口味
+              添加规格
             </div>
           </div>
         </div>
-      </el-form-item> -->
+      </el-form-item>
       <el-form-item label="详情" :label-width="formLabelWidth" prop="detail">
         <el-input v-model="form.detail" autocomplete="off" type="textarea" />
       </el-form-item>

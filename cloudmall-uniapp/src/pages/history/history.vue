@@ -130,7 +130,7 @@ onReachBottom(() => {
     console.log('end!')
     // 没有下一页数据，提示用户
     uni.showToast({
-      title: 'end!',
+      title: '已经滑到尽头啦~',
       icon: 'none',
     })
     return
@@ -204,7 +204,7 @@ const pushOrder = (id: number) => {
     color: #333;
   }
   .active {
-    color: #00aaff;
+    color: #00bd3c;
   }
 }
 .blank {
@@ -265,7 +265,7 @@ const pushOrder = (id: number) => {
         text-align: right;
         .history_item_status {
           font-size: 30rpx;
-          color: #0af;
+          color: rgb(0, 149, 62);
           margin-bottom: 40rpx;
         }
         .history_item_price {
@@ -290,10 +290,10 @@ const pushOrder = (id: number) => {
         height: 60rpx;
         text-align: center;
         line-height: 60rpx;
-        border: #0af solid 1rpx;
+        border: rgb(0, 160, 102) solid 1rpx;
         border-radius: 30rpx;
         font-size: 28rpx;
-        color: #0af;
+        color: rgb(0, 162, 76);
       }
       .history_item_push_order {
         float: right;
@@ -301,7 +301,7 @@ const pushOrder = (id: number) => {
         height: 62rpx;
         text-align: center;
         line-height: 62rpx;
-        background-color: #0af;
+        background-color: rgb(0, 173, 52);
         border-radius: 30rpx;
         font-size: 28rpx;
         color: #fff;

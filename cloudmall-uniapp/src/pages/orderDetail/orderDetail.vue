@@ -311,8 +311,8 @@ const toPay = async () => {
     .pushOrder {
       width: 25%;
       padding: 15rpx 0;
-      border: 1px solid #22ccff;
-      background-color: #22ccff;
+      border: 1px solid #008a1c;
+      background-color: #008c31;
       border-radius: 10rpx;
       margin: 15rpx 10rpx;
       font-size: 28rpx;
@@ -515,7 +515,7 @@ const toPay = async () => {
   height: 112rpx;
   text-align: center;
   line-height: 112rpx;
-  color: #22ccff;
+  color: #00b129;
   font-size: 34rpx;
   font-weight: 500;
 }
