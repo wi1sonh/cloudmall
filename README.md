@@ -2,8 +2,8 @@
 
 # 云端商城(CloudMall)
 
-![frontend](https://img.shields.io/badge/Engine-Vue-green)
-![backend](https://img.shields.io/badge/Engine-Springboot-yellow)
+![frontend](https://img.shields.io/badge/Front_End-Vue-green)
+![backend](https://img.shields.io/badge/Back_End-Springboot-yellow)
 ![version](https://img.shields.io/badge/version-0.2.3-blue)
 
 "云端商城" 是一个创新驱动的电子商务平台，致力于提供全面的在线销售和购物服务。通过集成前沿技术，"云端商城" 旨在创建一个动态、互动和智能化的购物环境，满足现代消费者的需求并助力商家扩展业务。
