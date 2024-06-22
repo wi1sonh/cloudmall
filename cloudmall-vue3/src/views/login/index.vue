@@ -216,7 +216,7 @@ body {
     font-size: 24px;
     font-weight: bold;
     text-align: center;
-    color: #00aaff;
+    color: #00aa00;
   }
 
   .el-form-item {

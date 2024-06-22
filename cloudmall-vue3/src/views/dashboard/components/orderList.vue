@@ -170,11 +170,11 @@
                   * 100) / 100).toFixed(2) }}</span>
               </div>
               <div class="send-amount">
-                <span class="amount-name">派送费：</span>
+                <span class="amount-name">运费：</span>
                 <span class="amount-price">￥6.00</span>
               </div>
               <div class="pack-amount">
-                <span class="amount-name">餐盒费：</span>
+                <span class="amount-name">打包费：</span>
                 <span class="amount-price">￥{{ ((diaForm!.packAmount * 100) / 100).toFixed(2) }}</span>
               </div>
               <div class="all-amount">

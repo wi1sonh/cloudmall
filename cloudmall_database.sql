@@ -56,12 +56,12 @@ create table dish(
 );
 
 
--- 4、商品口味
+-- 4、商品规格
 drop table if exists dish_flavor;
 create table dish_flavor(
     id int primary key auto_increment,
-    name varchar(64) not null,   -- eg. 温度
-    list varchar(255) not null,  -- eg. ['热','温','冷']
+    name varchar(64) not null,   -- eg. 尺寸
+    list varchar(255) not null,  -- eg. ['大','常规','小']
     dish_id int not null
 );
 
@@ -121,7 +121,7 @@ create table order_detail (
     order_id bigint not null comment '订单id',
     dish_id bigint default null comment '商品id',
     setmeal_id bigint default null comment '套餐id',
-    dish_flavor varchar(50) default null comment '口味',
+    dish_flavor varchar(50) default null comment '规格',
     number int not null default '1' comment '数量',
     amount decimal(10,2) not null comment '金额',
     primary key (id)
@@ -150,7 +150,7 @@ create table orders (
     rejection_reason varchar(255) default null comment '订单拒绝原因',
     cancel_time datetime default null comment '订单取消时间',
     estimated_delivery_time datetime default null comment '预计送达时间',
-    delivery_status tinyint(1) not null default '1' comment '配送状态  1立即送出  0选择具体时间',
+    delivery_status tinyint(1) not null default '1' comment '运送状态  1立即送出  0选择具体时间',
     delivery_time datetime default null comment '送达时间',
     pack_amount int default null comment '打包费',
     tableware_number int default null comment '购物袋数量',
@@ -168,7 +168,7 @@ create table cart (
     user_id bigint not null comment '主键',
     dish_id bigint null comment '商品id',
     setmeal_id bigint null comment '套餐id',
-    dish_flavor varchar(50) null comment '口味',
+    dish_flavor varchar(50) null comment '规格',
     number int not null default '1' comment '数量',
     amount decimal(10,2) not null comment '金额',
     create_time datetime null comment '创建时间',

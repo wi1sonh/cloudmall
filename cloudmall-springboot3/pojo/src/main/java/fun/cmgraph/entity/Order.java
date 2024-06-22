@@ -56,7 +56,7 @@ public class Order implements Serializable {
     private String rejectionReason; // 订单拒绝原因
     private LocalDateTime cancelTime; // 订单取消时间
     private LocalDateTime estimatedDeliveryTime; // 预计送达时间
-    private Integer deliveryStatus; // 配送状态  1立即送出  0选择具体时间
+    private Integer deliveryStatus; // 运送状态  1立即送出  0选择具体时间
     private LocalDateTime deliveryTime; // 送达时间
     private int packAmount; // 打包费
     private int tablewareNumber; // 购物袋数量

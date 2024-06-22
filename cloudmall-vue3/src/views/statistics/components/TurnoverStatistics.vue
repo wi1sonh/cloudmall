@@ -87,15 +87,15 @@ const initChart = () => {
         symbolSize: 10,
         itemStyle: {
           normal: {
-            color: '#00ccff',
+            color: '#00cc00',
             lineStyle: {
-              color: '#00ccff',
+              color: '#00cc00',
             },
           },
           emphasis: {
             color: '#fff',
             borderWidth: 5,
-            borderColor: '#00ccff',
+            borderColor: '#00cc00',
           },
         },
         areaStyle: {
@@ -104,7 +104,7 @@ const initChart = () => {
           color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
             {
               offset: 0,
-              color: 'rgba(0, 221, 255, 1)'
+              color: 'rgba(0, 221, 0, 1)'
             },
             {
               offset: 1,
@@ -153,7 +153,7 @@ onMounted(() => {
         padding-left: 10px;
         /* 留出位置给红线 */
       }
-    
+
       li::before {
         content: '';
         position: absolute;

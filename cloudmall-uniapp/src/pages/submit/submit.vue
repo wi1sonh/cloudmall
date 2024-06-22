@@ -51,7 +51,7 @@
               <view class="word_right">￥{{ CartAllNumber }}</view>
             </view>
             <view class="word_text">
-              <view class="word_left">配送费</view>
+              <view class="word_left">运送费</view>
               <view class="word_right">￥6</view>
             </view>
             <view class="all_price">
@@ -175,7 +175,7 @@ const getCartList = async () => {
   cartList.value = res.data
   // 计算总数量
   CartAllNumber.value = cartList.value.reduce((acc, cur) => acc + cur.number, 0)
-  // 计算总价格 = 菜品总价 + 打包费 + 配送费
+  // 计算总价格 = 菜品总价 + 打包费 + 运费
   CartAllPrice.value = cartList.value.reduce((acc, cur) => acc + cur.amount * cur.number, 0) + CartAllNumber.value + 6
   console.log('CartAllNumber', CartAllNumber.value)
   console.log('CartAllPrice', CartAllPrice.value)

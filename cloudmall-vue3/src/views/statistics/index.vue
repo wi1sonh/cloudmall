@@ -256,7 +256,7 @@ const handleExport = async () => {
 .page {
   margin: 20px;
   padding: 0;
-  background-color: #e9f5ff;
+  background-color: #e9f5f0;
 }
 
 .title-index {
@@ -299,7 +299,7 @@ const handleExport = async () => {
     }
 
     .active {
-      background-color: #22ccff;
+      background-color: #22cc00;
       font-weight: bold;
     }
 
