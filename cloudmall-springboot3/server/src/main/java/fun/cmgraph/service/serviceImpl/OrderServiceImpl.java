@@ -75,7 +75,7 @@ public class OrderServiceImpl implements OrderService {
         if (addressBook == null) {
             throw new AddressBookBusinessException(MessageConstant.ADDRESS_BOOK_IS_NULL);
         }
-        // 不能超出配送范围
+        // 不能超出运送范围
         // checkOutOfRange(addressBook.getCityName() + addressBook.getDistrictName() + addressBook.getDetail());
         // 2、查询校验购物车情况
         Integer userId = BaseContext.getCurrentId();
@@ -472,7 +472,7 @@ public class OrderServiceImpl implements OrderService {
     }
 
     /**
-     * 检查客户的收货地址是否超出配送范围
+     * 检查客户的收货地址是否超出运送范围
      *
      * @param address
      */
@@ -523,7 +523,7 @@ public class OrderServiceImpl implements OrderService {
 
         jsonObject = JSON.parseObject(json);
         if (!jsonObject.getString("status").equals("0")) {
-            throw new OrderBusinessException("配送路线规划失败");
+            throw new OrderBusinessException("运送路线规划失败");
         }
 
         // 数据解析
@@ -532,8 +532,8 @@ public class OrderServiceImpl implements OrderService {
         Integer distance = (Integer) ((JSONObject) jsonArray.get(0)).get("distance");
 
         if (distance > 5000) {
-            //配送距离超过5000米
-            throw new OrderBusinessException("超出配送范围");
+            //运送距离超过5000米
+            throw new OrderBusinessException("超出运送范围");
         }
     }
 

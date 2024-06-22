@@ -232,8 +232,8 @@ const webSocket = () => {
       ElNotification({
         title: jsonMsg.type === 1 ? '待接单' : '催单',
         message: jsonMsg.type === 1
-          ? `<span>您有1个<span style="color:#419EFF">订单待处理</span>,${jsonMsg.content},请及时接单</span>`
-          : `${jsonMsg.content}<span style='color:#419EFF;cursor: pointer'>去处理</span>`,
+          ? `<span>您有1个<span style="color:#419E00">订单待处理</span>,${jsonMsg.content},请及时接单</span>`
+          : `${jsonMsg.content}<span style='color:#419F00;cursor: pointer'>去处理</span>`,
         duration: 0,
         dangerouslyUseHTMLString: true,
         onClick: () => {
@@ -455,7 +455,7 @@ onBeforeUnmount(() => {
 
 .el-main {
   flex: 1;
-  background-color: #e9f5ff;
+  background-color: #e9f5f0;
   color: #333;
   /* text-align: center; */
   /* line-height: 80px; */
@@ -522,7 +522,7 @@ a:hover {
 
   .el-radio-group {
     &>.is-checked {
-      border: 1px solid #00aaff;
+      border: 1px solid #00aa00;
     }
   }
 

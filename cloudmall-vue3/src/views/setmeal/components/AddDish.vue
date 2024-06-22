@@ -278,13 +278,13 @@ const delCheck = (name: any) => {
 
     .act {
       border-color: #aaeeee !important;
-      color: #33aaff !important;
+      color: #33aa00 !important;
     }
 
     .act::after {
       content: '  ';
       display: inline-block;
-      background-color: #79c9fc;
+      background-color: #79c900;
       width: 2px;
       height: 40px;
       position: absolute;

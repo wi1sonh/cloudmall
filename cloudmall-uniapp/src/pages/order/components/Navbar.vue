@@ -16,7 +16,7 @@
     <view class="info1">
       <view class="status">{{ status === true ? '营业中' : '打烊中' }}</view>
       <uni-icons custom-prefix="iconfont" type="icon-qian" size="15"></uni-icons>
-      <text class="price">配送费6元</text>
+      <text class="price">运费6元</text>
     </view>
     <view class="info2">
       <text class="address">商店地址：广州市番禺区大学城外环东路132号</text>

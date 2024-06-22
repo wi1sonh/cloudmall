@@ -652,7 +652,7 @@ onMounted(async () => {
   }
 
   .active {
-    background-color: #22ccff;
+    background-color: #22cc00;
     font-weight: bold;
   }
 
@@ -861,7 +861,7 @@ onMounted(async () => {
       min-height: 43px;
       line-height: 43px;
       background: #f0fbff;
-      border: 1px solid #88eeff;
+      border: 1px solid #88ee00;
       border-radius: 4px;
       margin-top: 10px;
       padding: 6px;
@@ -872,7 +872,7 @@ onMounted(async () => {
         display: inline-block;
         min-width: 53px;
         height: 32px;
-        background: #88eeff;
+        background: #88ee00;
         border-radius: 4px;
         text-align: center;
         line-height: 32px;
@@ -882,7 +882,7 @@ onMounted(async () => {
       }
 
       span {
-        color: #22ccff;
+        color: #22cc00;
         line-height: 1.15;
       }
     }
@@ -1024,7 +1024,7 @@ onMounted(async () => {
   margin-top: 20px;
 
   .blueBtn {
-    background: #409eff;
+    background: #409e00;
     color: white;
   }
 }

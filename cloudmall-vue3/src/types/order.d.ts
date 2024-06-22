@@ -27,7 +27,7 @@ export type Order = {
   rejectionReason: string // 订单拒绝原因
   cancelTime: Date // 订单取消时间
   estimatedDeliveryTime: Date // 预计送达时间
-  deliveryStatus: number // 配送状态  1立即送出  0选择具体时间
+  deliveryStatus: number // 运送状态  1立即送出  0选择具体时间
   deliveryTime: Date // 送达时间
   packAmount: number // 打包费
   tablewareNumber: number // 购物袋数量

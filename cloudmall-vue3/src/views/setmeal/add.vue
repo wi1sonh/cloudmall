@@ -408,7 +408,7 @@ img {
   width: 800px;
 
   .addBut {
-    background: #409eff;
+    background: #409e00;
     display: inline-block;
     padding: 0px 20px;
     border-radius: 3px;

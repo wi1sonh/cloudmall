@@ -51,7 +51,7 @@
         <view class="word_right">￥{{ order.packAmount }}</view>
       </view>
       <view class="word_text">
-        <view class="word_left">配送费</view>
+        <view class="word_left">运费</view>
         <view class="word_right">￥6</view>
       </view>
       <view class="all_price">
