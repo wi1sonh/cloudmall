@@ -3,7 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="fun.cmgraph.mapper.ProductMapper">
 
-    <insert id="addDish" useGeneratedKeys="true" keyProperty="id">
+    <insert id="addProduct" useGeneratedKeys="true" keyProperty="id">
         insert into dish (name, pic, detail, price, category_id, create_user, update_user, create_time, update_time)
         VALUES
         (#{name}, #{pic}, #{detail}, #{price}, #{categoryId},

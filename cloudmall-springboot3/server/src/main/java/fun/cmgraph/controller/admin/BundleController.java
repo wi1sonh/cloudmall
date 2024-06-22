@@ -59,6 +59,18 @@ public class BundleController {
     }
 
     /**
+     * 根据套餐名查询套餐
+     * @param name
+     * @return
+     */
+    @GetMapping("/name/{name}")
+    public Result<BundleVO> getBundleByName(@PathVariable String name){
+        log.info("要查询的套餐名：{}", name);
+        BundleVO bundleVO = bundleService.getBundleByName(name);
+        return Result.success(bundleVO);
+    }
+
+    /**
      * 根据id起售停售套餐
      * @param id
      * @return

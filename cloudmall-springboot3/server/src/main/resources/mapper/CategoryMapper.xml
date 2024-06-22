@@ -38,4 +38,9 @@
         order by sort asc, create_time desc
     </select>
 
+    <select id="getByName" resultType="fun.cmgraph.entity.Category">
+        select * from category where name = #{name}
+        limit 1
+    </select>
+
 </mapper>

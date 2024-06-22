@@ -23,6 +23,9 @@ public interface BundleMapper {
     @Select("select * from setmeal where id = #{id}")
     Bundle getBundleById(Integer id);
 
+    @Select("select * from setmeal where name = #{name} limit 1")
+    Bundle getBundleByName(String name);
+
     @Update("update setmeal set status = IF(status = 1, 0, 1) where id = #{id}")
     void onOff(Integer id);
 

@@ -17,6 +17,8 @@ public interface BundleService {
 
     BundleVO getBundleById(Integer id);
 
+    BundleVO getBundleByName(String name);
+
     void onOff(Integer id);
 
     void update(BundleDTO bundleDTO);

@@ -60,6 +60,16 @@ public class CategoryServiceImpl implements CategoryService {
         return categoryMapper.getById(id);
     }
 
+
+    /**
+     * 根据name查询分类
+     * @param name
+     * @return
+     */
+    public Category getByName(String name) {
+        return categoryMapper.getByName(name);
+    }
+
     /**
      * 更新分类信息
      * @param categoryDTO

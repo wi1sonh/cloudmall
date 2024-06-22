@@ -77,6 +77,21 @@ public class BundleServiceImpl implements BundleService {
     }
 
     /**
+     * 根据套餐名称查询套餐
+     * @param name
+     * @return
+     */
+    public BundleVO getBundleByName(String name) {
+        Bundle bundle = bundleMapper.getBundleByName(name);
+        List<BundleProduct> bundleProducts = bundleProductMapper.getDishesBySetmealId(bundle.getId());
+        // 组成SetmealVO后返回
+        BundleVO bundleVO = new BundleVO();
+        BeanUtils.copyProperties(bundle, bundleVO);
+        bundleVO.setBundleProducts(bundleProducts);
+        return bundleVO;
+    }
+
+    /**
      * 起售停售套餐
      * @param id
      */

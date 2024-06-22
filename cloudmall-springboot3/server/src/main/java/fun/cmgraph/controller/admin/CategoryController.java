@@ -54,6 +54,13 @@ public class CategoryController {
         return Result.success(category);
     }
 
+    @GetMapping("/name/{name}")
+    public Result<Category> getByName(@PathVariable String name){
+        log.info("根据类别名查询分类：{}", name);
+        Category category = categoryService.getByName(name);
+        return Result.success(category);
+    }
+
     /**
      * 起售/停售
      * @return

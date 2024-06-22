@@ -37,7 +37,7 @@ const form = reactive({
   id: 0,
   name: '',
   pic: '',
-  setmealDishes: [] as SetmealDish[],
+  bundleProducts: [] as SetmealDish[],
   detail: '',
   price: 0,
   status: '',
@@ -52,7 +52,7 @@ const rules = {
   name: [
     { required: true, trigger: 'blur', message: '不能为空' },
   ],
-  setmealDishes: [
+  bundleProducts: [
     { required: true, trigger: 'blur', message: '不能为空' },
   ],
   detail: [
@@ -88,8 +88,8 @@ const init = async () => {
     console.log(setmeal)
     Object.assign(form, setmeal.data.data)
     console.log(form)
-    // 顺便把form里面的setmealDishes赋值给dishTable，用于回显
-    dishTable.value = form.setmealDishes
+    // 顺便把form里面的bundleProducts赋值给dishTable，用于回显
+    dishTable.value = form.bundleProducts
   } else {
     console.log('来到新增套餐页面add')
   }
@@ -188,24 +188,24 @@ const addTableList = () => {
 // 添加套餐信息后提交
 const submit = async (keep: any) => {
   console.log('keep,为空就是新增', keep)
-  console.log('add提交表单，需要先将dishTable赋值给form.setmealDishes')
+  console.log('add提交表单，需要先将dishTable赋值给form.bundleProducts')
   console.log('dishTable', dishTable.value)
   console.log('selectList', selectList)
   console.log('form', form)
   console.log('开始进行赋值')
-  form.setmealDishes = dishTable.value.map((obj: any) => ({
+  form.bundleProducts = dishTable.value.map((obj: any) => ({
     copies: obj.copies,
     dishId: obj.dishId,
     name: obj.name,
     price: obj.price
   }))
-  console.log('赋值后的form.setmealDishes', form.setmealDishes)
+  console.log('赋值后的form.bundleProducts', form.bundleProducts)
   console.log('form', form)
   const valid = await addRef.value.validate()
   if (valid) {
     // 输入合法性校验成功后，需要进行逻辑校验
     // 1. 套餐下商品不能为空
-    if (form.setmealDishes.length === 0) {
+    if (form.bundleProducts.length === 0) {
       ElMessage({
         message: '套餐下商品不能为空',
         type: 'warning',
@@ -234,7 +234,7 @@ const submit = async (keep: any) => {
         form.id = 0
         form.name = ''
         form.pic = ''
-        form.setmealDishes = []
+        form.bundleProducts = []
         form.detail = ''
         form.price = 0
         form.status = ''

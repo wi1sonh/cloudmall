@@ -15,6 +15,8 @@ public interface ProductService {
 
     ProductVO getProductById(Integer id);
 
+    ProductVO getProductByName(String name);
+
     void updateProduct(ProductDTO productDTO);
 
     void deleteBatch(List<Integer> ids);

@@ -51,7 +51,7 @@ public class ProductController {
     }
 
     /**
-     * 根据id查询商品和对应口味
+     * 根据id查询商品
      * @param id
      * @return
      */
@@ -59,6 +59,18 @@ public class ProductController {
     public Result<ProductVO> getProductById(@PathVariable Integer id){
         log.info("根据id查询商品：{}", id);
         ProductVO productVO = productService.getProductById(id);
+        return Result.success(productVO);
+    }
+
+    /**
+     * 根据商品名称查询商品
+     * @param name 商品名称
+     * @return
+     */
+    @GetMapping("/name/{name}")
+    public Result<ProductVO> getProductByName(@PathVariable String name){
+        log.info("根据商品名称查询商品：{}", name);
+        ProductVO productVO = productService.getProductByName(name);
         return Result.success(productVO);
     }
 

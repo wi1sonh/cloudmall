@@ -33,4 +33,7 @@ public interface ProductMapper {
 
     @Select("select count(id) from dish where status = #{i}")
     Integer getByStatus(int i);
+
+    @Select("select * from dish where name = #{name} limit 1")
+    Product getByName(String name);
 }

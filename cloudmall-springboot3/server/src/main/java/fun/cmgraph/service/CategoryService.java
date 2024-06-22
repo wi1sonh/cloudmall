@@ -15,6 +15,9 @@ public interface CategoryService {
     List<Category> getList(Integer type);
 
     Category getById(Integer id);
+
+    Category getByName(String name);
+
     void onOff(Integer id);
 
     void udpate(CategoryDTO categoryDTO);

@@ -82,6 +82,20 @@ public class ProductServiceImpl implements ProductService {
     }
 
     /**
+     * 根据商品名称查询商品
+     * @param name
+     * @return
+     */
+    public ProductVO getProductByName(String name) {
+        Product product = productMapper.getByName(name);
+        List<DishFlavor> dishFlavors = dishFlavorMapper.getByDishId(product.getId());
+        ProductVO productVO = new ProductVO();
+        BeanUtils.copyProperties(product, productVO);
+        productVO.setFlavors(dishFlavors);
+        return productVO;
+    }
+
+    /**
      * 更新商品
      * @param productDTO
      */

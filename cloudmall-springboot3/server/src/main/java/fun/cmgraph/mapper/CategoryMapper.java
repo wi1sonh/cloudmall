@@ -22,6 +22,8 @@ public interface CategoryMapper {
     @Select("select * from category where id = #{id}")
     Category getById(Integer id);
 
+    Category getByName(String name);
+
     @AutoFill(OperationType.UPDATE)
     void update(Category category);
 
