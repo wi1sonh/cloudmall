@@ -3,9 +3,9 @@ package fun.cmgraph.controller.admin;
 import fun.cmgraph.result.Result;
 import fun.cmgraph.service.WorkSpaceService;
 import fun.cmgraph.vo.BusinessDataVO;
-import fun.cmgraph.vo.DishOverViewVO;
+import fun.cmgraph.vo.ProductOverViewVO;
 import fun.cmgraph.vo.OrderOverViewVO;
-import fun.cmgraph.vo.SetmealOverViewVO;
+import fun.cmgraph.vo.BundleOverViewVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -50,9 +50,9 @@ public class WorkSpaceController {
      * @return
      */
     @GetMapping("/overviewDishes")
-    public Result<DishOverViewVO> dishOverView(){
-        DishOverViewVO dishOverViewVO = workSpaceService.getDishOverView();
-        return Result.success(dishOverViewVO);
+    public Result<ProductOverViewVO> dishOverView(){
+        ProductOverViewVO productOverViewVO = workSpaceService.getDishOverView();
+        return Result.success(productOverViewVO);
     }
 
     /**
@@ -60,8 +60,8 @@ public class WorkSpaceController {
      * @return
      */
     @GetMapping("/overviewSetmeals")
-    public Result<SetmealOverViewVO> setmealOverView(){
-        SetmealOverViewVO setmealOverViewVO = workSpaceService.getSetmealOverView();
-        return Result.success(setmealOverViewVO);
+    public Result<BundleOverViewVO> setmealOverView(){
+        BundleOverViewVO bundleOverViewVO = workSpaceService.getSetmealOverView();
+        return Result.success(bundleOverViewVO);
     }
 }

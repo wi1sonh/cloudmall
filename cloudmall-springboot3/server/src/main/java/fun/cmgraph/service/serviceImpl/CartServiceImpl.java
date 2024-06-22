@@ -3,11 +3,11 @@ package fun.cmgraph.service.serviceImpl;
 import fun.cmgraph.context.BaseContext;
 import fun.cmgraph.dto.CartDTO;
 import fun.cmgraph.entity.Cart;
-import fun.cmgraph.entity.Dish;
-import fun.cmgraph.entity.Setmeal;
+import fun.cmgraph.entity.Product;
+import fun.cmgraph.entity.Bundle;
 import fun.cmgraph.mapper.CartMapper;
-import fun.cmgraph.mapper.DishMapper;
-import fun.cmgraph.mapper.SetmealMapper;
+import fun.cmgraph.mapper.ProductMapper;
+import fun.cmgraph.mapper.BundleMapper;
 import fun.cmgraph.service.CartService;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +22,9 @@ public class CartServiceImpl implements CartService {
     @Autowired
     private CartMapper cartMapper;
     @Autowired
-    private DishMapper dishMapper;
+    private ProductMapper productMapper;
     @Autowired
-    private SetmealMapper setmealMapper;
+    private BundleMapper bundleMapper;
 
     /**
      * 添加进购物车
@@ -50,16 +50,16 @@ public class CartServiceImpl implements CartService {
             Integer dishId = cartDTO.getDishId();
             if (dishId != null) {
                 // 添加到购物车的是菜品
-                Dish dish = dishMapper.getById(dishId);
-                cart.setName(dish.getName());
-                cart.setPic(dish.getPic());
-                cart.setAmount(dish.getPrice());
+                Product product = productMapper.getById(dishId);
+                cart.setName(product.getName());
+                cart.setPic(product.getPic());
+                cart.setAmount(product.getPrice());
             } else {
                 // 添加到购物车的是套餐
-                Setmeal setmeal = setmealMapper.getSetmealById(cartDTO.getSetmealId());
-                cart.setName(setmeal.getName());
-                cart.setPic(setmeal.getPic());
-                cart.setAmount(setmeal.getPrice());
+                Bundle bundle = bundleMapper.getSetmealById(cartDTO.getSetmealId());
+                cart.setName(bundle.getName());
+                cart.setPic(bundle.getPic());
+                cart.setAmount(bundle.getPrice());
             }
             cart.setNumber(1);
             cart.setCreateTime(LocalDateTime.now());

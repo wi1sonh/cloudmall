@@ -5,7 +5,7 @@ import lombok.Data;
 import java.io.Serializable;
 
 @Data
-public class SetmealPageDTO implements Serializable {
+public class BundlePageDTO implements Serializable {
 
     private int page;
     private int pageSize;

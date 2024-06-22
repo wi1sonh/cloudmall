@@ -17,5 +17,5 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
     };
   }
 });
-const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-aaa00962"], ["__file", "H:/DevAsh/cloudmall/cloudmall-uniapp/src/components/empty/Empty.vue"]]);
+const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-aaa00962"], ["__file", "C:/Users/reverie/Desktop/course/软件工程/cloudmall/cloudmall-uniapp/src/components/empty/Empty.vue"]]);
 wx.createComponent(Component);

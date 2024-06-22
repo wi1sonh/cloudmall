@@ -56,3 +56,22 @@ cloudmall:
     address: 广东省广州市番禺区亚运城广场
   baidu:
     ak: ePMydufnJzBBTQlrzKwxAmlpRApLxmOW
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    operations-sorter: alpha
+    enabled: true
+  api-docs:
+    path: /v3/api-docs
+    enabled: true
+  group-configs:
+    group: platform
+    paths-to-match: /**
+    packages-to-scan: fun.cmgraph.controller
+
+knife4j:
+  enable: true
+  setting:
+    language: zh_cn

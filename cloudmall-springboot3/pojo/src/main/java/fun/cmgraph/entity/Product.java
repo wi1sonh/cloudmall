@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Dish implements Serializable {
+public class Product implements Serializable {
 
     private Integer id;
     private String name;

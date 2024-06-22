@@ -389,5 +389,5 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     l: common_vendor.n($options.isDesktop ? "fixforpc-z-index" : "")
   }) : {});
 }
-const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "H:/DevAsh/cloudmall/cloudmall-uniapp/node_modules/@dcloudio/uni-ui/lib/uni-popup/uni-popup.vue"]]);
+const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["render", _sfc_render], ["__file", "C:/Users/reverie/Desktop/course/软件工程/cloudmall/cloudmall-uniapp/node_modules/@dcloudio/uni-ui/lib/uni-popup/uni-popup.vue"]]);
 wx.createComponent(Component);

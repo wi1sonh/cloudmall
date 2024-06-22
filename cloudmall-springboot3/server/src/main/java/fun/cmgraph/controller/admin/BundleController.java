@@ -1,13 +1,12 @@
 package fun.cmgraph.controller.admin;
 
-import fun.cmgraph.dto.SetmealDTO;
-import fun.cmgraph.dto.SetmealPageDTO;
+import fun.cmgraph.dto.BundleDTO;
+import fun.cmgraph.dto.BundlePageDTO;
 import fun.cmgraph.result.PageResult;
 import fun.cmgraph.result.Result;
-import fun.cmgraph.service.SetmealService;
-import fun.cmgraph.vo.SetmealVO;
+import fun.cmgraph.service.BundleService;
+import fun.cmgraph.vo.BundleVO;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.ibatis.annotations.Delete;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.web.bind.annotation.*;
@@ -17,33 +16,33 @@ import java.util.List;
 @RestController
 @RequestMapping("/admin/setmeal")
 @Slf4j
-public class SetmealController {
+public class BundleController {
 
     @Autowired
-    private SetmealService setmealService;
+    private BundleService bundleService;
 
     /**
      * 新增套餐
-     * @param setmealDTO
+     * @param bundleDTO
      * @return
      */
     @PostMapping
-    @CacheEvict(cacheNames = "setmealCache", key = "#setmealDTO.categoryId")
-    public Result addSetmeal(@RequestBody SetmealDTO setmealDTO){
-        log.info("新增套餐的信息：{}", setmealDTO);
-        setmealService.addSetmeal(setmealDTO);
+    @CacheEvict(cacheNames = "setmealCache", key = "#bundleDTO.categoryId")
+    public Result addBundle(@RequestBody BundleDTO bundleDTO){
+        log.info("新增套餐的信息：{}", bundleDTO);
+        bundleService.addBundle(bundleDTO);
         return Result.success();
     }
 
     /**
      * 套餐条件分页查询
-     * @param setmealPageDTO
+     * @param bundlePageDTO
      * @return
      */
     @GetMapping("/page")
-    public Result<PageResult> getPageList(SetmealPageDTO setmealPageDTO){
-        log.info("条件分页查询：{}", setmealPageDTO);
-        PageResult pageResult = setmealService.getPageList(setmealPageDTO);
+    public Result<PageResult> getPageList(BundlePageDTO bundlePageDTO){
+        log.info("条件分页查询：{}", bundlePageDTO);
+        PageResult pageResult = bundleService.getPageList(bundlePageDTO);
         return Result.success(pageResult);
     }
 
@@ -53,10 +52,10 @@ public class SetmealController {
      * @return
      */
     @GetMapping("/{id}")
-    public Result<SetmealVO> getSetmealById(@PathVariable Integer id){
+    public Result<BundleVO> getBundleById(@PathVariable Integer id){
         log.info("要查询的套餐id：{}", id);
-        SetmealVO setmealVO = setmealService.getSetmealById(id);
-        return Result.success(setmealVO);
+        BundleVO bundleVO = bundleService.getBundleById(id);
+        return Result.success(bundleVO);
     }
 
     /**
@@ -68,20 +67,20 @@ public class SetmealController {
     @CacheEvict(cacheNames = "setmealCache", allEntries = true)
     public Result onOff(@PathVariable Integer id){
         log.info("套餐id:{}", id);
-        setmealService.onOff(id);
+        bundleService.onOff(id);
         return Result.success();
     }
 
     /**
      * 修改套餐
-     * @param setmealDTO
+     * @param bundleDTO
      * @return
      */
     @PutMapping
     @CacheEvict(cacheNames = "setmealCache", allEntries = true)
-    public Result update(@RequestBody SetmealDTO setmealDTO){
-        log.info("修改后的套餐信息：{}", setmealDTO);
-        setmealService.update(setmealDTO);
+    public Result update(@RequestBody BundleDTO bundleDTO){
+        log.info("修改后的套餐信息：{}", bundleDTO);
+        bundleService.update(bundleDTO);
         return Result.success();
     }
 
@@ -94,7 +93,7 @@ public class SetmealController {
     @CacheEvict(cacheNames = "setmealCache", allEntries = true)
     public Result deleteBatch(@RequestParam List<Integer> ids){
         log.info("批量删除套餐的套餐id集合：{}", ids);
-        setmealService.deleteBatch(ids);
+        bundleService.deleteBatch(ids);
         return Result.success();
     }
 

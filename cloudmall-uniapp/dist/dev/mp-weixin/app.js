@@ -33,7 +33,7 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
     };
   }
 });
-const App = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "H:/DevAsh/cloudmall/cloudmall-uniapp/src/App.vue"]]);
+const App = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "C:/Users/reverie/Desktop/course/软件工程/cloudmall/cloudmall-uniapp/src/App.vue"]]);
 const pinia = common_vendor.createPinia();
 pinia.use(common_vendor.src_default);
 function createApp() {

@@ -29,6 +29,7 @@ public class UserController {
     @PostMapping("/login")
     public Result<UserLoginVO> login(@RequestBody UserLoginDTO userLoginDTO){
         log.info("用户传过来的登录信息：{}", userLoginDTO);
+
         User user = userService.wxLogin(userLoginDTO);
 
         // 上面的没抛异常，正常来到这里，说明登录成功

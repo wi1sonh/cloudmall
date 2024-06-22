@@ -241,5 +241,5 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
     };
   }
 });
-const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-06210029"], ["__file", "H:/DevAsh/cloudmall/cloudmall-uniapp/src/pages/addOrEditAddress/addOrEditAddress.vue"]]);
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-06210029"], ["__file", "C:/Users/reverie/Desktop/course/软件工程/cloudmall/cloudmall-uniapp/src/pages/addOrEditAddress/addOrEditAddress.vue"]]);
 wx.createPage(MiniProgramPage);

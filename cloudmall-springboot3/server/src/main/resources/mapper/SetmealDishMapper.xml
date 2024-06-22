@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="fun.cmgraph.mapper.SetmealDishMapper">
+<mapper namespace="fun.cmgraph.mapper.BundleProductMapper">
 
 
     <insert id="insertBatch">
         insert into setmeal_dish (name, price, copies, dish_id, setmeal_id) VALUES
-        <foreach collection="setmealDishes" item="dish" separator=",">
-            (#{dish.name}, #{dish.price}, #{dish.copies}, #{dish.dishId}, #{dish.setmealId})
+        <foreach collection="bundleProducts" item="product" separator=",">
+            (#{product.name}, #{product.price}, #{product.copies}, #{product.dishId}, #{product.setmealId})
         </foreach>
     </insert>
 

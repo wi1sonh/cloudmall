@@ -1,9 +1,9 @@
 package fun.cmgraph.service;
 
 import fun.cmgraph.vo.BusinessDataVO;
-import fun.cmgraph.vo.DishOverViewVO;
+import fun.cmgraph.vo.ProductOverViewVO;
 import fun.cmgraph.vo.OrderOverViewVO;
-import fun.cmgraph.vo.SetmealOverViewVO;
+import fun.cmgraph.vo.BundleOverViewVO;
 
 import java.time.LocalDateTime;
 
@@ -12,7 +12,7 @@ public interface WorkSpaceService {
 
     OrderOverViewVO getOrderOverView();
 
-    DishOverViewVO getDishOverView();
+    ProductOverViewVO getDishOverView();
 
-    SetmealOverViewVO getSetmealOverView();
+    BundleOverViewVO getSetmealOverView();
 }

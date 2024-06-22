@@ -15,7 +15,7 @@ import java.io.Serializable;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class SetmealOverViewVO implements Serializable{
+public class BundleOverViewVO implements Serializable{
 
     private Integer sold; // 已启售数量
     private Integer discontinued; // 已停售数量

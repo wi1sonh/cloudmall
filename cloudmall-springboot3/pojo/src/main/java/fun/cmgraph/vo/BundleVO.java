@@ -1,19 +1,20 @@
-package fun.cmgraph.dto;
+package fun.cmgraph.vo;
 
-import fun.cmgraph.entity.DishFlavor;
+import fun.cmgraph.entity.BundleProduct;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class DishDTO implements Serializable {
+public class BundleVO implements Serializable {
 
     private Integer id;
     private String name;
@@ -22,7 +23,9 @@ public class DishDTO implements Serializable {
     private BigDecimal price;
     private String status;
     private Integer categoryId;
-    // 多种口味，包括温度，忌口等(每种口味又对应一个列表)，且数据在口味表中而不是在Dish里，口味表有外键关联Dish
-    private List<DishFlavor> flavors = new ArrayList<>();
+    // 修改事件要记录，就比DTO多了这个字段而已
+    private LocalDateTime updateTime;
+    // 当前套餐包含的多种菜品
+    private List<BundleProduct> bundleProducts = new ArrayList<>();
 
 }

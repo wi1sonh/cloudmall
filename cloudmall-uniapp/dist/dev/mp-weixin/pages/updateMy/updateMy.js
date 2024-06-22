@@ -133,5 +133,5 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
     };
   }
 });
-const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-cb595a61"], ["__file", "H:/DevAsh/cloudmall/cloudmall-uniapp/src/pages/updateMy/updateMy.vue"]]);
+const MiniProgramPage = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__scopeId", "data-v-cb595a61"], ["__file", "C:/Users/reverie/Desktop/course/软件工程/cloudmall/cloudmall-uniapp/src/pages/updateMy/updateMy.vue"]]);
 wx.createPage(MiniProgramPage);

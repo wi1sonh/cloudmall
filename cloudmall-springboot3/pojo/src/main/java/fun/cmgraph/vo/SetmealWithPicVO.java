@@ -1,7 +1,6 @@
 package fun.cmgraph.vo;
 
-import fun.cmgraph.entity.SetmealDish;
-import fun.cmgraph.entity.SetmealDishWithPic;
+import fun.cmgraph.entity.BundleProductWithPic;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -27,6 +26,6 @@ public class SetmealWithPicVO implements Serializable {
     // 修改事件要记录，就比DTO多了这个字段而已
     private LocalDateTime updateTime;
     // 当前套餐包含的多种菜品
-    private List<SetmealDishWithPic> setmealDishes = new ArrayList<>();
+    private List<BundleProductWithPic> setmealDishes = new ArrayList<>();
 
 }

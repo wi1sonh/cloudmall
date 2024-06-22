@@ -33,6 +33,7 @@ const loginFn = async () => {
   if (valid) {
     // 调用登录接口
     const { data: res } = await loginAPI(form.value)
+    console.log('登录接口返回的数据')
     console.log(res)
     // 登录失败，提示用户，这个提示已经在响应拦截器中统一处理了，这里直接return就行
     if (res.code !== 0) {

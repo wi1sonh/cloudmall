@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SetmealDishWithPic implements Serializable {
+public class BundleProductWithPic implements Serializable {
 
     private Integer id;
     private String name;

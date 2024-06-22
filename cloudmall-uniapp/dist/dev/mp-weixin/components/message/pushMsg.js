@@ -32,7 +32,7 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
     return (_ctx, _cache) => {
       return {
         a: common_vendor.o(confirm),
-        b: common_vendor.sr(popup, "aebd8b14-0", {
+        b: common_vendor.sr(popup, "6f501330-0", {
           "k": "popup"
         }),
         c: common_vendor.p({
@@ -43,5 +43,5 @@ const _sfc_main = /* @__PURE__ */ common_vendor.defineComponent({
     };
   }
 });
-const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "H:/DevAsh/cloudmall/cloudmall-uniapp/src/components/message/pushMsg.vue"]]);
+const Component = /* @__PURE__ */ common_vendor._export_sfc(_sfc_main, [["__file", "C:/Users/reverie/Desktop/course/软件工程/cloudmall/cloudmall-uniapp/src/components/message/pushMsg.vue"]]);
 wx.createComponent(Component);

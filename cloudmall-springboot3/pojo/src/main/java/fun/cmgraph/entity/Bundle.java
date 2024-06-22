@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Setmeal implements Serializable {
+public class Bundle implements Serializable {
 
     private Integer id;
     private String name;

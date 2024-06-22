@@ -1,4 +1,4 @@
-package fun.cmgraph.vo;
+package fun.cmgraph.dto;
 
 import fun.cmgraph.entity.DishFlavor;
 import lombok.AllArgsConstructor;
@@ -7,17 +7,13 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 由于根据菜品id查询出来的dish不够，还要有对应的口味信息，因此把返回的数据封装成VO进行规范化处理
- */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class DishVO implements Serializable {
+public class ProductDTO implements Serializable {
 
     private Integer id;
     private String name;
@@ -26,7 +22,7 @@ public class DishVO implements Serializable {
     private BigDecimal price;
     private String status;
     private Integer categoryId;
-    // 修改了数据，要返回更新时间的字段
-    private LocalDateTime updateTime;
+    // 多种口味，包括温度，忌口等(每种口味又对应一个列表)，且数据在口味表中而不是在Dish里，口味表有外键关联Dish
     private List<DishFlavor> flavors = new ArrayList<>();
+
 }

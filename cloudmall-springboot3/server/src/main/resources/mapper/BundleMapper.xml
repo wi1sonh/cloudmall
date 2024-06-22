@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="fun.cmgraph.mapper.SetmealMapper">
+<mapper namespace="fun.cmgraph.mapper.BundleMapper">
 
     <insert id="addSetmeal" useGeneratedKeys="true" keyProperty="id">
         insert into setmeal (name, pic, detail, price, category_id, create_user, update_user, create_time, update_time)
@@ -33,7 +33,7 @@
         </foreach>
     </delete>
 
-    <select id="getPageList" resultType="fun.cmgraph.entity.Setmeal">
+    <select id="getPageList" resultType="fun.cmgraph.entity.Bundle">
         select * from setmeal
         <where>
             <if test="name != null and name != ''">
@@ -48,7 +48,7 @@
         </where>
     </select>
 
-    <select id="getList" resultType="fun.cmgraph.entity.Setmeal">
+    <select id="getList" resultType="fun.cmgraph.entity.Bundle">
         select * from setmeal
         <where>
             <if test="name != null and name != ''">

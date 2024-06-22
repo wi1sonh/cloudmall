@@ -9,7 +9,7 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class DishItemVO implements Serializable {
+public class ProductItemVO implements Serializable {
 
     private String name;
     private String pic;

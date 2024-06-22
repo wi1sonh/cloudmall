@@ -1,16 +1,15 @@
 package fun.cmgraph.service.serviceImpl;
 
-import fun.cmgraph.entity.Dish;
 import fun.cmgraph.entity.Order;
-import fun.cmgraph.mapper.DishMapper;
+import fun.cmgraph.mapper.ProductMapper;
 import fun.cmgraph.mapper.OrderMapper;
-import fun.cmgraph.mapper.SetmealMapper;
+import fun.cmgraph.mapper.BundleMapper;
 import fun.cmgraph.mapper.UserMapper;
 import fun.cmgraph.service.WorkSpaceService;
 import fun.cmgraph.vo.BusinessDataVO;
-import fun.cmgraph.vo.DishOverViewVO;
+import fun.cmgraph.vo.ProductOverViewVO;
 import fun.cmgraph.vo.OrderOverViewVO;
-import fun.cmgraph.vo.SetmealOverViewVO;
+import fun.cmgraph.vo.BundleOverViewVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,9 +26,9 @@ public class WorkSpaceServiceImpl implements WorkSpaceService {
     @Autowired
     private OrderMapper orderMapper;
     @Autowired
-    private DishMapper dishMapper;
+    private ProductMapper productMapper;
     @Autowired
-    private SetmealMapper setmealMapper;
+    private BundleMapper bundleMapper;
 
     /**
      * 工作台今日数据总览
@@ -110,13 +109,13 @@ public class WorkSpaceServiceImpl implements WorkSpaceService {
      * 菜品总览
      * @return
      */
-    public DishOverViewVO getDishOverView() {
+    public ProductOverViewVO getDishOverView() {
         /**
          * 已起售 已停售
          */
-        Integer on = dishMapper.getByStatus(1);
-        Integer off = dishMapper.getByStatus(0);
-        return DishOverViewVO.builder()
+        Integer on = productMapper.getByStatus(1);
+        Integer off = productMapper.getByStatus(0);
+        return ProductOverViewVO.builder()
                 .sold(on)
                 .discontinued(off)
                 .build();
@@ -126,13 +125,13 @@ public class WorkSpaceServiceImpl implements WorkSpaceService {
      * 套餐总览
      * @return
      */
-    public SetmealOverViewVO getSetmealOverView() {
+    public BundleOverViewVO getSetmealOverView() {
         /**
          * 已起售 已停售
          */
-        Integer on = setmealMapper.getByStatus(1);
-        Integer off = setmealMapper.getByStatus(0);
-        return SetmealOverViewVO.builder()
+        Integer on = bundleMapper.getByStatus(1);
+        Integer off = bundleMapper.getByStatus(0);
+        return BundleOverViewVO.builder()
                 .sold(on)
                 .discontinued(off)
                 .build();

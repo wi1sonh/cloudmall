@@ -116,6 +116,12 @@ const delete_btn = (row: any) => {
       })
     })
 }
+
+// 根据列表内容返回格式化日期
+const formatDateTime = (time: any) => {
+  const [year, month, day, hour, minute, second] = time
+  return `${year}-${month}-${day} ${hour}:${minute}:${second}`
+}
 </script>
 
 <template>
@@ -135,7 +141,11 @@ const delete_btn = (row: any) => {
       <el-table-column prop="account" label="账号" align="center" />
       <el-table-column prop="phone" label="手机号" width="120px" align="center" />
       <el-table-column prop="age" label="年龄" align="center" />
-      <el-table-column prop="gender" label="性别" align="center" />
+      <el-table-column prop="gender" label="性别" align="center">
+        <template #default="scope">
+          <span>{{ scope.row.gender === 1 ? '男' : '女' }}</span>
+        </template>
+      </el-table-column>
       <el-table-column prop="pic" label="头像" align="center">
         <template #default="scope">
           <img v-if="scope.row.pic" :src="scope.row.pic" alt="" />
@@ -149,7 +159,11 @@ const delete_btn = (row: any) => {
           </el-tag>
         </template>
       </el-table-column>
-      <el-table-column prop="updateTime" label="上次操作时间" width="120px" align="center" />
+      <el-table-column prop="updateTime" label="上次操作时间" width="120px" align="center">
+        <template #default="scope">
+          {{ formatDateTime(scope.row.updateTime) }}
+        </template>
+      </el-table-column>
       <el-table-column label="操作" width="200px" align="center">
         <!-- scope 的父组件是 el-table -->
         <template #default="scope">

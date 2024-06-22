@@ -1,8 +1,6 @@
 package fun.cmgraph.dto;
 
-import fun.cmgraph.entity.Dish;
-import fun.cmgraph.entity.DishFlavor;
-import fun.cmgraph.entity.SetmealDish;
+import fun.cmgraph.entity.BundleProduct;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,7 +13,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class SetmealDTO implements Serializable {
+public class BundleDTO implements Serializable {
 
     private Integer id;
     private String name;
@@ -25,6 +23,6 @@ public class SetmealDTO implements Serializable {
     private String status;
     private Integer categoryId;
     // 当前套餐包含的多种菜品
-    private List<SetmealDish> setmealDishes = new ArrayList<>();
+    private List<BundleProduct> bundleProducts = new ArrayList<>();
 
 }

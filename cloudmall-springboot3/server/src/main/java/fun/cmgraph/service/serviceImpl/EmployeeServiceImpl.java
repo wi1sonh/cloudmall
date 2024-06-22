@@ -3,6 +3,7 @@ package fun.cmgraph.service.serviceImpl;
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
 import fun.cmgraph.constant.MessageConstant;
+import fun.cmgraph.constant.StatusConstant;
 import fun.cmgraph.context.BaseContext;
 import fun.cmgraph.dto.EmployeeDTO;
 import fun.cmgraph.dto.EmployeeFixPwdDTO;
@@ -129,7 +130,7 @@ public class EmployeeServiceImpl implements EmployeeService {
         Employee employee = new Employee();
         BeanUtils.copyProperties(employeeDTO, employee);
         // 为user其他字段填充默认值
-        employee.setStatus(1);
+        employee.setStatus(StatusConstant.ENABLE);
         employeeMapper.addEmployee(employee);
     }
 
