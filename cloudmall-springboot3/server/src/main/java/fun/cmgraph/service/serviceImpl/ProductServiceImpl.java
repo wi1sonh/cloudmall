@@ -56,8 +56,8 @@ public class ProductServiceImpl implements ProductService {
 
     /**
      * 根据条件page信息分页查询商品
-     * @param productPageDTO
-     * @return
+     * @param productPageDTO 商品分页查询条件
+     * @return PageResult
      */
     public PageResult getPageList(ProductPageDTO productPageDTO) {
         PageHelper.startPage(productPageDTO.getPage(), productPageDTO.getPageSize());

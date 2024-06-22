@@ -50,12 +50,6 @@ const options = [
   }
 ]
 
-// 根据列表内容返回格式化日期
-const formatDateTime = (time: any) => {
-  const [year, month, day, hour, minute, second] = time
-  return `${year}-${month}-${day} ${hour}:${minute}:${second}`
-}
-
 // ------ 方法 ------
 
 // 页面初始化
@@ -227,11 +221,7 @@ const deleteBatch = (row?: any) => {
           {{ categoryList.find(item => item.id === scope.row.categoryId)?.name }}
         </template>
       </el-table-column>
-      <el-table-column prop="updateTime" label="上次操作时间" width="180px" align="center" >
-        <template #default="scope">
-          {{ formatDateTime(scope.row.updateTime) }}
-        </template>
-      </el-table-column>
+      <el-table-column prop="updateTime" label="上次操作时间" width="180px" align="center" />
       <el-table-column label="操作" width="200px" align="center">
         <template #default="scope">
           <el-button @click="to_add_update(scope.row)" type="primary">修改</el-button>

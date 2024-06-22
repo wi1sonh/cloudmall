@@ -38,12 +38,6 @@ const options = [
   }
 ]
 
-// 根据列表内容返回格式化日期
-const formatDateTime = (time: any) => {
-  const [year, month, day, hour, minute, second] = time
-  return `${year}-${month}-${day} ${hour}:${minute}:${second}`
-}
-
 // ------ 方法 ------
 
 // 页面初始化，就根据token去获取用户信息，才能实现如果没有token/token过期，刚开始就能够跳转到登录页
@@ -162,11 +156,7 @@ const delete_btn = (row: any) => {
           </el-tag>
         </template>
       </el-table-column>
-      <el-table-column prop="updateTime" label="上次操作时间" width="250px" style="font-size: 10px;" align="center">
-        <template #default="scope">
-          <span>{{ formatDateTime(scope.row.updateTime) }}</span>
-        </template>
-      </el-table-column>
+      <el-table-column prop="updateTime" label="上次操作时间" width="250px" style="font-size: 10px;" align="center" />
       <el-table-column label="操作" width="250px" align="center">
         <!-- scope 的父组件是 el-table -->
         <template #default="scope">

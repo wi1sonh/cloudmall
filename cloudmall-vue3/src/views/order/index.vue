@@ -301,12 +301,6 @@ const getOrderType = (row: any) => {
   }
 }
 
-// 根据列表内容返回格式化日期
-const formatDateTime = (time: any) => {
-  const [year, month, day, hour, minute, second] = time
-  return `${year}-${month}-${day} ${hour}:${minute}:${second}`
-}
-
 // init不够，还得在mounted里面再执行一遍，获取订单统计才行！
 init(Number(route.query.status) || 0)
 onMounted(async () => {
@@ -362,25 +356,13 @@ onMounted(async () => {
         <el-table-column v-if="[0, 2, 3, 4, 5, 6].includes(orderStatus)" key="address" prop="address" label="地址"
           :class-name="orderStatus === 6 ? 'address' : ''" />
         <el-table-column v-if="[0, 6].includes(orderStatus)" key="orderTime" prop="orderTime" label="下单时间"
-          class-name="orderTime" min-width="110">
-          <template v-slot="{ row }">
-            <span>{{ formatDateTime(row.orderTime) }}</span>
-          </template>
-        </el-table-column>
+          class-name="orderTime" min-width="110" />
         <el-table-column v-if="[6].includes(orderStatus)" key="cancelTime" prop="cancelTime" class-name="cancelTime"
-          label="取消时间" min-width="110">
-          <template v-slot="{ row }">
-            <span>{{ formatDateTime(row.cancelTime) }}</span>
-          </template>
-        </el-table-column>
+          label="取消时间" min-width="110" />
         <el-table-column v-if="[6].includes(orderStatus)" key="cancelReason" prop="cancelReason" label="取消原因"
           class-name="cancelReason" :min-width="[6].includes(orderStatus) ? 80 : 'auto'" />
         <el-table-column v-if="[5].includes(orderStatus)" key="deliveryTime" prop="deliveryTime" label="送达时间"
-          class-name="deliveryTime" min-width="110">
-          <template v-slot="{ row }">
-            <span>{{ formatDateTime(row.deliveryTime) }}</span>
-          </template>
-        </el-table-column>
+          class-name="deliveryTime" min-width="110"/>
         <el-table-column v-if="[2, 3, 4].includes(orderStatus)" key="estimatedDeliveryTime" prop="estimatedDeliveryTime"
           label="预计送达时间" min-width="110" align="center" />
         <el-table-column v-if="[0, 2, 5].includes(orderStatus)" key="amount" prop="amount" label="实收金额" align="center">
