@@ -59,17 +59,17 @@
             </view>
           </view>
         </view>
-        <!-- 2、备注+餐具份数+发票 -->
+        <!-- 2、备注+购物袋份数+发票 -->
         <view class="order_list">
           <view class="bottom_text" @click="goRemark">
             <view class="text_left">备注</view>
-            <view class="text_right">{{ remark || '选择口味等' }}</view>
+            <view class="text_right">{{ remark || '选择商品规模等' }}</view>
             <view class="right_image">
               <image class="to_right" src="../../static/icon/toRight.png"></image>
             </view>
           </view>
           <view class="bottom_text" @click="chooseCooker">
-            <view class="text_left">餐具份数</view>
+            <view class="text_left">购物袋份数</view>
             <view class="text_right">{{ getCookerInfo() }}</view>
             <view class="right_image">
               <image class="to_right" src="../../static/icon/toRight.png"></image>
@@ -98,12 +98,12 @@
     </view>
     <view class="mask-box"></view>
 
-    <!-- 选择餐具遮罩层 -->
+    <!-- 选择购物袋遮罩层 -->
     <view class="pop_mask" v-show="openCooker" @click="openCooker = !openCooker">
       <view class="cook_pop" @click.stop="openCooker = openCooker">
         <view class="top_title">
-          <view class="title"> 选择餐具份数 </view>
-          <view class="tips"> 应监管条例要求，商家不能主动提供一次性餐具 </view>
+          <view class="title"> 选择购物袋份数 </view>
+          <view class="tips"> 应监管条例要求，商家不能主动提供一次性购物袋 </view>
           <view class="close" @click="closeMask">
             <image src="../../static/icon/close.png" class="close_img" />
           </view>
@@ -111,15 +111,15 @@
         <picker-view class="picker" indicator-style="height: 50px;" :value="cookers" @change="pickerChange">
           <picker-view-column>
             <view v-for="item in cookers" :key="item" style="line-height: 50px; text-align: center">
-              {{ item === -1 ? '无需餐具' : item === 0 ? '商家依据餐量提供' : item === 11 ? '10份以上' : item + '份' }}
+              {{ item === -1 ? '无需购物袋' : item === 0 ? '商家依据商品数量提供' : item === 11 ? '10份以上' : item + '份' }}
             </view>
           </picker-view-column>
         </picker-view>
         <view class="comfirm">
           <view class="after_action">
             <label class="checkbox">
-              <radio class="radio" color="#00aaff" value="cb" :checked="radioStatus" @click="radioChange" />
-              {{ cookerNum === -2 || cookerNum === -1 ? '以后都无需餐具' : '以后都需要餐具，商家依据餐量提供' }}
+              <radio class="radio" color="#00aa00" value="cb" :checked="radioStatus" @click="radioChange" />
+              {{ cookerNum === -2 || cookerNum === -1 ? '以后都无需购物袋' : '以后都需要购物袋，商家依据商品数量提供' }}
             </label>
             <button class="comfirm_btn" @click="openCooker = !openCooker">确定</button>
           </view>
@@ -200,10 +200,10 @@ onLoad(async (options: any) => {
   await getCartList()
   // 获取一小时以后的时间，作为预计送达的时间
   getHarfAnOur()
-  // 默认选择的餐具状态
-  if (store.defaultCook === '无需餐具') {
+  // 默认选择的购物袋状态
+  if (store.defaultCook === '无需购物袋') {
     cookerNum.value = -1
-  } else if (store.defaultCook === '商家依据餐量提供') {
+  } else if (store.defaultCook === '商家依据商品数量提供') {
     cookerNum.value = 0
   }
 })
@@ -297,15 +297,15 @@ const goRemark = () => {
     url: '/pages/remark/remark',
   })
 }
-// 选择餐具
+// 选择购物袋
 const chooseCooker = () => {
   openCooker.value = true
 }
-// 餐具对应信息
+// 购物袋对应信息
 const getCookerInfo = () => {
   if (cookerNum.value === -2) return '请依据实际情况填写，避免浪费'
-  else if (cookerNum.value === -1) return '无需餐具'
-  else if (cookerNum.value === 0) return '商家依据餐量提供'
+  else if (cookerNum.value === -1) return '无需购物袋'
+  else if (cookerNum.value === 0) return '商家依据商品数量提供'
   else if (cookerNum.value === 11) return '10份以上'
   else return cookerNum.value + '份'
 }
@@ -313,11 +313,11 @@ const pickerChange = (ev: any) => {
   console.log(ev.detail.value)
   cookerNum.value = ev.detail.value[0] - 1
 }
-// 改变radio状态，顺便改变store里默认餐具选择的状态
+// 改变radio状态，顺便改变store里默认购物袋选择的状态
 const radioChange = () => {
   radioStatus.value = !radioStatus.value
   if (radioStatus.value) {
-    store.defaultCook = cookerNum.value === -1 ? '无需餐具' : '商家依据餐量提供'
+    store.defaultCook = cookerNum.value === -1 ? '无需购物袋' : '商家依据商品数量提供'
   } else {
     store.defaultCook = '请依据实际情况填写，避免浪费'
   }
@@ -347,10 +347,10 @@ const payOrderHandle = async () => {
     })
     return false
   }
-  // 餐具： -2未选择，-1无需餐具，0商家依据餐量提供，其他数字具体数量
+  // 购物袋： -2未选择，-1无需购物袋，0商家依据商品数量提供，其他数字具体数量
   if (cookerNum.value === -2) {
     uni.showToast({
-      title: '请选择餐具份数',
+      title: '请选择购物袋份数',
       icon: 'none',
     })
     return false
@@ -361,8 +361,8 @@ const payOrderHandle = async () => {
     remark: remark.value,
     estimatedDeliveryTime: estimatedDeliveryTime.value, // 预计到达时间
     deliveryStatus: 1, // 立即送出
-    tablewareNumber: cookerNum.value, // 餐具份数
-    tablewareStatus: cookerNum.value === 0 ? 1 : 0, // 餐具状态: 1按餐量提供，0选择具体数量
+    tablewareNumber: cookerNum.value, // 购物袋份数
+    tablewareStatus: cookerNum.value === 0 ? 1 : 0, // 购物袋状态: 1按商品数量提供，0选择具体数量
     packAmount: CartAllNumber.value,
     amount: CartAllPrice.value,
   }
@@ -402,7 +402,7 @@ const payOrderHandle = async () => {
   justify-content: center;
   padding: 20rpx 0 0 0;
   position: relative;
-  background-color: #cceeff;
+  background-color: #dbfbdf;
   .order_content_box {
     width: 100%;
     height: 100%;
@@ -832,7 +832,7 @@ const payOrderHandle = async () => {
         // flex: 1;
         width: 200rpx;
         border-radius: 72rpx;
-        background: #22bbff;
+        background: #00b10c;
         font-size: 30rpx;
         font-family: PingFangSC, PingFangSC-Medium;
         font-weight: 500;

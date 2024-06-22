@@ -47,15 +47,15 @@ const dialogOrderStatus = ref(0) //弹窗所需订单状态，用于详情展示
 // 拒单原因列表
 const rejectReasonList = reactive([
   { value: 1, label: '订单量较多，暂时无法接单', },
-  { value: 2, label: '菜品已销售完，暂时无法接单', },
-  { value: 3, label: '餐厅已打烊，暂时无法接单', },
+  { value: 2, label: '商品已销售完，暂时无法接单', },
+  { value: 3, label: '小店已打烊，暂时无法接单', },
   { value: 0, label: '自定义原因', },
 ])
 // 取消订单原因列表
 const cancelrReasonList = reactive([
   { value: 1, label: '订单量较多，暂时无法接单' },
-  { value: 2, label: '菜品已销售完，暂时无法接单', },
-  { value: 3, label: '骑手不足无法配送', },
+  { value: 2, label: '商品已销售完，暂时无法接单', },
+  { value: 3, label: '快递小哥不足无法派送', },
   { value: 4, label: '客户电话取消', },
   { value: 0, label: '自定义原因', },
 ])
@@ -391,9 +391,9 @@ onMounted(async () => {
         <el-table-column v-if="[2, 3, 4, 5].includes(orderStatus)" key="remark" prop="remark" label="备注"
           align="center" />
         <el-table-column v-if="[2, 3, 4].includes(orderStatus)" key="tablewareNumber" prop="tablewareNumber"
-          label="餐具数量" align="center" min-width="80">
+          label="购物袋数量" align="center" min-width="80">
           <template #default="scope">
-            {{ scope.row.tablewareNumber === -1 ? '无需餐具' : scope.row.tablewareNumber === 0 ? '按餐量提供' :
+            {{ scope.row.tablewareNumber === -1 ? '无需购物袋' : scope.row.tablewareNumber === 0 ? '按商品数量提供' :
             scope.row.tablewareNumber }}
           </template>
         </el-table-column>

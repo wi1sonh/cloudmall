@@ -45,7 +45,7 @@ const user = reactive({
 const items = [
   {
     value: 1,
-    name: '男士',
+    name: '先生',
   },
   {
     value: 0,
@@ -62,7 +62,7 @@ const getUserInfo = async (id: number) => {
   const res = await getUserInfoAPI(id)
   console.log('用户信息', res)
   user.name = res.data.name as string
-  user.gender = res.data.gender ?? 1 // 之前没设置就默认男士
+  user.gender = res.data.gender ?? 1 // 之前没设置就默认先生
   user.phone = res.data.phone as string
   user.pic = res.data.pic as string
   console.log('user', user)
@@ -217,7 +217,7 @@ const submit = async () => {
     height: 80rpx;
     line-height: 80rpx;
     border-radius: 40rpx;
-    background: #22ccff;
+    background: #00c160;
     border: none;
     color: #fff;
     font-size: 30rpx;

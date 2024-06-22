@@ -19,7 +19,7 @@
               </view>
               <!-- 性别及手机号 -->
               <view class="sale">
-                <text class="name">{{ item.gender === 1 ? item.consignee + ' 男士' : item.consignee + ' 女士' }}</text>
+                <text class="name">{{ item.gender === 1 ? item.consignee + ' 先生' : item.consignee + ' 女士' }}</text>
                 <text class="num">{{ item.phone }}</text>
               </view>
             </view>
@@ -35,7 +35,7 @@
               <radio
                 class="item_radio"
                 v-if="testValue"
-                color="#22ccff"
+                color="#55aa00"
                 :value="String(item.id)"
                 :checked="item.isDefault === 1"
                 @click.stop="getRadio(index, item)"
@@ -344,8 +344,8 @@ const getRadio = async (e: any, item: any) => {
       height: 72rpx;
       line-height: 72rpx;
       border-radius: 72rpx;
-      background: #22ccff;
-      border: 1px solid #22ccff;
+      background: #00a455;
+      border: 1px solid #009327;
       opacity: 1;
       font-size: 30rpx;
       font-family: PingFangSC, PingFangSC-Medium;

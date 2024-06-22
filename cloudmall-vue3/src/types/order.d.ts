@@ -30,8 +30,8 @@ export type Order = {
   deliveryStatus: number // 配送状态  1立即送出  0选择具体时间
   deliveryTime: Date // 送达时间
   packAmount: number // 打包费
-  tablewareNumber: number // 餐具数量
-  tablewareStatus: number // 餐具数量状态  1按餐量提供  0选择具体数量
+  tablewareNumber: number // 购物袋数量
+  tablewareStatus: number // 购物袋数量状态  1按商品数量提供  0选择具体数量
 }
 
 // 订单详细商品信息

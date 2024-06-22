@@ -59,6 +59,6 @@ public class Order implements Serializable {
     private Integer deliveryStatus; // 配送状态  1立即送出  0选择具体时间
     private LocalDateTime deliveryTime; // 送达时间
     private int packAmount; // 打包费
-    private int tablewareNumber; // 餐具数量
-    private Integer tablewareStatus; // 餐具数量状态  1按餐量提供  0选择具体数量
+    private int tablewareNumber; // 购物袋数量
+    private Integer tablewareStatus; // 购物袋数量状态  1按商品数量提供  0选择具体数量
 }

@@ -433,13 +433,13 @@ const submitOrder = () => {
     margin: 10rpx 20rpx 10rpx 0;
     padding: 10rpx;
     display: inline-block;
-    border: #00aaff 1rpx solid;
+    border: #00c14d 1rpx solid;
     border-radius: 20rpx;
     text-align: center;
     font-size: 20rpx;
   }
   .active {
-    background-color: #00aaff;
+    background-color: #00ff62;
     color: #fff;
   }
 
@@ -449,7 +449,7 @@ const submitOrder = () => {
     right: 30rpx;
     width: 150rpx;
     height: 50rpx;
-    background-color: #00aaff;
+    background-color: #00ff0d;
     color: #fff;
     font-size: 20rpx;
     text-align: center;
@@ -750,7 +750,7 @@ const submitOrder = () => {
     text-align: center;
     font-weight: bold;
     margin-top: 8rpx;
-    background: #00aaff;
+    background: #00862b;
   }
 }
 

@@ -51,9 +51,9 @@
                 </div>
               </template>
             </el-table-column>
-            <el-table-column prop="tablewareNumber" label="餐具数量" min-width="80" align="center" v-if="status === 3">
+            <el-table-column prop="tablewareNumber" label="购物袋数量" min-width="80" align="center" v-if="status === 3">
               <template #default="scope">
-                {{ scope.row.tablewareNumber === -1 ? '无需餐具' : scope.row.tablewareNumber === 0 ? '按餐量提供' :
+                {{ scope.row.tablewareNumber === -1 ? '无需购物袋' : scope.row.tablewareNumber === 0 ? '按商品数量提供' :
                   scope.row.tablewareNumber }}
               </template>
             </el-table-column>
@@ -279,7 +279,7 @@ const rejectReasonList = reactive([
 const cancelrReasonList = reactive([
   { value: 1, label: '订单量较多，暂时无法接单' },
   { value: 2, label: '商品已销售完，暂时无法接单', },
-  { value: 3, label: '骑手不足无法配送', },
+  { value: 3, label: '快递小哥不足无法派送', },
   { value: 4, label: '客户电话取消', },
   { value: 0, label: '自定义原因', },
 ])

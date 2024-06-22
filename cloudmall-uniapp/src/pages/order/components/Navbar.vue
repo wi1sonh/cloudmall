@@ -5,10 +5,10 @@
     <view class="logo">
       <image class="back" src="@/static/icon/back.png" @tap="back"></image>
       <image class="brand" src="@/static/images/logo.png"></image>
-      <text class="logo-text">REVERSE · 启动</text>
+      <text class="logo-text">一站式购物 · 一触即达！</text>
     </view>
     <view class="logo">
-      <text class="logo-text">blank</text>
+      <text class="logo-text">欢迎光临云端商城~</text>
     </view>
   </view>
   <!-- 商店简介 -->
@@ -16,7 +16,7 @@
     <view class="info1">
       <view class="status">{{ status === true ? '营业中' : '打烊中' }}</view>
       <uni-icons custom-prefix="iconfont" type="icon-qian" size="15"></uni-icons>
-      <text class="price">配送费2元</text>
+      <text class="price">配送费6元</text>
     </view>
     <view class="info2">
       <text class="address">商店地址：广州市番禺区大学城外环东路132号</text>
@@ -55,7 +55,8 @@ const phone = () => {
 <style lang="less" scoped>
 /* 自定义导航条 */
 .navbar {
-  background-image: url(@/static/images/navigator_bg.png);
+  // background-image: url(@/static/images/navigator_bg.png);
+  background-color: #00892e;
   background-size: cover;
   position: relative;
   display: flex;
@@ -112,7 +113,7 @@ const phone = () => {
     padding: 5rpx;
     border-radius: 5rpx;
     font-size: 25rpx;
-    background-color: #0d8;
+    background-color: rgb(0, 175, 108);
     color: #fff;
   }
   .price {

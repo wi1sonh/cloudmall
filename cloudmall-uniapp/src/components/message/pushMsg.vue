@@ -6,7 +6,7 @@
       <view class="tip-img">
         <image src="../../static/images/success.png"></image>
       </view>
-      <view class="tip-info"> 37已成功帮你催单~ </view>
+      <view class="tip-info"> 已成功帮您催单~ </view>
       <view class="sure" @click="confirm"> 确定 </view>
     </view>
   </uni-popup>

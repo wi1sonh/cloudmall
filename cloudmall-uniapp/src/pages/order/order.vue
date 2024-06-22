@@ -446,13 +446,13 @@ onShow(async () => {
       margin: 10rpx 20rpx 10rpx 0;
       padding: 10rpx;
       display: inline-block;
-      border: #00aaff 1rpx solid;
+      border: #009d15 1rpx solid;
       border-radius: 20rpx;
       text-align: center;
       font-size: 20rpx;
     }
     .active {
-      background-color: #00aaff;
+      background-color: #009360;
       color: #fff;
     }
 
@@ -462,7 +462,7 @@ onShow(async () => {
       right: 30rpx;
       width: 150rpx;
       height: 50rpx;
-      background-color: #00aaff;
+      background-color: #00852a;
       color: #fff;
       font-size: 20rpx;
       text-align: center;
@@ -805,7 +805,7 @@ onShow(async () => {
     text-align: center;
     font-weight: bold;
     margin-top: 8rpx;
-    background: #00aaff;
+    background: #009d25;
   }
 }
 
