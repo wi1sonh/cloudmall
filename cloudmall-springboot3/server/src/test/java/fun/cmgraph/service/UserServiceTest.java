@@ -1,15 +1,14 @@
 package fun.cmgraph.service;
 
-import fun.cmgraph.properties.WeChatProperties;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-
 import static org.mockito.Mockito.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import fun.cmgraph.properties.WeChatProperties;
 import fun.cmgraph.dto.*;
 import fun.cmgraph.utils.HttpClientUtil;
 import fun.cmgraph.entity.User;

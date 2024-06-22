@@ -16,12 +16,12 @@ import java.util.List;
 public interface BundleMapper {
 
     @AutoFill(OperationType.INSERT)
-    void addSetmeal(Bundle bundle);
+    void addBundle(Bundle bundle);
 
     Page<Bundle> getPageList(BundlePageDTO bundlePageDTO);
 
     @Select("select * from setmeal where id = #{id}")
-    Bundle getSetmealById(Integer id);
+    Bundle getBundleById(Integer id);
 
     @Update("update setmeal set status = IF(status = 1, 0, 1) where id = #{id}")
     void onOff(Integer id);
@@ -36,7 +36,7 @@ public interface BundleMapper {
     @Select("select s.name, s.pic, s.detail, sd.copies from " +
             "setmeal s left join setmeal_dish sd on s.id = sd.dish_id " +
             "where sd.setmeal_id = #{id}")
-    List<ProductItemVO> getSetmealDishesById(Integer id);
+    List<ProductItemVO> getBundleProductsById(Integer id);
 
     @Select("select count(id) from setmeal where status = #{i}")
     Integer getByStatus(int i);

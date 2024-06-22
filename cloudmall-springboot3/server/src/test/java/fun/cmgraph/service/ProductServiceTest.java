@@ -35,7 +35,7 @@ class ProductServiceTest {
     void addProduct() {
         ProductDTO productDTO = new ProductDTO(1, "test", "pic", "detail", new BigDecimal(10), "status", 1, null);
         productService.addProduct(productDTO);
-        verify(productMapper, times(1)).addDish(any());
+        verify(productMapper, times(1)).addProduct(any());
     }
 
     @Test

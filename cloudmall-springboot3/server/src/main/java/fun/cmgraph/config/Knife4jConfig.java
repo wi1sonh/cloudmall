@@ -4,6 +4,7 @@ import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Contact;
 import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.info.License;
+import lombok.extern.slf4j.Slf4j;
 import org.springdoc.core.models.GroupedOpenApi;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,6 +19,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class Knife4jConfig {
+
     @Bean
     public GroupedOpenApi adminApi() {      // 创建了一个api接口的分组
         return GroupedOpenApi.builder()
@@ -38,12 +40,11 @@ public class Knife4jConfig {
     public OpenAPI openAPI(){
         return new OpenAPI()
                 .info(new Info()
-                        .title("Knife4j标题")
-                        .description("Knife4j说明")
+                        .title("接口文档")
+                        .description("说明")
                         .version("v1")
                         .contact(new Contact().name("robin").email("robin@gmail.com"))
                         .license(new License().name("Apache 2.0").url("http://springdoc.org"))
                 );
-
     }
 }

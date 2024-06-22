@@ -41,7 +41,7 @@ public class ProductServiceImpl implements ProductService {
         Product product = new Product();
         BeanUtils.copyProperties(productDTO, product);
         product.setStatus(1);
-        productMapper.addDish(product);
+        productMapper.addProduct(product);
         System.out.println("新增商品成功！");
         // 由于在动态sql中，用了useGeneralKeys=true，因此会在插入数据后自动返回该行数据的主键id，
         // 并且使用keyProperty="id"，表示将返回的主键值赋值给dish的id属性，下面就可以dish.getId()获取到id

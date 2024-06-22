@@ -14,7 +14,7 @@ import java.util.List;
 @Mapper
 public interface ProductMapper {
     @AutoFill(OperationType.INSERT)
-    void addDish(Product product);
+    void addProduct(Product product);
 
     Page<Product> getPageList(ProductPageDTO productPageDTO);
 

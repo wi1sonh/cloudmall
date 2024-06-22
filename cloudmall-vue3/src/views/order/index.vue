@@ -55,7 +55,7 @@ const rejectReasonList = reactive([
 const cancelrReasonList = reactive([
   { value: 1, label: '订单量较多，暂时无法接单' },
   { value: 2, label: '商品已销售完，暂时无法接单', },
-  { value: 3, label: '快递小哥不足无法派送', },
+  { value: 3, label: '快递小哥不足无法发货', },
   { value: 4, label: '客户电话取消', },
   { value: 0, label: '自定义原因', },
 ])
@@ -244,14 +244,14 @@ const confirmCancel = async () => {
   }
 }
 
-// 派送或完成订单
+// 发货或完成订单
 const deliveryOrComplete = async (status: number, id: number) => {
   const params = { status, id }
   try {
     const res = await (status === 3 ? deliveryOrderAPI : completeOrderAPI)(params)
     if (res.data.code === 0) {
       console.log('操作成功')
-      ElMessage.success(`${status === 3 ? '派送成功' : '订单完成'}`)
+      ElMessage.success(`${status === 3 ? '发货成功' : '订单完成'}`)
       orderId.value = 0
       dialogVisible.value = false
       // 刷新页面
@@ -517,7 +517,7 @@ onMounted(async () => {
                   100).toFixed(2) : 0 }}</span>
               </div>
               <div class="send-amount">
-                <span class="amount-name">派送费：</span>
+                <span class="amount-name">发货费：</span>
                 <span class="amount-price">￥{{ 6 }}</span>
               </div>
               <div class="package-amount">

@@ -39,7 +39,7 @@ public class BundleServiceImpl implements BundleService {
         Bundle bundle = new Bundle();
         BeanUtils.copyProperties(bundleDTO, bundle);
         bundle.setStatus(1);  // 默认启用套餐
-        bundleMapper.addSetmeal(bundle);
+        bundleMapper.addBundle(bundle);
         // 套餐包含的菜品批量插入
         Integer setmealId = bundle.getId();
         // 1. 遍历setmealDTO中的菜品列表，每个菜品都为其setmealId字段赋值
@@ -67,7 +67,7 @@ public class BundleServiceImpl implements BundleService {
      * @return
      */
     public BundleVO getBundleById(Integer id) {
-        Bundle bundle = bundleMapper.getSetmealById(id);
+        Bundle bundle = bundleMapper.getBundleById(id);
         List<BundleProduct> bundleProducts = bundleProductMapper.getDishesBySetmealId(id);
         // 组成SetmealVO后返回
         BundleVO bundleVO = new BundleVO();
@@ -109,7 +109,7 @@ public class BundleServiceImpl implements BundleService {
     public void deleteBatch(List<Integer> ids) {
         // 遍历要删除的所有套餐，如果但凡有一个在起售就抛异常
         for(Integer id : ids){
-            Bundle bundle = bundleMapper.getSetmealById(id);
+            Bundle bundle = bundleMapper.getBundleById(id);
             if (bundle.getStatus() == StatusConstant.ENABLE){
                 throw new DeleteNotAllowedException(MessageConstant.SETMEAL_ON_SALE);
             }
@@ -137,7 +137,7 @@ public class BundleServiceImpl implements BundleService {
      * @return
      */
     public List<ProductItemVO> getBundleProductById(Integer id) {
-        List<ProductItemVO> productItemVOList = bundleMapper.getSetmealDishesById(id);
+        List<ProductItemVO> productItemVOList = bundleMapper.getBundleProductsById(id);
         return productItemVOList;
     }
 
@@ -147,7 +147,7 @@ public class BundleServiceImpl implements BundleService {
      * @return
      */
     public SetmealWithPicVO getBundleWithPic(Integer id) {
-        Bundle bundle = bundleMapper.getSetmealById(id);
+        Bundle bundle = bundleMapper.getBundleById(id);
         // 该套餐下的每个菜品都需要加上pic字段
         List<BundleProductWithPic> dishWithPics = bundleProductMapper.getDishesWithPic(id);
         // 组成setmealWithPicVO后返回

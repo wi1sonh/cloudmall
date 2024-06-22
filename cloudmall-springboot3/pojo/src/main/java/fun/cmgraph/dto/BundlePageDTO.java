@@ -1,9 +1,10 @@
 package fun.cmgraph.dto;
 
 import lombok.Data;
-
+import lombok.AllArgsConstructor;
 import java.io.Serializable;
 
+@AllArgsConstructor
 @Data
 public class BundlePageDTO implements Serializable {
 

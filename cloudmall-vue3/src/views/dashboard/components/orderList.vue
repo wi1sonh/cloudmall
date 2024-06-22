@@ -66,7 +66,7 @@
                   </el-button>
                   <el-button v-if="scope.row.status === 3" type="primary" link
                     @click="deliveryOrComplete(3, scope.row.id)">
-                    派送
+                    发货
                   </el-button>
                 </div>
                 <div class="middle">
@@ -279,7 +279,7 @@ const rejectReasonList = reactive([
 const cancelrReasonList = reactive([
   { value: 1, label: '订单量较多，暂时无法接单' },
   { value: 2, label: '商品已销售完，暂时无法接单', },
-  { value: 3, label: '快递小哥不足无法派送', },
+  { value: 3, label: '快递小哥不足无法发货', },
   { value: 4, label: '客户电话取消', },
   { value: 0, label: '自定义原因', },
 ])
@@ -373,7 +373,7 @@ const confirmCancel = async () => {
   }
 };
 
-// 派送或完成订单
+// 发货或完成订单
 const deliveryOrComplete = async (status1: number, id: number) => {
   const action = status1 === 3 ? deliveryOrderAPI : completeOrderAPI;
   const params = { status1, id };
@@ -382,7 +382,7 @@ const deliveryOrComplete = async (status1: number, id: number) => {
   if (res.code === 0) {
     orderId.value = ''
     dialogVisible.value = false
-    ElMessage.success(`${status1 === 3 ? '派送成功' : '订单完成'}`)
+    ElMessage.success(`${status1 === 3 ? '发货成功' : '订单完成'}`)
     getOrderListData(status.value)
   } else {
     // Handle error

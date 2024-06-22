@@ -16,5 +16,4 @@ public class ServerApplication {
         SpringApplication.run(ServerApplication.class, args);
         log.info("server started successfully!");
     }
-
 }
