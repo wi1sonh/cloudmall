@@ -4,7 +4,7 @@
 
 ![frontend](https://img.shields.io/badge/Front_End-Vue-green)
 ![backend](https://img.shields.io/badge/Back_End-Springboot-yellow)
-![version](https://img.shields.io/badge/Version-0.3.1-blue)
+![version](https://img.shields.io/badge/Version-0.3.2-blue)
 ![license](https://img.shields.io/github/license/wi1sonh/cloudmall?color=FF5531)
 
 "云端商城" 是一个创新驱动的电子商务平台，致力于提供全面的在线销售和购物服务。通过集成前沿技术，"云端商城" 旨在创建一个动态、互动和智能化的购物环境，满足现代消费者的需求并助力商家扩展业务。
@@ -22,8 +22,8 @@
 7. **数据分析与报告**：提供销售数据和用户行为分析，辅助商家决策。
 
 运行截图：
-|登录页 ![login](images/login.png) |商家控制台页 ![control](images/control_board.png) |
-| - | - |
+| 登录页 ![login](images/login.png) | 商家控制台页 ![control](images/control_board.png) |
+| --------------------------------- | ------------------------------------------------- |
 
 ## 技术选型
 
@@ -133,7 +133,7 @@ npm run dev
 │   │   │   └── index.vue: 分页面
 │   │   ├── index:        tab1 首页
 │   │   ├── my:           tab2 个人中心页
-│   │   ├── order:        点餐页（左侧分类，右侧菜品列表）
+│   │   ├── order:        点餐页（左侧分类，右侧商品列表）
 │   │   ├── submit:       准备支付页（选择地址、购物袋，展示订单信息那一页）
 │   │   └── ... :         其他分页面
 │   ├── static:           存放静态资源

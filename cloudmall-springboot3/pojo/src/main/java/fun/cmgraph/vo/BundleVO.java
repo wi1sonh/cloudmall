@@ -25,7 +25,7 @@ public class BundleVO implements Serializable {
     private Integer categoryId;
     // 修改事件要记录，就比DTO多了这个字段而已
     private LocalDateTime updateTime;
-    // 当前套餐包含的多种菜品
+    // 当前套餐包含的多种商品
     private List<BundleProduct> bundleProducts = new ArrayList<>();
 
 }

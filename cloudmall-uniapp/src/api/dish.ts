@@ -2,7 +2,7 @@ import type { DishItem } from '@/types/dish'
 import { http } from '@/utils/http'
 
 /**
- * 根据菜品分类id获取菜品列表
+ * 根据商品分类id获取商品列表
  */
 export const getDishListAPI = (id: number) => {
   return http<DishItem[]>({

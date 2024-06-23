@@ -2,11 +2,14 @@ cloudmall:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/cloudmall
+    # url: jdbc:mysql://47.121.122.236:3305/cloudmall  # 若为本地部署，则改为jdbc:mysql://localhost:3306/cloudmall
     username: root
     password: 123456   # 根据本地mysql设的密码自行修改
   redis:
     host: localhost
     port: 6379
+    # host: 47.121.122.236  # 若为本地部署，则改为localhost
+    # port: 6380
     password: 123456   # 根据本地redis设的密码自行修改
     database: 1
   wechat:

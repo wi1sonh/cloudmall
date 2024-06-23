@@ -18,26 +18,26 @@
         @tap.stop="chooseNorm(dish as DishItem)"
         mode="scaleToFill"
       />
-      <!-- 2、加减菜品 -->
+      <!-- 2、加减商品 -->
       <view v-else class="sub_add">
-        <!-- 减菜按钮 -->
+        <!-- 减商品按钮 -->
         <image
           v-if="getCopies(dish) > 0"
           src="../../static/icon/sub.png"
-          @tap.stop="subDishAction(dish, '菜品')"
+          @tap.stop="subDishAction(dish, '商品')"
           class="sub"
         ></image>
-        <!-- 菜品份数 -->
+        <!-- 商品份数 -->
         <text v-if="getCopies(dish) > 0" class="dish_number">{{ getCopies(dish) }}</text>
-        <!-- 加菜按钮 -->
-        <image src="../../static/icon/add.png" @tap.stop="addDishAction(dish, '菜品')" class="add" />
+        <!-- 加商品按钮 -->
+        <image src="../../static/icon/add.png" @tap.stop="addDishAction(dish, '商品')" class="add" />
       </view>
     </view>
   </view>
-  <!-- 套餐详情，包括该套餐下所有菜品 -->
+  <!-- 套餐详情，包括该套餐下所有商品 -->
   <view class="setmeal" v-if="setmeal">
     <view class="title">套餐详情</view>
-    <!-- 菜品列表 -->
+    <!-- 商品列表 -->
     <view v-for="item in setmeal.setmealDishes" :key="item.name" class="setmeal_item">
       <image :src="item.pic" />
       <view class="dishinfo">
@@ -52,24 +52,24 @@
         <text class="symbol">¥</text>
         <text class="number">{{ setmeal?.price }}</text>
       </view>
-      <!-- 加减菜品 -->
+      <!-- 加减商品 -->
       <view class="sub_add">
-        <!-- 减菜按钮 -->
+        <!-- 减商品按钮 -->
         <image
           v-if="getCopies(setmeal) > 0"
           src="../../static/icon/sub.png"
           @tap.stop="subDishAction(setmeal, '套餐')"
           class="sub"
         ></image>
-        <!-- 菜品份数 -->
+        <!-- 商品份数 -->
         <text v-if="getCopies(setmeal) > 0" class="dish_number">{{ getCopies(setmeal) }}</text>
-        <!-- 加菜按钮 -->
+        <!-- 加商品按钮 -->
         <image src="../../static/icon/add.png" @tap.stop="addDishAction(setmeal, '套餐')" class="add" />
       </view>
     </view>
   </view>
 
-  <!-- 选择菜品规格dialog弹窗 -->
+  <!-- 选择商品规格dialog弹窗 -->
   <view class="dialog" v-show="visible">
     <view class="flavor_pop">
       <view class="title">选择规格</view>
@@ -110,7 +110,7 @@
     <view class="order_btn_active" @click.stop="submitOrder()"> 去结算 </view>
   </view>
 
-  <!-- 底部购物车菜品列表 -->
+  <!-- 底部购物车商品列表 -->
   <view class="pop_mask" v-show="openCartList" @click="openCartList = !openCartList">
     <view class="cart_pop" @click.stop="openCartList = openCartList">
       <view class="top_title">
@@ -163,9 +163,9 @@ import {ref} from 'vue'
 // ------ data ------
 // 分类列表
 const categoryList = ref<CategoryItem[]>([])
-// 菜品
+// 商品
 const dish = ref<DishItem>()
-// 套餐详情(含菜品)
+// 套餐详情(含商品)
 const setmeal = ref<SetmealVOItem>()
 
 // 是否打开底部购物车列表
@@ -176,7 +176,7 @@ const CartAllNumber = ref(0)
 const CartAllPrice = ref(0)
 // 是否显示弹窗
 const visible = ref(false)
-// 弹窗中对应的菜品和口味数据，用于加入购物车
+// 弹窗中对应的商品和口味数据，用于加入购物车
 const dialogDish = ref<DishToCartItem>()
 const flavors = ref<FlavorItem[]>([])
 // 已选择的口味列表
@@ -227,16 +227,16 @@ const getCartList = async () => {
   CartAllPrice.value = cartList.value.reduce((acc, cur) => acc + cur.amount * cur.number, 0)
   console.log('CartAllNumber', CartAllNumber.value)
   console.log('CartAllPrice', CartAllPrice.value)
-  // 如果减少菜品导致购物车为空，关闭购物车列表
+  // 如果减少商品导致购物车为空，关闭购物车列表
   if (cartList.value.length === 0) {
     openCartList.value = false
   }
 }
 
-// 获取购物车中某个菜品的数量
+// 获取购物车中某个商品的数量
 const getCopies = (dish: DishItem | SetmealItem) => {
   console.log('getCopies', dish)
-  // 有可能是菜品/套餐，所以要判断
+  // 有可能是商品/套餐，所以要判断
   const sort = categoryList.value.find((item) => item.id === dish.categoryId)?.sort
   console.log('category？', sort)
   if (sort && sort < 20) {
@@ -246,9 +246,9 @@ const getCopies = (dish: DishItem | SetmealItem) => {
   }
 }
 
-// 只有菜品才要选择规格/口味(多种口味规格数据处理)
+// 只有商品才要选择规格/口味(多种口味规格数据处理)
 const chooseNorm = async (dish: DishItem) => {
-  console.log('点击了选择规格chooseNorm，得到了该菜品的所有口味数据', dish.flavors)
+  console.log('点击了选择规格chooseNorm，得到了该商品的所有口味数据', dish.flavors)
   // 所有口味数据放到flavors中
   flavors.value = dish.flavors
   // dish -> dialogDish, flavor涉及类型转换(所有flavors -> 已选的flavors)，需要绕过ts校验
@@ -258,7 +258,7 @@ const chooseNorm = async (dish: DishItem) => {
   dialogDish.value = tmpdish
   // 对 dish.flavors 数组中的每种口味进行映射，将list字段用 JSON.parse 转为数组，其他数据不动
   const moreNormdata = dish.flavors.map((obj) => ({...obj, list: JSON.parse(obj.list)}))
-  // 有口味的菜品，初始化选择每行的第一个口味，作为已选口味数据
+  // 有口味的商品，初始化选择每行的第一个口味，作为已选口味数据
   moreNormdata.forEach((item) => {
     if (item.list && item.list.length > 0) {
       chosedflavors.value.push(item.list[0])
@@ -267,7 +267,7 @@ const chooseNorm = async (dish: DishItem) => {
   visible.value = true
 }
 
-// 选择菜品口味 obj: 当前行的所有口味数据，flavor: 当前点击的口味
+// 选择商品口味 obj: 当前行的所有口味数据，flavor: 当前点击的口味
 // 每行口味只能选择0或1个口味
 const chooseFlavor = (obj: string[], flavor: string) => {
   console.log('chooseFlavor', flavor)
@@ -302,13 +302,13 @@ const chooseFlavor = (obj: string[], flavor: string) => {
   // 选择的口味列表，先拼接成字符串，再赋值给dialogDish.flavors字段
   dialogDish.value!.flavors = chosedflavors.value.join(',')
   // 我确定不可能为空！因为打开dialog触发的chooseNorm函数中，已经为dialogDish赋值过了
-  console.log('选好口味后，看看带口味字符串的，dialog中的菜品长什么样？ dialogDish', dialogDish.value)
+  console.log('选好口味后，看看带口味字符串的，dialog中的商品长什么样？ dialogDish', dialogDish.value)
 }
 
-// dialog中点击加入购物车(有口味必定是菜品dish)
+// dialog中点击加入购物车(有口味必定是商品dish)
 const addToCart = async (dish: DishToCartItem) => {
   console.log('dialog中点击加入购物车addToCart, dialogdish:', dish)
-  // dialog中必定是菜品且有口味，需要判断是否有选择口味，必须有口味才能发送给后端
+  // dialog中必定是商品且有口味，需要判断是否有选择口味，必须有口味才能发送给后端
   if (!chosedflavors.value || chosedflavors.value.length <= 0) {
     uni.showToast({
       title: '请选择规格',
@@ -316,7 +316,7 @@ const addToCart = async (dish: DishToCartItem) => {
     })
     return false
   }
-  // 菜品需要拼接口味list，转为string，作为dishFlavor字段发送给后端
+  // 商品需要拼接口味list，转为string，作为dishFlavor字段发送给后端
   const partialCart: Partial<CartDTO> = {dishId: dish.id, dishFlavor: chosedflavors.value.join(',')}
   await addToCartAPI(partialCart)
   // 数据库更新，所以拿到新的购物车列表(cartList)，页面才能跟着刷新
@@ -328,7 +328,7 @@ const addToCart = async (dish: DishToCartItem) => {
 
 // "+"按钮，form: 购物车/普通视图中的按钮
 const addDishAction = async (item: any, form: string) => {
-  console.log('点击了 “+” 添加菜品数量按钮', item, form)
+  console.log('点击了 “+” 添加商品数量按钮', item, form)
   if (form == '购物车') {
     // 1、直接数量-1，传的参数是cartItem类型，dishId、setmealId必是一个null 一个不null，所以直接全传
     console.log('addCart', item)
@@ -338,8 +338,8 @@ const addDishAction = async (item: any, form: string) => {
       dishFlavor: item.dishFlavor,
     }
     await addToCartAPI(partialCart)
-  } else if (form == '菜品') {
-    // 2、添加的是菜品
+  } else if (form == '商品') {
+    // 2、添加的是商品
     const partialCart: Partial<CartDTO> = {dishId: dish.value!.id}
     await addToCartAPI(partialCart)
   } else {
@@ -352,7 +352,7 @@ const addDishAction = async (item: any, form: string) => {
 }
 // "-"按钮，form: 购物车/普通视图中的按钮
 const subDishAction = async (item: any, form: string) => {
-  console.log('点击了减少菜品数量按钮subDishAction--------------------', item, form)
+  console.log('点击了减少商品数量按钮subDishAction--------------------', item, form)
   if (form == '购物车') {
     // 1、直接数量-1，传的参数是cartItem类型，dishId、setmealId必是一个null 一个不null，所以直接全传
     console.log('subCart', item)
@@ -362,8 +362,8 @@ const subDishAction = async (item: any, form: string) => {
       dishFlavor: item.dishFlavor,
     }
     await subCartAPI(partialCart)
-  } else if (form == '菜品') {
-    // 2、菜品
+  } else if (form == '商品') {
+    // 2、商品
     const partialCart: Partial<CartDTO> = {dishId: dish.value!.id}
     await subCartAPI(partialCart)
   } else {
@@ -996,7 +996,7 @@ const submitOrder = () => {
 
 <!-- const addDishToCart = async (dish: DishItem | SetmealItem) => {
   console.log('addDishToCart', dish)
-  // 有可能是套餐或者菜品，先按categoryList遍历，拿到这个菜品对应的分类，获取其sort来判断
+  // 有可能是套餐或者商品，先按categoryList遍历，拿到这个商品对应的分类，获取其sort来判断
   const sort = categoryList.value.find((item) => item.id === dish.categoryId)?.sort
   console.log('category？', sort)
   if (sort && sort < 20) {

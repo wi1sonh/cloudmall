@@ -40,7 +40,7 @@ class CartServiceTest {
         when(cartMapper.list(cart)).thenReturn(Collections.singletonList(returnCart));
         cartService.add(cartDTO);
         verify(cartMapper, times(1)).updateNumberById(any(Cart.class));
-        // 2、不存在，需要新增（菜品/套餐），数量为1
+        // 2、不存在，需要新增（商品/套餐），数量为1
         CartDTO cartDTO2 = new CartDTO();
         cartDTO2.setDishId(2);
         when(productMapper.getById(2)).thenReturn(new Product());

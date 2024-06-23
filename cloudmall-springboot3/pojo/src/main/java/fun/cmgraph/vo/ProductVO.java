@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 由于根据菜品id查询出来的dish不够，还要有对应的口味信息，因此把返回的数据封装成VO进行规范化处理
+ * 由于根据商品id查询出来的dish不够，还要有对应的口味信息，因此把返回的数据封装成VO进行规范化处理
  */
 @Data
 @AllArgsConstructor

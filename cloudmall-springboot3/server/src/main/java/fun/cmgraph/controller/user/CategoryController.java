@@ -25,7 +25,7 @@ public class CategoryController {
      */
     @GetMapping("/list")
     public Result<List<Category>> list(Integer type){
-        log.info("用户想要查询的分类（套餐/菜品分类？）：{}", type);
+        log.info("用户想要查询的分类（套餐/商品分类？）：{}", type);
         List<Category> categoryList = categoryService.getList(type);
         return Result.success(categoryList);
     }

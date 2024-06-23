@@ -13,7 +13,7 @@ export const addToCartAPI = (cartDTO: CartDTO) => {
 }
 
 /**
- * 购物车菜品/套餐数量-1
+ * 购物车商品/套餐数量-1
  */
 export const subCartAPI = (cartDTO: CartDTO) => {
   return http({

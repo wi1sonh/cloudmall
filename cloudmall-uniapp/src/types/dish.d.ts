@@ -1,4 +1,4 @@
-// 菜品列表
+// 商品列表
 export type DishItem = {
   id: number
   name: string
@@ -17,7 +17,7 @@ export type FlavorItem = {
   dishId: number
 }
 
-// 要添加到购物车的菜品数据，口味为string
+// 要添加到购物车的商品数据，口味为string
 export type DishToCartItem = {
   id: number
   name: string

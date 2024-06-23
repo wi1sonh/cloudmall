@@ -168,9 +168,9 @@ const toOrderDetail = (id: number) => {
 // 再来一单
 const reOrder = async (id: number) => {
   console.log('再来一单', id)
-  // 菜品批量加入购物车之前，要先清空购物车，避免批量加入购物车后数据并不完全一样
+  // 商品批量加入购物车之前，要先清空购物车，避免批量加入购物车后数据并不完全一样
   await cleanCartAPI()
-  // 再来一单会将当前订单的菜品批量加入购物车，跳转到订单页面后，购物车将高亮显示
+  // 再来一单会将当前订单的商品批量加入购物车，跳转到订单页面后，购物车将高亮显示
   await reOrderAPI(id as number)
   uni.redirectTo({
     url: '/pages/order/order',

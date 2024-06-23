@@ -13,7 +13,7 @@ import java.util.List;
 public interface CartMapper {
 
     /**
-     * 查找有没有和cart菜品/套餐相同的商品在当前购物车里
+     * 查找有没有和cart商品/套餐相同的商品在当前购物车里
      * @param cart
      * @return
      */

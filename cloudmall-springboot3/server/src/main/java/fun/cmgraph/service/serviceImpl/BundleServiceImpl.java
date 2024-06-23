@@ -40,9 +40,9 @@ public class BundleServiceImpl implements BundleService {
         BeanUtils.copyProperties(bundleDTO, bundle);
         bundle.setStatus(1);  // 默认启用套餐
         bundleMapper.addBundle(bundle);
-        // 套餐包含的菜品批量插入
+        // 套餐包含的商品批量插入
         Integer setmealId = bundle.getId();
-        // 1. 遍历setmealDTO中的菜品列表，每个菜品都为其setmealId字段赋值
+        // 1. 遍历setmealDTO中的商品列表，每个商品都为其setmealId字段赋值
         List<BundleProduct> bundleProducts = bundleDTO.getBundleProducts();
         if (bundleProducts != null && !bundleProducts.isEmpty()) {
             bundleProducts.forEach(setmealDish -> setmealDish.setSetmealId(setmealId));
@@ -62,7 +62,7 @@ public class BundleServiceImpl implements BundleService {
     }
 
     /**
-     * 根据套餐id查询套餐，包括菜品信息
+     * 根据套餐id查询套餐，包括商品信息
      * @param id
      * @return
      */
@@ -108,7 +108,7 @@ public class BundleServiceImpl implements BundleService {
         BeanUtils.copyProperties(bundleDTO, bundle);
         // 先修改套餐setmeal
         bundleMapper.update(bundle);
-        // 再修改套餐下的菜品setmealDish
+        // 再修改套餐下的商品setmealDish
         // 由于行数据可能不同，因此需要先根据setmealId批量删除，再批量插入
         Integer setmealId = bundleDTO.getId();
         bundleProductMapper.deleteBySetmealId(setmealId);
@@ -147,7 +147,7 @@ public class BundleServiceImpl implements BundleService {
     }
 
     /**
-     * 根据套餐id查询所有菜品
+     * 根据套餐id查询所有商品
      * @param id
      * @return
      */
@@ -157,13 +157,13 @@ public class BundleServiceImpl implements BundleService {
     }
 
     /**
-     * 根据套餐id获取套餐详情，其中菜品都要有pic图片信息
+     * 根据套餐id获取套餐详情，其中商品都要有pic图片信息
      * @param id
      * @return
      */
     public SetmealWithPicVO getBundleWithPic(Integer id) {
         Bundle bundle = bundleMapper.getBundleById(id);
-        // 该套餐下的每个菜品都需要加上pic字段
+        // 该套餐下的每个商品都需要加上pic字段
         List<BundleProductWithPic> dishWithPics = bundleProductMapper.getDishesWithPic(id);
         // 组成setmealWithPicVO后返回
         SetmealWithPicVO setmealWithPicVO = new SetmealWithPicVO();

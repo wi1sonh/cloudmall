@@ -34,12 +34,12 @@ export type Order = Partial<{
   tablewareStatus: number // 购物袋数量状态  1按商品数量提供  0选择具体数量
 }>
 
-// 订单详细菜品信息
+// 订单详细商品信息
 export type OrderDetail = Partial<{
   id: number
   name: string // 名称
   orderId: number // 订单id
-  dishId: number // 菜品id
+  dishId: number // 商品id
   setmealId: number // 套餐id
   dishFlavor: string // 口味
   number: number // 数量

@@ -22,7 +22,7 @@ public class OrderDetail implements Serializable {
     private Integer id;
     private String name; // 名称
     private Integer orderId; // 订单id
-    private Integer dishId; // 菜品id
+    private Integer dishId; // 商品id
     private Integer setmealId; // 套餐id
     private String dishFlavor; // 口味
     private Integer number; // 数量

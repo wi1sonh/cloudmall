@@ -27,7 +27,7 @@
       <view class="reOrder" v-if="order.status === 2 || order.status === 6" @click="reOrder">再来一单</view>
     </view>
   </view>
-  <!-- 1、订单菜品列表 -->
+  <!-- 1、订单商品列表 -->
   <view class="white_box">
     <view class="word_text">
       <text class="word_style">云端商城</text>
@@ -219,9 +219,9 @@ const pushOrder = async () => {
 // 再来一单
 const reOrder = async () => {
   console.log('再来一单')
-  // 菜品批量加入购物车之前，要先清空购物车，避免批量加入购物车后数据并不完全一样
+  // 商品批量加入购物车之前，要先清空购物车，避免批量加入购物车后数据并不完全一样
   await cleanCartAPI()
-  // 再来一单会将当前订单的菜品批量加入购物车，跳转到订单页面后，购物车将高亮显示
+  // 再来一单会将当前订单的商品批量加入购物车，跳转到订单页面后，购物车将高亮显示
   await reOrderAPI(order.id as number)
   uni.redirectTo({
     url: '/pages/order/order',
@@ -320,10 +320,10 @@ const toPay = async () => {
       text-align: center;
     }
   }
-  // 菜品列表
+  // 商品列表
   .order-type {
     padding: 40rpx 0 10rpx 0;
-    // 菜品列表的每个元素
+    // 商品列表的每个元素
     .type_item {
       display: flex;
       margin-bottom: 30rpx;

@@ -32,6 +32,8 @@ import org.springframework.util.CollectionUtils;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -97,7 +99,11 @@ public class OrderServiceImpl implements OrderService {
         order.setUserId(userId);
         order.setStatus(Order.PENDING_PAYMENT); // 刚下单提交，此时是待付款状态
         order.setPayStatus(Order.UN_PAID); // 未支付
-        order.setOrderTime(LocalDateTime.now());
+        // 获取当前北京时间
+        ZonedDateTime beijingTime = ZonedDateTime.now(ZoneId.of("Asia/Shanghai"));
+        // 如果只需要日期和时间，可以转换为LocalDateTime
+        LocalDateTime localBeijingTime = beijingTime.toLocalDateTime();
+        order.setOrderTime(localBeijingTime.now());
         this.order = order;
         // 4、向订单表插入1条数据
         orderMapper.insert(order);
@@ -228,7 +234,7 @@ public class OrderServiceImpl implements OrderService {
      */
     public void reOrder(Integer id) {
         Integer userId = BaseContext.getCurrentId();
-        // 1、先拿到这个订单id的所有菜品
+        // 1、先拿到这个订单id的所有商品
         List<OrderDetail> detailList = orderDetailMapper.getById(id);
         // 2、将订单详情对象转换为购物车对象
 //        List<Cart> cartList = new ArrayList<>();
@@ -241,7 +247,7 @@ public class OrderServiceImpl implements OrderService {
 //        }
         List<Cart> cartList = detailList.stream().map(x -> {
             Cart cart = new Cart();
-            // 将原订单详情里面的菜品信息重新复制到购物车对象中
+            // 将原订单详情里面的商品信息重新复制到购物车对象中
             BeanUtils.copyProperties(x, cart, "id");
             cart.setUserId(userId);
             cart.setCreateTime(LocalDateTime.now());
@@ -295,7 +301,7 @@ public class OrderServiceImpl implements OrderService {
     public PageResult conditionSearch(OrderPageDTO orderPageDTO) {
         PageHelper.startPage(orderPageDTO.getPage(), orderPageDTO.getPageSize());
         Page<Order> orders = orderMapper.page(orderPageDTO);
-        // 部分订单状态，需要额外返回订单菜品信息，将Orders转化为OrderVO
+        // 部分订单状态，需要额外返回订单商品信息，将Orders转化为OrderVO
         List<OrderVO> orderVOList = getOrderVOList(orders);
         return new PageResult(orders.getTotal(), orderVOList);
     }
@@ -430,13 +436,13 @@ public class OrderServiceImpl implements OrderService {
     }
 
     /**
-     * 抽出page.getResult()的内容，其中的订单菜品需要有详情信息
+     * 抽出page.getResult()的内容，其中的订单商品需要有详情信息
      *
      * @param page
      * @return
      */
     private List<OrderVO> getOrderVOList(Page<Order> page) {
-        // 需要返回订单菜品信息，自定义OrderVO响应结果
+        // 需要返回订单商品信息，自定义OrderVO响应结果
         List<OrderVO> orderVOList = new ArrayList<>();
         List<Order> ordersList = page.getResult();
         if (!CollectionUtils.isEmpty(ordersList)) {
@@ -445,7 +451,7 @@ public class OrderServiceImpl implements OrderService {
                 OrderVO orderVO = new OrderVO();
                 BeanUtils.copyProperties(orders, orderVO);
                 String orderDishes = getOrderDishesStr(orders);
-                // 将订单菜品信息封装到orderVO中，并添加到orderVOList
+                // 将订单商品信息封装到orderVO中，并添加到orderVOList
                 orderVO.setOrderDishes(orderDishes);
                 orderVOList.add(orderVO);
             }
@@ -460,14 +466,14 @@ public class OrderServiceImpl implements OrderService {
      * @return
      */
     private String getOrderDishesStr(Order order) {
-        // 查询订单商品详情信息（订单中的菜品和数量）
+        // 查询订单商品详情信息（订单中的商品和数量）
         List<OrderDetail> orderDetailList = orderDetailMapper.getById(order.getId());
-        // 将每一条订单菜品信息拼接为字符串（格式：宫保鸡丁*3;）
+        // 将每一条订单商品信息拼接为字符串（格式：宫保鸡丁*3;）
         List<String> orderDishList = orderDetailList.stream().map(x -> {
             String orderDish = x.getName() + "*" + x.getNumber() + ";";
             return orderDish;
         }).collect(Collectors.toList());
-        // 将该订单对应的所有菜品信息拼接在一起
+        // 将该订单对应的所有商品信息拼接在一起
         return String.join("", orderDishList);
     }
 

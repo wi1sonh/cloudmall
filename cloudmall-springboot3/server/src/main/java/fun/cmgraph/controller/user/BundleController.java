@@ -49,7 +49,7 @@ public class BundleController {
     }
 
     /**
-     * 根据套餐查询包含的菜品
+     * 根据套餐查询包含的商品
      * @return
      */
     @GetMapping("/dish/{id}")

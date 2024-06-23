@@ -2,6 +2,7 @@ import { useUserStore } from '@/stores/modules/user'
 
 // 请求基地址
 const baseURL = 'http://localhost:8081'
+// const baseURL = 'http://47.121.122.236:8081'
 
 // 拦截器配置
 const httpInterceptor = {

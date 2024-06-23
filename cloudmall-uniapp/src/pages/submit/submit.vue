@@ -27,7 +27,7 @@
       </view>
       <!-- 两个白框栏 -->
       <view class="order_list_cont">
-        <!-- 1、订单菜品列表 -->
+        <!-- 1、订单商品列表 -->
         <view class="order_list">
           <view class="word_text">
             <text class="word_style">订单明细</text>
@@ -175,7 +175,7 @@ const getCartList = async () => {
   cartList.value = res.data
   // 计算总数量
   CartAllNumber.value = cartList.value.reduce((acc, cur) => acc + cur.number, 0)
-  // 计算总价格 = 菜品总价 + 打包费 + 运费
+  // 计算总价格 = 商品总价 + 打包费 + 运费
   CartAllPrice.value = cartList.value.reduce((acc, cur) => acc + cur.amount * cur.number, 0) + CartAllNumber.value + 6
   console.log('CartAllNumber', CartAllNumber.value)
   console.log('CartAllPrice', CartAllPrice.value)
@@ -596,10 +596,10 @@ const payOrderHandle = async () => {
       &:last-child {
         margin-bottom: 176rpx;
       }
-      // 菜品列表
+      // 商品列表
       .order-type {
         padding: 40rpx 0 10rpx 0;
-        // 菜品列表的每个元素
+        // 商品列表的每个元素
         .type_item {
           display: flex;
           margin-bottom: 30rpx;
@@ -924,7 +924,7 @@ const payOrderHandle = async () => {
             height: 80rpx;
             line-height: 80rpx;
             border-radius: 40rpx;
-            background: #00aaff;
+            background: #00aa00;
             color: #fff;
             font-size: 30rpx;
             text-align: center;

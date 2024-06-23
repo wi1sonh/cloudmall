@@ -106,7 +106,7 @@ public class WorkSpaceServiceImpl implements WorkSpaceService {
     }
 
     /**
-     * 菜品总览
+     * 商品总览
      * @return
      */
     public ProductOverViewVO getDishOverView() {

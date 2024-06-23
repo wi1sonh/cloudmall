@@ -46,7 +46,7 @@ public class WorkSpaceController {
     }
 
     /**
-     * 查询菜品总览
+     * 查询商品总览
      * @return
      */
     @GetMapping("/overviewDishes")

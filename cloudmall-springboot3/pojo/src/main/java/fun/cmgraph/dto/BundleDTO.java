@@ -22,7 +22,7 @@ public class BundleDTO implements Serializable {
     private BigDecimal price;
     private String status;
     private Integer categoryId;
-    // 当前套餐包含的多种菜品
+    // 当前套餐包含的多种商品
     private List<BundleProduct> bundleProducts = new ArrayList<>();
 
 }

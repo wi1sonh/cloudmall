@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 
 /**
- * 菜品总览
+ * 商品总览
  */
 @Data
 @Builder

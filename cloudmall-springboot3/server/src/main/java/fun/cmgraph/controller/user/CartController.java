@@ -20,14 +20,14 @@ public class CartController {
 
     @PostMapping("/add")
     public Result add(@RequestBody CartDTO cartDTO){
-        log.info("将如下菜品/套餐添加进购物车：{}", cartDTO);
+        log.info("将如下商品/套餐添加进购物车：{}", cartDTO);
         cartService.add(cartDTO);
         return Result.success();
     }
 
     @PutMapping("/sub")
     public Result sub(@RequestBody CartDTO cartDTO){
-        log.info("将如下菜品/套餐数量减一：{}", cartDTO);
+        log.info("将如下商品/套餐数量减一：{}", cartDTO);
         cartService.sub(cartDTO);
         return Result.success();
     }
