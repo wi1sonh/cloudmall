@@ -97,7 +97,7 @@ public class OrderServiceImpl implements OrderService {
         order.setUserId(userId);
         order.setStatus(Order.PENDING_PAYMENT); // 刚下单提交，此时是待付款状态
         order.setPayStatus(Order.UN_PAID); // 未支付
-        order.setOrderTime(LocalDateTime.now());
+        order.setOrderTime(LocalDateTime.now(ZoneOffset.UTC));
         this.order = order;
         // 4、向订单表插入1条数据
         orderMapper.insert(order);

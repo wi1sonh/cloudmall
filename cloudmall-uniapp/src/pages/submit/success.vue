@@ -3,7 +3,7 @@
     <image src="../../static/icon/success.png" mode="scaleToFill" />
     <view class="pay">支付成功</view>
     <view class="time">预计{{ arrivalTime }}送达</view>
-    <view class="success_desc"> 后厨疯狂备餐ing, 请耐心等待~ </view>
+    <view class="success_desc"> 店家疯狂备货ing, 请耐心等待~ </view>
     <view class="btn_box">
       <button class="return_btn" @click="toHome()">返回首页</button>
       <button class="detail_btn" @click="toDetail()">查看订单</button>

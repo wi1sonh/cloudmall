@@ -102,6 +102,8 @@ const timeup = () => {
     // let time = buy_time + 20 * 1000 - new Date().getTime()
     // 最终代码是15分钟，测试时我才没那个功夫时间等！
     let time = buy_time + 15 * 60 * 1000 - new Date().getTime()
+    console.log(buy_time)
+    console.log(new Date().getTime())
     console.log('time', time)
     if (time > 0 && countdownStore.timer !== undefined) {
       // 计算剩余的分钟
