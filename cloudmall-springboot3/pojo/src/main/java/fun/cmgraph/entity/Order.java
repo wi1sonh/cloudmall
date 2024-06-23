@@ -1,5 +1,6 @@
 package fun.cmgraph.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -42,7 +43,9 @@ public class Order implements Serializable {
     private Integer status; // 订单状态 1待付款 2待接单 3已接单 4派送中 5已完成 6已取消 7退款
     private Integer userId; // 下单用户id
     private Integer addressBookId; // 地址id
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime orderTime; // 下单时间
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime checkoutTime; // 结账时间
     private Integer payMethod; // 支付方式 1微信，2支付宝
     private Integer payStatus; // 支付状态 0未支付 1已支付 2退款
@@ -54,9 +57,12 @@ public class Order implements Serializable {
     private String consignee; // 收货人
     private String cancelReason; // 订单取消原因
     private String rejectionReason; // 订单拒绝原因
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime cancelTime; // 订单取消时间
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime estimatedDeliveryTime; // 预计送达时间
     private Integer deliveryStatus; // 运送状态  1立即送出  0选择具体时间
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime deliveryTime; // 送达时间
     private int packAmount; // 打包费
     private int tablewareNumber; // 购物袋数量

@@ -53,6 +53,8 @@ public class UserServiceImpl implements UserService {
                     .createTime(LocalDateTime.now())
                     .build();
             userMapper.insert(user);
+            // To avoid getting null id, we need to get the user again
+            user = userMapper.getByOpenid(openid);
         }
         return user;
     }

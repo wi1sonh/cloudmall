@@ -8,7 +8,7 @@ cloudmall:
     host: localhost
     port: 6379
     password: 123456   # 根据本地redis设的密码自行修改
-    database: 1
+    database: 2
   wechat:
     appid: wx943527871f8bad46 # 根据你申请的appid自行修改
     secret: 10b6efd9743d66b671f70ec19b1fe696 # 根据你申请的appid密钥自行修改
@@ -20,3 +20,19 @@ cloudmall:
     weChatPayCertFilePath: C:\software\wechatpay_166D96F876F45C7D07CE98952A96EC980368ACFC.pem
     notifyUrl: https://9ea0754.r19.cpolar.top/notify/paySuccess
     refundNotifyUrl: https://9ea0754.r19.cpolar.top/notify/refundSuccess
+  jwt:
+    admin-secret-key: cm_secret
+    admin-ttl: 86400000
+    admin-token-name: token
+    user-secret-key: user_secret
+    user-ttl: 86400000
+    user-token-name: authentication
+
+login-reg:
+  jwt:
+    employee-secret-key: cm_secret
+    employee-ttl: 864000000
+    employee-token-name: Authorization
+    user-secret-key: user_secret
+    user-ttl: 864000000
+    user-token-name: Authorization

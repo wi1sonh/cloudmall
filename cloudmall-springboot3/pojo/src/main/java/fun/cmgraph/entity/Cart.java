@@ -1,5 +1,6 @@
 package fun.cmgraph.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -24,5 +25,6 @@ public class Cart implements Serializable {
     private Integer number;
     private BigDecimal amount;
     private String pic;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime createTime;
 }
