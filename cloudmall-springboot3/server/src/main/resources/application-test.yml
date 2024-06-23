@@ -10,8 +10,8 @@ cloudmall:
     password: 123456   # 根据本地redis设的密码自行修改
     database: 1
   wechat:
-    appid: wx943527871f8bad46 # 根据你申请的appid自行修改
-    secret: 10b6efd9743d66b671f70ec19b1fe696 # 根据你申请的appid密钥自行修改
+    appid: wxd735f433d50fa46a # 根据你申请的appid自行修改
+    secret: 2595ecdf6dde8e32762596c0652d1687 # 根据你申请的appid密钥自行修改
     #    别人的文件，由于没企业商户号，这里只是摆设
     mchid: 1561414331
     mchSerialNo: 4B3B3DC35414AD50B1B755BAF8DE9CC7CF407606

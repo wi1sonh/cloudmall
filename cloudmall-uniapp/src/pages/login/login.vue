@@ -110,7 +110,7 @@ page {
     height: 80rpx;
     font-size: 28rpx;
     border-radius: 72rpx;
-    background-color: #22ccff;
+    background-color: #22cc00;
     color: #fff;
   }
 
@@ -150,8 +150,8 @@ page {
         height: 80rpx;
         font-size: 28rpx;
         border-radius: 72rpx;
-        color: #22ccff;
-        border: #22ccff solid 1rpx;
+        color: #22cc00;
+        border: #22cc00 solid 1rpx;
       }
     }
   }
