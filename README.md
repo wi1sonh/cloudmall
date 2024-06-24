@@ -4,10 +4,10 @@
 
 ![frontend](https://img.shields.io/badge/Front_End-Vue-green)
 ![backend](https://img.shields.io/badge/Back_End-Springboot-yellow)
-![version](https://img.shields.io/badge/Version-0.3.2-blue)
+![version](https://img.shields.io/badge/Version-0.4.1-blue)
 ![license](https://img.shields.io/github/license/wi1sonh/cloudmall?color=FF5531)
 
-"云端商城" 是一个创新驱动的电子商务平台，致力于提供全面的在线销售和购物服务。通过集成前沿技术，"云端商城" 旨在创建一个动态、互动和智能化的购物环境，满足现代消费者的需求并助力商家扩展业务。
+~~你说得对，但是~~“云端商城”是一个诞生于 SYSU 软件工程课程的小型电子商务平台，致力于提供全面的在线销售和购物服务。通过集成前沿的前后端框架技术，"云端商城" 旨在创建一个动态、互动和体验优秀的购物环境，满足现代消费者的需求并助力商家扩展业务。
 
 ---
 
