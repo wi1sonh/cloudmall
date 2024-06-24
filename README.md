@@ -22,8 +22,9 @@
 7. **数据分析与报告**：提供销售数据和用户行为分析，辅助商家决策。
 
 运行截图：
-| 登录页 ![login](images/login.png) | 商家控制台页 ![control](images/control_board.png) |
-| --------------------------------- | ------------------------------------------------- |
+
+| 登录页![login](images/login.png) | 商家控制台页![control](images/control_board.png) |
+| ------------------------------ | ---------------------------------------------- |
 
 ## 技术选型
 
@@ -63,17 +64,17 @@ npm run dev
 
 **启动后端：**
 
-首先导入数据库，在mysql命令行输入`source /path/to/cloudmall_database.sql`即可
+首先导入数据库，在mysql命令行输入 `source /path/to/cloudmall_database.sql`即可
 
-在 IDEA 单独打开后端子项目 cloudmall-springboot3，并手动连接数据库（参考网上教程，最好使用**IDEA专业版**，**注意**需要修改`cloudmall-springboot3\server\src\main\resources\application-dev.yml`第6行为本地mysql设置的密码；若要启动小程序，还需要在底下修改redis密码，以及appid和secret, 且`cloudmall-uniapp\src\manifest.json`的appid也需要修改）
+在 IDEA 单独打开后端子项目 cloudmall-springboot3，并手动连接数据库（参考网上教程，最好使用**IDEA专业版**，**注意**需要修改 `cloudmall-springboot3\server\src\main\resources\application-dev.yml`第6行为本地mysql设置的密码；若要启动小程序，还需要在底下修改redis密码，以及appid和secret, 且 `cloudmall-uniapp\src\manifest.json`的appid也需要修改）
 
 在 IDEA 右侧边栏的 `Maven -> cloudmall -> Lifecycle -> compile` 编译 root 目录，然后即可运行 `ServerApplication` 主函数
 
 **启动小程序端：**
 
-进入 cloudmall-uniapp 目录执行 `npm i` 进行包安装，接着执行`npm run dev:mp-weixin`进行编译，之后修改uniapp的内容时，微信开发者工具里编译好的内容也会相应作出修改（有时不会生效，需要重启微信开发者工具才行）
+进入 cloudmall-uniapp 目录执行 `npm i` 进行包安装，接着执行 `npm run dev:mp-weixin`进行编译，之后修改uniapp的内容时，微信开发者工具里编译好的内容也会相应作出修改（有时不会生效，需要重启微信开发者工具才行）
 
-下载[微信开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/stable.html)，申请正式app id，导入`cloudmall-uniapp/dist/mp-weixin` 这部分内容即可
+下载[微信开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/stable.html)，申请正式 app id，并使用 secret，导入 `cloudmall-uniapp/dist/mp-weixin` 这部分内容即可
 
 小程序端还需要启动本地 redis 数据库，连接过程和 mysql 差不多（但 redis 连接时不需要输入 username）
 
