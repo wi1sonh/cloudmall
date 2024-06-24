@@ -21,10 +21,18 @@
 6. **后台管理系统**：为商家提供商品和订单管理，数据统计等后台功能。
 7. **数据分析与报告**：提供销售数据和用户行为分析，辅助商家决策。
 
-运行截图：
+商家管理端运行截图：
 
 | 登录页![login](images/login.png) | 商家控制台页![control](images/control_board.png) |
 | ------------------------------ | ---------------------------------------------- |
+
+| 订单管理![login](images/s1.png) | 商品管理![login](images/s2.png) | 数据统计![login](images/s3.png) |
+| - | - | - |
+
+客户小程序运行截图：
+
+| ![mp1](images/mp1.jpg) | ![mp2](images/mp2.jpg) | ![mp3](images/mp3.jpg) | ![mp4](images/mp4.jpg) | ![mp5](images/mp5.jpg) |
+| - | - | - | - | - |
 
 ## 技术选型
 
@@ -77,6 +85,10 @@ npm run dev
 下载[微信开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/stable.html)，申请正式 app id，并使用 secret，导入 `cloudmall-uniapp/dist/mp-weixin` 这部分内容即可
 
 小程序端还需要启动本地 redis 数据库，连接过程和 mysql 差不多（但 redis 连接时不需要输入 username）
+
+## 云服务器部署步骤
+
+详见[云服务器部署文档](doc/云服务器部署文档.md)
 
 ## 前端代码说明
 
