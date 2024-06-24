@@ -367,12 +367,33 @@ onBeforeUnmount(() => {
           <el-main>
             <router-view></router-view>
           </el-main>
-          <el-footer>© 2024.6.25 CloudMall Tech and Fun. All rights reserved.</el-footer>
+          <el-footer>
+            © 2024.6.25 CloudMall Tech and Fun. All rights reserved.
+            <a href="https://github.com/wi1sonh/cloudmall" target="_blank" class="icon-link">
+              <i class="fab fa-github"></i>
+            </a>
+          </el-footer>
         </el-container>
       </el-container>
     </el-container>
   </div>
 </template>
+
+<style scoped>
+.footer {
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+  padding: 10px; /* 添加一些内边距 */
+}
+
+.icon-link {
+  font-size: 20px; /* 调整图标大小 */
+  text-decoration: none; /* 去掉下划线 */
+  color: inherit; /* 继承父元素颜色 */
+  margin-left: 10px; /* 添加一些间距 */
+}
+</style>
 
 <style lang="less" scoped>
 .common-layout {
