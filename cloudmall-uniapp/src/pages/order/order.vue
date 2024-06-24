@@ -23,7 +23,7 @@
             :key="dish.id"
             class="dish"
             hover-class="none"
-            :url="`/pages/detail/detail?${categoryList[activeIndex].sort < 20 ? 'dishId' : 'setmealId'}=${dish.id}`"
+            :url="`/pages/detail/detail?${categoryList[activeIndex].type == 1 ? 'dishId' : 'setmealId'}=${dish.id}`"
           >
             <image class="image" :src="dish.pic"></image>
             <view class="dishinfo">
@@ -288,7 +288,7 @@ const chooseFlavor = (obj: string[], flavor: string) => {
 const getCopies = (dish: DishItem | SetmealItem) => {
   console.log('getCopies', dish)
   // 有可能是商品/套餐，所以要判断
-  if (categoryList.value[activeIndex.value].sort < 20) {
+  if (categoryList.value[activeIndex.value].type == 1) {
     return cartList.value.find((item) => item.dishId === dish.id)?.number || 0
   } else {
     return cartList.value.find((item) => item.setmealId === dish.id)?.number || 0
@@ -319,7 +319,7 @@ const addToCart = async (dish: DishToCartItem) => {
 // "+"按钮，form: 购物车/普通视图中的按钮
 const addDishAction = async (item: any, form: string) => {
   console.log('点击了dialog的 “+” 添加商品数量按钮', item, form)
-  console.log(categoryList.value[activeIndex.value].sort < 20)
+  console.log(categoryList.value[activeIndex.value].type == 1)
   if (form == '购物车') {
     // 1、直接数量-1，传的参数是cartItem类型，dishId、setmealId必是一个null 一个不null，所以直接全传
     console.log('addCart', item)
@@ -332,7 +332,7 @@ const addDishAction = async (item: any, form: string) => {
   } else {
     // 2、dishItem无dishId、setmealId两个属性，因此得判断
     console.log('普通页面下的dish，点击能直接添加(而不弹出dialog)的商品说明无口味', item)
-    if (categoryList.value[activeIndex.value].sort < 20) {
+    if (categoryList.value[activeIndex.value].type == 1) {
       const partialCart: Partial<CartDTO> = {dishId: item.id}
       await addToCartAPI(partialCart)
     } else {
@@ -359,7 +359,7 @@ const subDishAction = async (item: any, form: string) => {
   } else {
     // 2、dishItem无dishId、setmealId两个属性，因此得判断
     console.log('普通页面下的dish，不是dialog中的商品说明无口味', item)
-    if (categoryList.value[activeIndex.value].sort < 20) {
+    if (categoryList.value[activeIndex.value].type == 1) {
       const partialCart: Partial<CartDTO> = {dishId: item.id}
       await subCartAPI(partialCart)
     } else {
