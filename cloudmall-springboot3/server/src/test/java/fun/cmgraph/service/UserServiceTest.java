@@ -1,11 +1,14 @@
 package fun.cmgraph.service;
 
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import fun.cmgraph.properties.WeChatProperties;
@@ -26,12 +29,22 @@ class UserServiceTest {
     @InjectMocks
     private UserServiceImpl userService;
 
+    @BeforeAll
+    static void setUp() {
+        Mockito.mockStatic(HttpClientUtil.class);
+    }
+
+    @AfterAll
+    static void tearDown() {
+        Mockito.clearAllCaches();
+    }
+
     @Test
     void wxLogin() {
         when(weChatProperties.getAppid()).thenReturn("appid");
         when(weChatProperties.getSecret()).thenReturn("secret");
 
-        mockStatic(HttpClientUtil.class);
+        // Mockito.mockStatic(HttpClientUtil.class);
         when(HttpClientUtil.doGet(anyString(), any())).thenReturn("{\"openid\":\"openid\"}");
 
         User testUser = new User(1, "test", "openid", "12345678910", 1, "1", "pic", null);
@@ -42,6 +55,8 @@ class UserServiceTest {
 
         User user = userService.wxLogin(userLoginDTO);
         assertEquals(user, testUser);
+        // 清除所有缓存
+        // Mockito.clearAllCaches();
     }
 
     @Test

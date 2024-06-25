@@ -10,9 +10,8 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import com.jayway.jsonpath.JsonPath;
 import fun.cmgraph.constant.StatusConstant;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.*;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -20,18 +19,14 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.transaction.annotation.Transactional;
-
 import fun.cmgraph.utils.HttpClientUtil;
-
-import java.math.BigDecimal;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.*;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
 @ActiveProfiles("test")
 @Transactional
-public class UserOperationTests {
+public class UserServerIntegrationTests {
 
     @Autowired
     private MockMvc mockMvc;
@@ -51,8 +46,14 @@ public class UserOperationTests {
     private int bundleId;
     private int addressId;
 
-    @BeforeEach
-    public void setUp() {
+    @BeforeAll
+    static public void setUp() {
+        Mockito.mockStatic(HttpClientUtil.class);
+    }
+
+    @AfterAll
+    static public void tearDown() {
+        Mockito.clearAllCaches();
     }
 
     @Test
@@ -77,7 +78,6 @@ public class UserOperationTests {
 
     public void userLogin() throws Exception {
         // test login
-        mockStatic(HttpClientUtil.class);
         when(HttpClientUtil.doGet(anyString(), anyMap())).thenReturn("{\"openid\":\"test-openid\"}");
         String loginUrl = "/user/user/login";
         String loginRequestBody = "{\"code\":\"test-code\"}";
