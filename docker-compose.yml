@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  springboot:
+    build:
+      context: ./cloudmall-springboot3/server
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+
+  frontend:
+    build: ./cloudmall-vue3
+    ports:
+      - "8081:8080"
+
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: cloudmall
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
